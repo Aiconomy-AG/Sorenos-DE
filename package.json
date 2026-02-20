@@ -1,0 +1,14 @@
+{
+  "name": "sorenos-ch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "shopify theme dev --store=sorenos-de.myshopify.com",
+    "push-de": "shopify theme push --store=sorenos-de.myshopify.com",
+    "pull": "shopify theme pull --store=sorenos-de.myshopify.com"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
