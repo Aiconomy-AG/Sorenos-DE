@@ -2,7 +2,6 @@
 
 /*================ Custom Styles ================*/
 
-
 *:focus {
   outline: none;
 }
@@ -2365,6 +2364,10 @@ select,
   padding-top: 8px;
   padding-left: 15px;
   padding-bottom: 8px;
+}
+
+select.filters-toolbar__input {
+  padding-left: 0;
 }
 @media only screen and (min-width: 750px) {
   select,
@@ -6802,7 +6805,8 @@ Extra specificity in selectors is used to override defaults.
   background-clip: content-box;
   background-color: rgba(0, 0, 0, 0.4);
   color: rgba(255, 255, 255, 0.5);
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   display: none;
 }
@@ -6826,7 +6830,8 @@ Extra specificity in selectors is used to override defaults.
   padding: 0 0.9rem;
   line-height: 0;
   cursor: pointer;
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   background-color: transparent;
   color: rgba(255, 255, 255, 0.5);
@@ -6835,7 +6840,8 @@ Extra specificity in selectors is used to override defaults.
 .slideshow__arrows .slideshow__arrow .icon {
   width: 0.7rem;
   height: 0.7rem;
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 }
 .slideshow__arrows .slideshow__arrow .icon:hover {
@@ -6917,7 +6923,8 @@ Extra specificity in selectors is used to override defaults.
   z-index: 10000;
   border: none;
   background-color: rgba(0, 0, 0, 0.4);
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   line-height: 0;
 }
@@ -6930,7 +6937,8 @@ Extra specificity in selectors is used to override defaults.
 }
 .slideshow__pause .icon {
   color: rgba(255, 255, 255, 0.5);
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 }
 .slideshow__pause .icon:hover {
@@ -8545,7 +8553,8 @@ Extra specificity in selectors is used to override defaults.
 }
 @media only screen and (max-width: 749px) {
   [data-section-type="video-section"] {
-    transition: width 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+    transition:
+      width 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87),
       height 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87),
       padding 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   }
@@ -8580,7 +8589,8 @@ Extra specificity in selectors is used to override defaults.
     margin: 0;
   }
   .video-section-wrapper.video-is-loaded {
-    transition: height 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+    transition:
+      height 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87),
       margin 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   }
 }
@@ -8613,11 +8623,15 @@ Extra specificity in selectors is used to override defaults.
 }
 
 .video-section-wrapper--min-height {
-  transition: height 0s, margin 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+  transition:
+    height 0s,
+    margin 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 }
 @media only screen and (max-width: 749px) {
   .video-section-wrapper--min-height.video-is-loaded {
-    transition: height 0s, margin 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+    transition:
+      height 0s,
+      margin 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
   }
 }
 
@@ -8662,7 +8676,7 @@ Extra specificity in selectors is used to override defaults.
 
 /*================ Video styles ================*/
 .video,
-.has_video video{
+.has_video video {
   display: none;
   position: absolute;
   left: 0;
@@ -8851,7 +8865,8 @@ Extra specificity in selectors is used to override defaults.
   padding: 0;
   border: none;
   background-color: transparent;
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 }
 @media only screen and (max-width: 749px) {
@@ -8865,7 +8880,8 @@ Extra specificity in selectors is used to override defaults.
 .video__pause .icon {
   position: relative;
   color: rgba(255, 255, 255, 0.5);
-  transition: color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
+  transition:
+    color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87),
     background-color 0.2s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 }
 .video__pause:hover,
@@ -9453,7 +9469,8 @@ a.btn-blog-link:focus {
 }
 
 #exkl-mwst {
-  font-family: arial, HelveticaNeue, "Helvetica Neue", Helvetica-Neue, Helvetica,
+  font-family:
+    arial, HelveticaNeue, "Helvetica Neue", Helvetica-Neue, Helvetica,
     sans-serif;
   font-size: 14px;
   font-weight: 600;
@@ -9572,6 +9589,11 @@ a.btn-blog-link:focus {
     flex: 1 1 100%;
     order: 1;
   }
+
+  #breadcrumb-wrapper {
+    padding-left: 0;
+  }
+
   .filters-toolbar__item-wrapper {
     order: 2;
   }
@@ -9895,7 +9917,9 @@ span.close-dropdown:after {
 .registration-grid input[type="submit"] {
   background: #3588c8;
   color: #fff;
-  box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%),
+  box-shadow:
+    0 1px 5px rgb(0 0 0 / 20%),
+    0 2px 2px rgb(0 0 0 / 14%),
     0 3px 1px -2px rgb(0 0 0 / 12%);
   padding: 9px 10px;
   font-size: 14px;
@@ -10441,9 +10465,15 @@ span.close-dropdown:after {
 .agreement-popup.open {
   opacity: 1;
   visibility: visible;
-  -webkit-transition: opacity 0.3s, visibility 0s;
-  -o-transition: opacity 0.3s, visibility 0s;
-  transition: opacity 0.3s, visibility 0s;
+  -webkit-transition:
+    opacity 0.3s,
+    visibility 0s;
+  -o-transition:
+    opacity 0.3s,
+    visibility 0s;
+  transition:
+    opacity 0.3s,
+    visibility 0s;
 }
 .agreement-popup {
   opacity: 0;
@@ -10457,19 +10487,36 @@ span.close-dropdown:after {
   display: flex;
   z-index: 1050;
   background: rgba(0, 0, 0, 0.5);
-  -webkit-transition: opacity 0.3s, visibility 0s linear 0.5s;
-  -o-transition: opacity 0.3s, visibility 0s linear 0.5s;
-  transition: opacity 0.3s, visibility 0s linear 0.5s;
+  -webkit-transition:
+    opacity 0.3s,
+    visibility 0s linear 0.5s;
+  -o-transition:
+    opacity 0.3s,
+    visibility 0s linear 0.5s;
+  transition:
+    opacity 0.3s,
+    visibility 0s linear 0.5s;
 }
 .agreement-popup .agreement-inner.active {
   -webkit-transform: translateY(20px);
   -ms-transform: translateY(20px);
   transform: translateY(20px);
-  -webkit-transition: opacity 0.2s, -webkit-transform 0.6s ease;
-  transition: opacity 0.2s, -webkit-transform 0.6s ease;
-  -o-transition: transform 0.6s ease, opacity 0.2s;
-  transition: transform 0.6s ease, opacity 0.2s;
-  transition: transform 0.6s ease, opacity 0.2s, -webkit-transform 0.6s ease;
+  -webkit-transition:
+    opacity 0.2s,
+    -webkit-transform 0.6s ease;
+  transition:
+    opacity 0.2s,
+    -webkit-transform 0.6s ease;
+  -o-transition:
+    transform 0.6s ease,
+    opacity 0.2s;
+  transition:
+    transform 0.6s ease,
+    opacity 0.2s;
+  transition:
+    transform 0.6s ease,
+    opacity 0.2s,
+    -webkit-transform 0.6s ease;
 }
 .agreement-popup .agreement-inner {
   max-width: 600px;
@@ -10484,11 +10531,22 @@ span.close-dropdown:after {
   position: relative;
   border-radius: 10px;
   padding: 50px 40px;
-  -webkit-transition: opacity 0.2s, -webkit-transform 0.4s ease;
-  transition: opacity 0.2s, -webkit-transform 0.4s ease;
-  -o-transition: transform 0.4s ease, opacity 0.2s;
-  transition: transform 0.4s ease, opacity 0.2s;
-  transition: transform 0.4s ease, opacity 0.2s, -webkit-transform 0.4s ease;
+  -webkit-transition:
+    opacity 0.2s,
+    -webkit-transform 0.4s ease;
+  transition:
+    opacity 0.2s,
+    -webkit-transform 0.4s ease;
+  -o-transition:
+    transform 0.4s ease,
+    opacity 0.2s;
+  transition:
+    transform 0.4s ease,
+    opacity 0.2s;
+  transition:
+    transform 0.4s ease,
+    opacity 0.2s,
+    -webkit-transform 0.4s ease;
   -webkit-transition-delay: 0.2s;
   -o-transition-delay: 0.2s;
   transition-delay: 0.2s;
@@ -10623,13 +10681,12 @@ a.site-nav__link.site-nav__child-link.differentlink:hover .site-nav__label {
   padding-top: 12px;
 }
 
-.header_language_selector .selectors-form{
+.header_language_selector .selectors-form {
   margin-bottom: 0;
 }
-.header_language_selector .disclosure-list{
+.header_language_selector .disclosure-list {
   bottom: unset;
 }
-.header_language_selector .selectors-form .selectors-form__item{
+.header_language_selector .selectors-form .selectors-form__item {
   padding-bottom: 0;
 }
-
