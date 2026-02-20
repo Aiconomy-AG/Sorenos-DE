@@ -1,0 +1,598 @@
+{% case request.locale.iso_code %}
+  {% when 'en' %}
+    {% assign filter_all = 'All' %}
+    {% assign sonnenschutz = 'Sun protection' %}
+    {% assign sichtschutz = 'Privacy protection' %}
+    {% assign einbruchschutz = 'Burglary protection' %}
+  {% when 'it' %}
+    {% assign filter_all = 'Tutto' %}
+    {% assign sonnenschutz = 'Protezione solare' %}
+    {% assign sichtschutz = 'Tutela della privacy' %}
+    {% assign einbruchschutz = 'Protezione antieffrazione' %}
+  {% when 'fr' %}
+    {% assign filter_all = 'Tous' %}
+    {% assign sonnenschutz = 'Protection solaire' %}
+    {% assign sichtschutz = 'Protection contre les regards indiscrets' %}
+    {% assign einbruchschutz = 'Protection contre les effractions' %}
+{% endcase %}
+
+{% assign current_lang = request.locale.iso_code %}
+
+<div class="reference-list">
+  <div class="page-width">
+    {% if section.settings.heading != blank or section.settings.content != blank %}
+      <div class="reference-list-header center">
+        {% if section.settings.heading != blank %}
+          <h2 class="h1 mega-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.content != blank %}
+          <div class="rte-setting mega-subtitle">{{ section.settings.content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="references-wrap">
+      {% assign Referenz_tag = '' %}
+      {%- for product in section.settings.collection.products -%}
+        {% assign tags = product.tags %}
+        {% for tag in tags %}
+          {% if tag contains 'Referenz_' %}
+            {% assign final_tag = tag | remove: 'Referenz_' %}
+            {% unless Referenz_tag contains final_tag %}
+              {% assign Referenz_tag = Referenz_tag | append: final_tag | append: ',' %}
+            {% endunless %}
+          {% endif %}
+        {% endfor %}
+      {%- endfor -%}
+
+      <div class="reference-list__filters">   
+        <button class="btn active" data-filter="all">{% if request.locale.iso_code == 'de' %}Alle{% else %}{{ filter_all }}{% endif %}</button>
+        {% assign filter_tags = Referenz_tag | split: ',' | sort %}
+        {% for filter in filter_tags %}
+          {% case filter %}
+            {% when 'Sonnenschutz' %}
+              {% assign filter_text = sonnenschutz %}
+            {% when 'Sichtschutz' %}
+              {% assign filter_text = sichtschutz %}
+            {% when 'Einbruchschutz' %}
+              {% assign filter_text = einbruchschutz %}
+        {% endcase %}
+          <button class="btn" data-filter="{{ filter | handleize }}">{% if request.locale.iso_code == 'de' %}{{ filter }}{% else %}{{ filter_text }}{% endif %}</button>
+        {% endfor %}
+      </div>
+
+      <div class="reference-drowpdown__filters">
+        <select class="filter_dropdown" aria-labelledby="Filter">
+          <option value="all">{% if request.locale.iso_code == 'de' %}Alle{% else %}{{ filter_all }}{% endif %}</option>
+          {% for filter in filter_tags %}
+            {% case filter %}
+              {% when 'Sonnenschutz' %}
+                {% assign filter_text = sonnenschutz %}
+              {% when 'Sichtschutz' %}
+                {% assign filter_text = sichtschutz %}
+              {% when 'Einbruchschutz' %}
+                {% assign filter_text = einbruchschutz %}
+            {% endcase %}
+          <option value="{{ filter | handleize }}">{% if request.locale.iso_code == 'de' %}{{ filter }}{% else %}{{ filter_text }}{% endif %}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      
+      <div class="reference-content">
+        <div class="preloader" style="display: none;">
+          <div class="preloader_inner" style="display: none;">&nbsp;</div>
+        </div>
+
+        <div class="grid">
+          {%- for product in section.settings.collection.products -%}
+            {% for tag in product.tags %}
+              {% if tag contains 'Referenz_' %}
+                {% assign ref_tag = tag | remove: 'Referenz_' %}
+              {% endif %}
+            {% endfor %}
+            
+            {% assign title_meta = 'title_' | append: request.locale.iso_code | append: '_ch' %}         
+            {% if product.metafields.custom_fields[title_meta] != blank %}
+               {% assign product_title = product.metafields.custom_fields[title_meta] %}
+            {% else %}
+               {% assign product_title = product.title %}
+            {% endif %}
+            
+            <div
+              class="grid__item form-wrap one-half animation-element bounce-up"
+              data-filter="{{ ref_tag | handleize }}"
+              data-index="{{ forloop.index }}"
+            >
+              <div class="reference__single">
+                {% if product.featured_image != blank %}
+                  <div class="reference__thumbnail">
+                    <a href="#" class="modal-open" data-slug="{{ product.handle }}">
+                      <img{% if forloop.index < 4%} src="{{ product.featured_image | image_url: width: 600 }}"{% endif %} data-src="{{ product.featured_image | image_url: width: 600 }}" class="lazyload lazypreload" loading="lazy" width="600" height="{{ 600 | divided_by:product.featured_image.aspect_ratio }}" alt="{{ product.featured_image.alt }}">
+                    </a>
+                  </div>
+                {% endif %}
+                <h3 class="h5">
+                  <a href="#" class="modal-open" data-slug="{{ product.handle }}">
+                    {{ product_title }}
+                  </a>
+                </h3>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal referenz-popup-modal product-popup-modal">
+  <div class="modal__content">
+    <div class="reference__content_wrap">
+      <div class="modal-navigation">
+        <a href="#" class="modal-prev-next-btn modal-prev-btn" data-slug="">
+          <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M70.274 96.766c2.902 0 5.134-2.222 5.134-5.111 0-1.111-.67-2.667-1.563-3.556L37.462 49.655l36.383-38.222c.893-.89 1.563-2.445 1.563-3.778 0-2.667-2.232-4.889-5.134-4.889-1.34 0-2.679.889-3.571 1.778l-39.286 41.11c-1.116.89-2.009 2.445-2.009 4 0 1.556.893 3.334 2.009 4.223l39.286 41.111c.892.89 2.232 1.778 3.571 1.778z" fill="currentColor" fill-rule="nonzero"></path>
+          </svg>
+        </a>
+        <a href="#" class="modal-prev-next-btn modal-next-btn" data-slug="">
+          <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30.542 2.766c-2.902 0-5.134 2.222-5.134 5.111 0 1.111.67 2.667 1.563 3.556l36.383 38.444L26.971 88.1c-.893.89-1.563 2.445-1.563 3.778 0 2.667 2.232 4.889 5.134 4.889 1.34 0 2.678-.889 3.571-1.778L73.4 53.878c1.116-.89 2.009-2.445 2.009-4 0-1.556-.893-3.334-2.009-4.223L34.113 4.544c-.892-.89-2.232-1.778-3.571-1.778z" fill="currentColor" fill-rule="nonzero"></path>
+          </svg>
+        </a>
+      </div>
+      {%- for product in section.settings.collection.products -%}
+        {% for tag in product.tags %}
+          {% if tag contains 'Referenz_' %}
+            {% assign ref_tag = tag | remove: 'Referenz_' %}
+          {% endif %}
+        {% endfor %}
+
+        {% assign title_meta = 'title_' | append: request.locale.iso_code | append: '_ch' %}         
+        {% if product.metafields.custom_fields[title_meta] != blank %}
+           {% assign product_title = product.metafields.custom_fields[title_meta] %}
+        {% else %}
+           {% assign product_title = product.title %}
+        {% endif %}
+
+        {% assign description_meta = 'description_' | append: request.locale.iso_code | append: '_ch' %}
+        {% if product.metafields.custom_fields[description_meta] != blank %}
+          {% assign product_description = product.metafields.custom_fields[description_meta] %}
+        {% else %}
+          {% assign product_description = product.description %}
+        {% endif %}
+        
+        <div class="reference-modal__wrap" data-handle="{{ product.handle }}" data-filter="{{ ref_tag | handleize }}">
+          <div class="reference-modal__content">
+            <div class="reference__infos">
+              <h2 class="h3">{{ product_title }}</h2>
+              <div class="reference__details">
+                {{ product_description }}
+              </div>
+
+              {% render 'aico_content_builders_json', product: product %}
+            </div>
+            <div class="reference__slider">
+              {%- for media in product.images -%}
+                <div class="slider__image">
+                  <div class="slider__image-inner">
+                    <img class="image lazyload lazypreload" data-src="{{ media.src | image_url }}" width="750" height="{{ 750 | divided_by: media.aspect_ratio }}" alt="{{ media.src.alt }}" loading="lazy">
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <a href="#" class="modal__close">&times;</a>
+  </div>
+</div>
+
+<style>
+   .reference-list-header .mega-title,
+   .reference-list-header .mega-subtitle,
+  .reference-list-header .mega-subtitle p{
+     color: #000000;
+     text-align: center;
+      text-shadow: none;
+   }
+   .referenz-popup-modal {
+       z-index: 99;
+       overflow: auto;
+       position: fixed;
+   }
+   .referenz-popup-modal.modal {
+     visibility: hidden;
+     opacity: 0;
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: rgba(77, 77, 77, .7);
+     transition: all .4s;
+   }
+
+   .referenz-popup-modal .modal__content {
+       border-radius: 4px;
+       position: absolute;
+       width: 100%;
+       max-width: 95%;
+       background: #fff;
+       text-align: left;
+       left: 45%;
+       transform: translate(-50%, -50%);
+       margin: 0 auto;
+       padding: 100px;
+       height: 60%;
+       top: 36%;
+       overflow: auto;
+   }
+
+   .referenz-popup-modal.modal.active {
+     visibility: visible;
+     opacity: 1;
+   }
+
+   .referenz-popup-modal .modal__content {
+     border-radius: 4px;
+     position: relative;
+     width: 100%;
+     max-width: 90%;
+     background: #fff;
+     padding: 3em 4em;
+     text-align: center;
+   }
+
+   .referenz-popup-modal .modal__close {
+     position: absolute;
+     top: 0px;
+     right: 8px;
+     color: #585858;
+     text-decoration: none;
+     padding: 5px;
+     font-size: 30px;
+   }
+
+   .referenz-popup-modal .reference-modal__content {
+       display: flex;
+   }
+   .reference-modal__content .reference__infos {
+       width: 50%;
+   }
+   .reference-modal__content .reference__slider {
+       width: 50%;
+   }
+   .referenz-popup-modal .reference-modal__wrap {
+     display: none;
+   }
+   .referenz-popup-modal .reference-modal__wrap.active {
+     display: block;
+   }
+</style>
+
+<script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+<script src="{{ 'isotope.pkgd.min.js' | asset_url }}" defer></script>
+
+<script defer>
+    $(document).ready(function() {
+    var $animation_elements = $('.animation-element');
+    var $window = $(window);
+
+    function check_if_in_view() {
+    var window_height = $window.height();
+    var window_top_position = $window.scrollTop();
+    var window_bottom_position = (window_top_position + window_height);
+
+    $.each($animation_elements, function() {
+     var $element = $(this);
+     var element_height = $element.outerHeight();
+     var element_top_position = $element.offset().top;
+     var element_bottom_position = (element_top_position + element_height);
+
+     //check to see if this current container is within viewport
+     if ((element_top_position <= window_bottom_position)) {
+       $element.addClass('in-view');
+     } else {
+       $element.removeClass('in-view');
+     }
+    });
+    }
+
+    $window.on('scroll resize', check_if_in_view);
+    $window.trigger('scroll');
+
+    function arrangeGrid() {
+      var containerWidth = $('.reference-content .grid').width();
+      var columns = containerWidth > 768 ? 2 : 1;
+      var columnHeights = Array(columns).fill(0);
+
+      $('.reference-content .grid__item:visible').each(function(index, element) {
+          var $element = $(element);
+          var minHeightColumn = columnHeights.indexOf(Math.min(...columnHeights));
+
+          var topPosition = columnHeights[minHeightColumn];
+          var leftPosition = (containerWidth / columns) * minHeightColumn;
+
+          $element.css({
+              top: topPosition + 'px',
+              left: leftPosition + 'px',
+              width: (containerWidth / columns) - 10 + 'px'
+          });
+
+          columnHeights[minHeightColumn] += $element.outerHeight(true);
+      });
+
+      var containerHeight = Math.max(...columnHeights);
+      $('.reference-content .grid').height(containerHeight);
+  }
+
+  $(window).on('resize', arrangeGrid);
+  $(window).on('scroll', arrangeGrid);
+    setTimeout(function () {
+        arrangeGrid();
+    }, 500);
+      arrangeGrid(); // Initial calculation
+      var $grid = $('.reference-content .grid').isotope({
+      itemSelector: '.grid__item'
+  });
+
+  $(".reference-list__filters button").click(function() {
+
+      $('.reference-list__filters button').removeClass('active');
+      $(this).addClass('active');
+
+      $('.reference-content .grid').hide();
+      $('.reference-content .preloader, .reference-content .preloader_inner').show();
+
+      var filterValue = $(this).attr('data-filter');
+      $('.reference-drowpdown__filters .filter_dropdown').val(filterValue);
+
+      if (filterValue === 'all') {
+        filterValue = '*'; // Show all items
+      } else {
+        filterValue = '[data-filter="' + filterValue + '"]'; // Filter by category
+      }
+      setTimeout(function () {
+        arrangeGrid();
+    }, 1000);
+
+      setTimeout(function () {
+         $('.reference-content .preloader, .reference-content .preloader_inner').hide();
+         $('.reference-content .grid').show();
+         // Trigger Isotope filtering
+         $grid.isotope({ filter: filterValue });
+         $("html, body").animate({scrollTop: ($(window).scrollTop() + 5)});
+      }, 500);
+
+  });
+
+  // $(".reference-list__filters button").click(function() {
+
+  //     $('.reference-list__filters button').removeClass('active');
+  //     $(this).addClass('active');
+
+  //     // Get data of category
+  //     var filter = $(this).data('filter');
+  //     $('.reference-content .grid .grid__item').hide(); // Hide all items initially
+  //     if(filter == 'all'){
+  //         $('.reference-content .grid .grid__item').show(); // Show all if 'all' is selected
+  //     }
+  //     else {
+  //         $('.reference-content .grid .grid__item[data-filter="'+filter+'"]').show(); // Show only filtered items
+  //     }
+
+  //     arrangeGrid(); // Recalculate grid after filtering
+  // });
+
+  // $(".filter_dropdown").change(function() {
+  //     // Get data of category
+  //     var filter = $(this).val();
+  //     $('.reference-content .grid .grid__item').hide(); // Hide all items initially
+  //     if(filter == 'all'){
+  //         $('.reference-content .grid .grid__item').show(); // Show all if 'all' is selected
+  //     }
+  //     else {
+  //         $('.reference-content .grid .grid__item[data-filter="'+filter+'"]').show(); // Show only filtered items
+  //     }
+  //     arrangeGrid(); // Recalculate grid after filtering
+  // });
+
+  $(".filter_dropdown").change(function() {
+      var filterValue = $(this).val();
+      $('.reference-list__filters button').removeClass('active');
+      $('.reference-list__filters button[data-filter="'+filterValue+'"]').addClass('active');
+
+      $('.reference-content .grid').hide();
+      $('.reference-content .preloader, .reference-content .preloader_inner').show();
+
+      if (filterValue === 'all') {
+        filterValue = '*'; // Show all items
+      } else {
+        filterValue = '[data-filter="' + filterValue + '"]'; // Filter by category
+      }
+
+      setTimeout(function () {
+         $('.reference-content .preloader, .reference-content .preloader_inner').hide();
+         $('.reference-content .grid').show();
+         // Trigger Isotope filtering
+         $grid.isotope({ filter: filterValue });
+         $("html, body").animate({scrollTop: ($(window).scrollTop() + 5)});
+      }, 500);
+
+  });
+
+
+
+     let reference__slider = $(".reference-modal__wrap .reference__slider").slick({
+        slidesToShow: 1,
+        infinite: true,
+        slidesToScroll: 1,
+        arrows: true,
+        autoplay: false,
+        dots: false,
+     });
+
+     $(document).on('click','.reference__single .modal-open', function(event) {
+          event.preventDefault();
+          $("body").addClass('body_wrapper');
+          let target = $(this).data("slug");
+          $('.referenz-popup-modal .reference-modal__wrap').removeClass('active');
+          $('.referenz-popup-modal .reference-modal__wrap[data-handle="'+target+'"]').addClass('active');
+          $(".referenz-popup-modal").addClass('active');
+          reference__slider.slick('refresh');
+          var url = window.location.href,
+              parts = url.split("/"),
+              last_part = parts[parts.length-1];
+          if(last_part == ''){
+              last_part = parts[parts.length-2];
+          }
+          //console.log('url',parts.length,last_part);
+          if(last_part == 'referenzen'){
+            var newUrl = url + '/' + target;
+            //window.location = newUrl;
+            window.history.replaceState(null, null, newUrl);
+          }
+          //$('.reference-modal__wrap .reference__slider').slick('reinit');
+          //$('.reference-modal__wrap .reference__slider').slick('slickGoTo', 0);
+      });
+
+    function removeLastUrl() {
+      var url = window.location.href,
+            parts = url.split("/"),
+            last_part = parts[parts.length-1];
+        if(last_part == ''){
+            last_part = parts[parts.length-2];
+        }
+        if(last_part != 'referenzen'){
+          var currentItem = $('.reference__content_wrap .reference-modal__wrap.active');
+          var currentItem_handle = currentItem.data('handle');
+          //console.log(last_part,currentItem_handle);
+          if(last_part.indexOf(currentItem_handle) != -1){
+            var removeUrl = '/' + last_part;
+            var newUrl = url.replace(removeUrl,'');
+            window.history.replaceState(null, null, newUrl);
+          }
+        }
+    }
+
+    function changeLastUrl(current_handle,new_handle) {
+      var url = window.location.href,
+            parts = url.split("/"),
+            last_part = parts[parts.length-1];
+        if(last_part == ''){
+            last_part = parts[parts.length-2];
+        }
+        if(last_part == current_handle){
+          var newUrl = url.replace(current_handle,new_handle);
+          window.history.replaceState(null, null, newUrl);
+        }
+    }
+
+     $(document).on('click','.referenz-popup-modal .modal__close', function() {
+        $(".referenz-popup-modal").removeClass('active');
+        $("body").removeClass('body_wrapper');
+        removeLastUrl();
+     });
+
+     $(document).on('click','.modal-navigation .modal-next-btn', function() {
+          var currentItem = $('.reference__content_wrap .reference-modal__wrap.active');
+          //var currentItem_filter = currentItem.data('filter');
+          if ($(window).width() < 750)
+         {
+           var active_filter =  $('.reference-drowpdown__filters .filter_dropdown').find(":selected").val();
+         }
+         else {
+           var active_filter =  $('.reference-list__filters .btn.active').data('filter');
+         }
+          //console.log('active_filter',active_filter);
+          var currentItem_handle = currentItem.data('handle');
+          //var nextItem = currentItem.next();
+          if(active_filter == 'all'){
+             var nextItem = $(currentItem).nextAll(".reference-modal__wrap").first();
+          }
+          else {
+             var nextItem = $(currentItem).nextAll(".reference-modal__wrap[data-filter='"+active_filter+"']").first();
+          }
+          var nextItem_handle = nextItem.data('handle');
+          //console.log(currentItem_filter,nextItem.length);
+          if ( nextItem.length ) {
+              changeLastUrl(currentItem_handle,nextItem_handle);
+              currentItem.removeClass('active');
+              currentItem = nextItem.addClass('active');
+              reference__slider.slick('refresh');
+          } else {
+              // If you want it to loop around
+              //currentItem = items.first().addClass('active');
+              $(".referenz-popup-modal").removeClass('active');
+              $("body").removeClass('body_wrapper');
+              removeLastUrl();
+              currentItem.removeClass('active');
+          }
+     });
+
+     $(document).on('click','.modal-navigation .modal-prev-btn', function() {
+          var currentItem = $('.reference__content_wrap .reference-modal__wrap.active');
+           //var currentItem_filter = currentItem.data('filter');
+          if ($(window).width() < 750)
+           {
+             var active_filter =  $('.reference-drowpdown__filters .filter_dropdown').find(":selected").val();
+           }
+           else {
+             var active_filter =  $('.reference-list__filters .btn.active').data('filter');
+           }
+          //console.log('active_filter',active_filter);
+          var currentItem_handle = currentItem.data('handle');
+          //var prevItem = currentItem.prev();
+          if(active_filter == 'all'){
+             var prevItem = $(currentItem).prevAll(".reference-modal__wrap").first();
+          }
+          else {
+             var prevItem = $(currentItem).prevAll(".reference-modal__wrap[data-filter='"+active_filter+"']").first();
+          }
+          var prevItem_handle = prevItem.data('handle');
+          if ( prevItem.length ) {
+              changeLastUrl(currentItem_handle,prevItem_handle);
+              currentItem.removeClass('active');
+              currentItem = prevItem.addClass('active');
+              reference__slider.slick('refresh');
+          } else {
+              $(".referenz-popup-modal").removeClass('active');
+              $("body").removeClass('body_wrapper');
+              removeLastUrl();
+              currentItem.removeClass('active');
+          }
+     });
+
+
+
+
+
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Reference",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading"
+    },
+    {
+      "type": "richtext",
+      "label": "Content",
+      "id": "content"
+    },
+     {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select collection"
+     }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,315 @@
+<div id="request-offer-modal" class="modal product-popup-modal">
+  <div class="modal__content">
+    <a href="#" class="modal__close">&times;</a>
+    <div class="modal__innercontent">
+      <!-- Popup Content start -->
+      <div class="product-popup-modal__content-info">
+        <div class="cform_logo">
+          <img
+            src="https://www.folienzuschnitt.ch/cdn/shop/files/Logo_360x.png?v=1726141272"
+            alt=""
+            loading="lazy"
+            width=""
+            height=""
+          >
+        </div>
+        <form method="post" class="offer_form" id="offer_contact_form" enctype="multipart/form-data">
+          {% render 'product-form-data', product: product %}
+
+          <div class="contact-productpage-wrapper">
+            <div class="gradient">
+              <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+                <div class="right--align_form">
+                  <h2 class="title title-wrapper--no-top-margin inline-richtext h1">Kontaktangaben</h2>
+
+                  <div class="cpform_row blank_col">
+                    <div class="field">
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="ContactForm-company"
+                        name="contact[company]"
+                        value=""
+                        placeholder="Firma"
+                      >
+                      <label class="field__label" for="ContactForm-company"> Firma </label>
+                    </div>
+                  </div>
+                  <div class="cpform_row">
+                    <div class="field">
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="ContactForm-name"
+                        name="contact[firstName]"
+                        value=""
+                        placeholder="Vorname"
+                        required
+                      >
+                      <label class="field__label" for="ContactForm-name">
+                        Vorname
+                        <span aria-hidden="true">*</span></label
+                      >
+                    </div>
+                    <div class="field">
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="ContactForm-lastname"
+                        name="contact[lastName]"
+                        value=""
+                        placeholder="Nachname"
+                        required
+                      >
+                      <label class="field__label" for="ContactForm-lastname">
+                        Nachname
+                        <span aria-hidden="true">*</span></label
+                      >
+                    </div>
+                  </div>
+                  <div class="cpform_row">
+                    <div class="field">
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="ContactForm-street"
+                        name="contact[streetAndNumber]"
+                        value=""
+                        placeholder="Strasse / Nr."
+                        required
+                      >
+                      <label class="field__label" for="ContactForm-street">
+                        Strasse / Nr.
+                        <span aria-hidden="true">*</span></label
+                      >
+                    </div>
+                    <div class="field">
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="ContactForm-Postcode"
+                        name="contact[zipAndCity]"
+                        value=""
+                        placeholder="PLZ & Ort"
+                        required
+                      >
+                      <label class="field__label" for="ContactForm-Postcode">
+                        PLZ & Ort
+                        <span aria-hidden="true">*</span></label
+                      >
+                    </div>
+                  </div>
+                  <div class="cpform_row blank_col">
+                    <div class="field">
+                      <input
+                        class="field__input"
+                        type="text"
+                        id="ContactForm-Postcode"
+                        name="contact[zipAndCityDifferent]"
+                        value=""
+                        placeholder="PLZ / Ort Montage (falls abweichend)"
+                      >
+                      <label class="field__label" for="ContactForm-Postcode">
+                        PLZ / Ort Montage (falls abweichend)
+                      </label>
+                    </div>
+                  </div>
+                  <div class="cpform_row">
+                    <div class="field field--with-error">
+                      <input
+                        autocomplete="email"
+                        type="email"
+                        id="ContactForm-email"
+                        class="field__input"
+                        name="contact[email]"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                        aria-required="true"
+                        {% if form.errors contains 'email' %}
+                          aria-invalid="true"
+                          aria-describedby="ContactForm-email-error"
+                        {% endif %}
+                        placeholder="email"
+                        required
+                      >
+                      <label class="field__label" for="ContactForm-email">
+                        E-Mail
+                        <span aria-hidden="true">*</span></label
+                      >
+                      {%- if form.errors contains 'email' -%}
+                        <small class="contact__field-error" id="ContactForm-email-error">
+                          <span class="form__message">
+                            {%- render 'icon-error' -%}
+                            {{- form.errors.translated_fields.email | capitalize }}
+                            {{ form.errors.messages.email -}}
+                          </span>
+                        </small>
+                      {%- endif -%}
+                    </div>
+                    <div class="field">
+                      <input
+                        type="tel"
+                        id="ContactForm-phone"
+                        class="field__input"
+                        autocomplete="tel"
+                        name="contact[phone]"
+                        pattern="[0-9\-]*"
+                        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                        placeholder="Telefon"
+                        required
+                      >
+                      <label class="field__label" for="ContactForm-phone">
+                        Telefon
+                        <span aria-hidden="true">*</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="cpform_textarea">
+                    <div class="field">
+                      <textarea
+                        id="ContactForm-body"
+                        class="text-area field__input"
+                        name="contact[message]"
+                        placeholder="Mitteilung"
+                        required
+                      >
+                      {{- form.body -}}
+                    </textarea>
+                      <label class="form__label field__label" for="ContactForm-body">
+                        Mitteilung
+                        <span aria-hidden="true">*</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="contact__button">
+                    <button type="button" id="send_form_data" class="button send_form_data">
+                      <span>Anfrage senden</span>
+                      <div class="loading-overlay__spinner hidden">
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="spinner"
+                          viewBox="0 0 66 66"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                  <div
+                    id="form_success"
+                    class="form-status form-status-list form__message hidden"
+                    tabindex="-1"
+                    autofocus=""
+                  >
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-success"
+                      viewBox="0 0 13 13"
+                    >
+                      <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="#428445" stroke="white" stroke-width="0.7"></path>
+                      <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"></path>
+                      <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white"></path>
+                    </svg>
+                    Vielen Dank! Wir melden uns bald bei Ihnen.
+                  </div>
+
+                  <div
+                    id="form_error"
+                    class="form-status form-status-list form__message hidden"
+                    tabindex="-1"
+                    autofocus=""
+                  >
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-error"
+                      viewBox="0 0 13 13"
+                    >
+                      <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"></circle>
+                      <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"></circle>
+                      <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"></path>
+                      <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                      </path>
+                    </svg>
+                    <span>Etwas ist schief gelaufen, bitte versuchen Sie erneut.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Popup Content end -->
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .wrapper {
+    height: 100vh;
+    /* This part is important for centering the content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* End center */
+    background: -webkit-linear-gradient(to right, #834d9b, #d04ed6);
+    background: linear-gradient(to right, #834d9b, #d04ed6);
+  }
+
+  .product-popup-modal.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, .7);
+    transition: all .4s;
+  }
+
+  .product-popup-modal.modal.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-popup-modal .modal__content {
+    border-radius: 4px;
+    position: relative;
+    width: 630px;
+    max-width: 90%;
+    background: #fff;
+    padding: 3em 4em;
+    text-align: center;
+  }
+
+  .product-popup-modal .modal__close {
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    color: #585858;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 30px;
+  }
+</style>
+<script>
+  $('#request-offer-modal.product-popup-modal .cform_fouritems .cform_fouritems-inner select').change(function() {
+    if ($(this).val()) {
+      $(this).addClass('selected'); // Add class when an option is selected
+    }
+  });
+</script>

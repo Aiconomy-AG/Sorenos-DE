@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["rollenbreite"] != blank %}
+  <div class="custom-field custom-field__rollenbreite custom-field__type--text">
+    <h3 class="custom-field--title">rollenbreite</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["rollenbreite"] }}
+    </div>
+  </div>
+{% endif %}

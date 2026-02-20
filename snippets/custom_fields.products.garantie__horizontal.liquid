@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["garantie__horizontal"] != blank %}
+  <div class="custom-field custom-field__garantie__horizontal custom-field__type--text">
+    <h3 class="custom-field--title">Garantie  Horizontal</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["garantie__horizontal"] }}
+    </div>
+  </div>
+{% endif %}

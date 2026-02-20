@@ -1,0 +1,313 @@
+{% liquid
+  assign current_lang = request.locale.iso_code
+  if current_lang == 'de'
+    assign current_lang = 'de_CH'
+  endif
+%}
+
+<!-- snippets/aico_content_builders_json start -->
+{%- if product.metafields.aico.aico_content_builders_json != blank -%}
+  <!-- metafields/aico_content_builders_json -->
+  {{ 'content_builder.css' | asset_url | stylesheet_tag }}
+  {% assign aico_img_path = 'https://app.aico.swiss/67606625/storage/' %}
+  <div class="content-builder-content content-builder-json">
+    {% assign aico_content_builders_json = product.metafields.aico.aico_content_builders_json.value %}
+    {% for tab in aico_content_builders_json %}
+      {% assign contentBuilder = tab.values[0].contentBuilder %}
+      {% for row in contentBuilder.rows %}
+        {% if row.title == 'Attribute' or true %}
+          <div class="row-translated-title" data-title="{{ row.title }}" data-locale="de_CH">&nbsp;</div>
+        {% endif %}
+        {% assign columns = row.columns %}
+        <div
+          class="content-row rowId-{{ row.id }} {% if row.is_full_width == 1 %}content-fullwidthrow{% endif %} total-columns-{{ columns.size }}"
+          style="order:{{ row.order }}"
+        >
+          {% for column in columns %}
+            <div
+              class="content-column columnId-{{ column.id }}"
+              style="order:{{ column.order }}"
+            >
+              {% assign column_container = column.container %}
+              {% assign column_contents = column_container.contents %}
+              {% for content in column_contents %}
+                {% assign section_title = content[content.type].translations | where: 'locale', current_lang | first %}
+                {% assign section_title = section_title.subsection_title | strip %}
+
+                <div
+                  class="card content-card contentId-{{ content.id }}"
+                  style="order:{{ content.container_order }}"
+                  {% if section_title != '' %}
+                    data-subsection-title="{{ section_title }}"
+                  {% endif %}
+                >
+                  <div class="card-body">
+                    <div class="content-type-{{ content.type }}">
+                      {% if content.type == 'html' %}
+                        {% assign content_html = content.html.text %}
+                        {{ content_html }}
+                      {% endif %}
+
+                      {% if content.type == 'link' %}
+                        {% assign link = content.link %}
+                        <style>
+                          .columnId-{{ column.id }} .link_{{ link.id }}{
+                            background:{{ link.background_color }}
+                          }
+                        </style>
+
+                        <div class="link-wrapper link_{{ link.id }}{% if link.text_position != blank %} text-position--{{ link.text_position }}{% endif %}{% if link.product_position != blank %} product-position--{{ link.product_position }}{% endif %}{% if link.background_image_position != blank %} image-position--{{ link.background_image_position }}{% endif %}">
+                          <div class="link-inner">
+                            <div class="text_column">
+                              {% if link.title != blank %}
+                                <h2 class="title link_title">{{ link.title }}</h2>
+                              {% endif %}
+                              {% if link.description != blank %}
+                                <div class="link_description rte">
+                                  <p>{{ link.description }}</p>
+                                </div>
+                              {% endif %}
+                              {% if link.link_text != blank %}
+                                <a
+                                  {% if link.link != blank %}
+                                    href="{{ link.link }}"
+                                  {% else %}
+                                    role="link" aria-disabled="true"
+                                  {% endif %}
+                                  class="button button--primary"
+                                >
+                                  {{- link.link_text -}}
+                                </a>
+                              {% endif %}
+                            </div>
+                            {% if link.product_id != blank %}
+                              <script>
+                                $(document).ready(function(){
+                                  var settings = {
+                                    "url": API_URL+"products/{{ link.product_id }}",
+                                    "method": "GET",
+                                    "timeout": 0,
+                                    "headers": {
+                                      "Authorization": Authorization,
+                                      "Accept": "application/vnd.api+json",
+                                      "Cache-Control": "max-age=600",
+                                    }
+                                  };
+                                  $.ajax(settings).done(function (response) {
+                                    let data = response.data;
+                                    if(data){
+                                      let product = data.attributes;
+                                      let image = product.image;
+
+                                      if(image){
+                                        $('.columnId-{{ column.id }} .link_{{ link.id }} .product_image').html(
+                                          `<img class="product_image" src="${image}" loading="lazy" alt="" width="auto" height="auto">`
+                                        )
+                                      }
+                                    }
+                                  });
+                                })
+                              </script>
+                              <div class="product_image"></div>
+                            {% endif %}
+                            {% if link.background_image != blank %}
+                              <div class="image_column image_size__{{ link.picture_size }}">
+                                <img
+                                  src="{{ link.background_image }}"
+                                  class="content_image"
+                                  loading="lazy"
+                                  alt=""
+                                  width="auto"
+                                  height="auto"
+                                >
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endif %}
+
+                      {% if content.type == 'attribute' %}
+                        <!-- Type-attribute -->
+                        {% assign c_attribute = content.attribute %}
+                        {% assign c_attribute_group = c_attribute.product_attribute_group.name | strip %}
+                        {% assign subsection_title = c_attribute.subsection_title | strip %}
+                        {% assign c_products = c_attribute.products %}
+                        {% assign c_products_limit = c_products.size | minus: 1 %}
+
+                        {% if subsection_title != blank %}
+                          <h2>{{ subsection_title }}</h2>
+                        {% endif %}
+
+                        {% if c_attribute_group == 'Technische Daten' %}
+                          <div class="attribute-comparison-table">
+                            <table>
+                              <thead>
+                                <tr>
+                                  {% if c_products.size == 1 %}
+                                    <th colspan="2">
+                                      <strong>{{ product.title }}</strong>
+                                    </th>
+                                  {% else %}
+                                    <th></th>
+                                    <th>
+                                      <strong>{{ product.title }}</strong>
+                                    </th>
+                                    {% for p in c_products limit: c_products_limit %}
+                                      <th>
+                                        <strong>{{ p.name }}</strong>
+                                      </th>
+                                    {% endfor %}
+                                  {% endif %}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for attribute in c_attribute.product_attributes %}
+                                  {% assign row_title = attribute.product_attribute_category.translations
+                                    | where: 'locale', current_lang
+                                    | first
+                                  %}
+                                  {% assign row_title = row_title.name %}
+
+                                  <tr>
+                                    <td>{{ row_title }}</td>
+                                    <td>{{ attribute.name }}</td>
+                                    {% if c_products.size > 1 %}
+                                      {% for p in c_products limit: c_products_limit %}
+                                        {% assign compare_value = 'NA' %}
+                                        {% for p_attribute in p.product_attributes %}
+                                          {% assign p_row_val = p_attribute | last %}
+                                          {% assign p_row_title = p_row_val.product_attribute_category.translations
+                                            | where: 'locale', current_lang
+                                            | first
+                                          %}
+                                          {% assign p_row_title = p_row_title.name %}
+                                          {% if p_row_title == row_title %}
+                                            {% assign compare_value = p_row_val.translations
+                                              | where: 'locale', current_lang
+                                              | first
+                                            %}
+                                            {% assign compare_value = compare_value.name %}
+                                          {% endif %}
+                                        {% endfor %}
+                                        <td>{{ compare_value }}</td>
+                                      {% endfor %}
+                                    {% endif %}
+                                  </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        {% else %}
+                          <ul>
+                            {% for attribute in c_attribute.product_attributes %}
+                              <li>{{ attribute.name }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      {% endif %}
+
+                      {% if content.type == 'sub_sub_category' %}
+                        {% assign ss_categories = content.sub_sub_category %}
+                        <div class="content-html-text" style="padding-top: 3rem;">
+                          {% assign ss_title = ss_categories.translations | where: 'locale', current_lang | first %}
+                          {% assign ss_title = ss_title.subsection_title %}
+                          <h2 style="margin-top: 3rem;">{{ ss_title }}</h2>
+                          {% for category in ss_categories.categories %}
+                            {% assign ss_translation = category.translations | where: 'locale', current_lang | first %}
+                            <div class="row" style="margin-bottom: 3rem;">
+                              <!--
+                                <div class="col-sm-12">
+                                  <h3 id="Bedienung_und_Steuerung_3241">{{ ss_translation.name }}</h3>
+                                </div>
+                              -->
+                              <div class="col-sm-6">
+                                <figure>
+                                  <img
+                                    src="{{ category.image | prepend: aico_img_path }}"
+                                    alt="{{ ss_translation.name }}"
+                                    width="1500"
+                                    height="1500"
+                                  >
+                                </figure>
+                              </div>
+                              <div class="col-sm-6">
+                                <h3 id="Bedienung_und_Steuerung_3241">
+                                  {% if ss_translation.handle != '' %}
+                                    {% assign rel_collection = collections[ss_translation.url_handle] %}
+                                    <a href="{{ rel_collection.url }}">{{ ss_translation.name }}</a>
+                                  {% else %}
+                                    {{ ss_translation.name }}
+                                  {% endif %}
+                                </h3>
+                                <p>{{ ss_translation.description }}</p>
+                              </div>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+
+                      {% if content.type == 'productAttribute' %}
+                        {% assign product_attribute = content.product_attribute %}
+                        {% if product_attribute.products.size > 0 %}
+                          {% assign subsection_title = product_attribute.subsection_title %}
+                          {% if subsection_title != blank %}
+                            <h3 style="color: rgb(132, 167, 11);">{{ subsection_title }}</h3>
+                          {% endif %}
+                          {% assign attributes_products = product_attribute.products %}
+                          {% for pro_attr in attributes_products %}
+                            <ul>
+                              <table>
+                                <tbody>
+                                  {% for attribute in pro_attr.productAttributes %}
+                                    <tr>
+                                      <td>{{ attribute.product_attribute_category.name }}</td>
+                                      <td>{{ attribute.name }}</td>
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                            </ul>
+                          {% endfor %}
+                        {% endif %}
+                      {% endif %}
+
+                      {% if content.type == 'productCrossReference' %}
+                        {% assign product_cross_reference = content.product_cross_reference %}
+                        {% if product_cross_reference.products.size > 0 %}
+                          {% assign subsection_title = product_cross_reference.subsection_title %}
+                          {% if subsection_title != blank %}
+                            <h3 style="color: rgb(132, 167, 11);">{{ subsection_title }}</h3>
+                          {% endif %}
+                          {% assign cross_reference_products = product_cross_reference.products %}
+                          <div class="CrossReference_wrap">
+                            {% for pro_crossref in cross_reference_products %}
+                              <div class="CrossReference_single">
+                                <div class="pro__image">
+                                  <a href="{{ pro_crossref.translated_url_handle | prepend: '/products/' }}">
+                                    <img
+                                      src="{{ pro_crossref.image | prepend: aico_img_path }}"
+                                      width="250"
+                                      height="250"
+                                    >
+                                  </a>
+                                </div>
+                                <a href="{{ pro_crossref.translated_url_handle | prepend: '/products/' }}">
+                                  {{ pro_crossref.name }}
+                                </a>
+                              </div>
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+{%- endif -%}
+<!-- snippets/aico_content_builders_json end -->

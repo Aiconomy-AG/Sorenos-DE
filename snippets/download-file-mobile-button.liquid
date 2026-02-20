@@ -1,0 +1,146 @@
+
+{% if product.metafields.custom_fields["files"].type != 'list.file_reference' %}
+  {% if product.metafields.custom_fields["file"] != blank %}
+  <div id="download-mobile-block">
+  <!--   <a class="btn" href="" target="_blank"><i class="fa fa-download"></i> Folien
+      herunterladen</a> -->
+    <div class="btn">
+      <i class="fa fa-download"></i>
+      {{ product.metafields.custom_fields["file"] }}
+     </div>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% if product.title == 'Bruxafol UV-Filter Film' %}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ 'BRUXSAFOL_UV-Filter.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+         {% if product.title == '3M Ultra S800' %}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Ultra_S800_innen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Safty S40' or product.title == '3M Safty S140' or product.title == '3M Safty S70'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Safty__innen_Flyer.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Silver 15 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Flyer_Silver_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == 'Avery R Silver 35 i' or product.title == 'Avery R Silver 20 i'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ 'Avery_DR_Grey_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == 'Avery DR Grey 35 X' or product.title == 'Avery DR Grey 20 X' or product.title == 'Avery DR Grey 10 X'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ 'Avery_Silver_innen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Prestige 70 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Prestige70_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Safty S70'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Safty_S70_innen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Thinsulate CC 75'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Thinsulate_CC75_innen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Safty S70 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Safty_S70_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Silver 15 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Silver15_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Prestige 90 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Prestige90_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Prestige 20 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Prestige20_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Prestige 20 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Prestige20_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Silver 35 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Silver35_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Safty S140'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Safty_S140_innen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Prestige 40 Exterio'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Prestige40_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Safty S40 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Safty_S40_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Silver 15 Plastic' or product.title == '3M Silver 15 Exterior'%}
+            <div id="download-mobile-block">
+                <a class="btn" href="{{ '3M_Silver15_Plastic_aussen.pdf' | file_url }}"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}

@@ -1,0 +1,135 @@
+{% style %}
+.playpause {
+    pointer-events: auto;
+    cursor: pointer;
+    background-size: 90px;
+    width: 100%;
+    height: 100%;
+}
+.video-gallery video{
+      min-height: 300px;
+    object-fit: cover;
+}
+@media (max-width:749px){
+  .video-bar .grid__item-wrapper{
+    width: 100%;
+  }
+}
+{% endstyle %}
+
+<div class="grid grid--no-gutters video-bar">
+  <div class="page-width text-center">
+    <h1>{{ section.settings.heading }}</h1>
+  </div>
+  {% for block in section.blocks %}
+    <div class="grid__item-wrapper grid__item medium-up--one-half js" {{ block.shopify_attributes }}>
+      <video
+        class="videogrid"
+        playsinline
+        webkit-playsinline
+        poster="{{ block.settings.image | img_url:'original' }}">
+        <source src="{{ block.settings.videourl }}" type="video/mp4">
+      </video>
+      <div class="playpause"></div>
+    </div>
+  {% endfor %}
+</div>
+
+{% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Video Gallery",
+  "class": "index-section index-section--flush video-gallery",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "video",
+      "settings": [
+        {
+          "type": "text",
+          "id": "videourl",
+          "label": "Add video link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Add thumbnail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Gallery",
+      "category": "video",
+      "blocks": [
+        {
+          "type": "video"
+        },
+        {
+          "type": "video"
+        },
+        {
+          "type": "video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<script>
+$(document).ready(function () {
+
+  $(".grid__item-wrapper, .playpause").on("click", function (e) {
+    e.stopPropagation(); // prevent double firing
+
+    var wrapper = $(this).closest(".grid__item-wrapper");
+    var video   = wrapper.find(".videogrid").get(0);
+    var button  = wrapper.find(".playpause");
+
+    // ⛔ Pause all other videos
+    $(".videogrid").each(function () {
+      if (this !== video) {
+        this.pause();
+        this.removeAttribute("controls");
+        $(this).siblings(".playpause").show();
+      }
+    });
+
+    // ▶️ Toggle current video
+    if (video.paused) {
+      video.setAttribute("controls", "controls");
+      video.play();
+      button.hide();
+    } else {
+      video.pause();
+      video.removeAttribute("controls");
+      button.show();
+    }
+  });
+
+  // 🔁 Keep UI in sync with native controls
+  $(".videogrid").on("pause ended", function () {
+    this.removeAttribute("controls");
+    $(this).siblings(".playpause").show();
+  });
+
+  $(".videogrid").on("play", function () {
+    $(this).siblings(".playpause").hide();
+  });
+
+});
+</script>
+
+

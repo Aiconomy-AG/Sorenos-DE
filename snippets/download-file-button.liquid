@@ -1,0 +1,64 @@
+
+{% if product.metafields.custom_fields["files"].type != 'list.file_reference' %}
+  {% if product.metafields.custom_fields["files"] != blank %}
+  <div id="download-block">  
+    <a class="btn" href="{{ product.metafields.custom_fields["files"] }}" target="_blank"><i class="fa fa-download"></i> Folien
+      herunterladen</a>
+  <!--   <div class="btn">
+      <i class="fa fa-download"></i>
+    Folien herunterladen
+    </div> -->
+  </div>
+  {% endif %}
+{% endif %}
+
+         {% if product.title == '3M Ultra S800' %}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M_Ultra_S800_innen.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Splitterschutzfilm S40'%}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M-Splitterschutzfilm-S40-Sicherheitsfolien.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+
+        {% if product.title == '3M Splitterschutzfilm S70'%}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M_Safty_S70_innen.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+
+        {% if product.title == '3M Splitterschutzfilm S70 Exterior'%}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M_Safty_S70_aussen.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Splitterschutzfilm S140'%}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M_Safty_S140_innen.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+        {% if product.title == '3M Splitterschutzfilm S40 Exterior'%}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M_Safty_S40_aussen.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}
+
+{% if product.title == '3M Silver 15 Plastic'%}
+            <div id="download-block">
+                <a class="btn" href="{{ '3M_Silver15_Plastic_aussen.pdf' | file_url }}" target="_blank"><i class="fa fa-download"></i> Folien
+                    herunterladen</a>
+            </div>
+        {% endif %}

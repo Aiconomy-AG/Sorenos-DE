@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["innenfolien_aussenfolien"] != blank %}
+  <div class="custom-field custom-field__innenfolien-aussenfolien custom-field__type--text">
+    <h3 class="custom-field--title">Innenfolien Aussenfolien</h3>
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["innenfolien_aussenfolien"] }}
+    </div>
+  </div>
+{% endif %}

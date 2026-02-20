@@ -1,0 +1,50 @@
+{% section 'workshops_hero' %}
+{% if customer %}
+  {% section 'workshops_richtext' %}
+{% else %}
+  {% comment %}
+    <div class="page-width rich-text">
+      <div class="rich-text__heading--large text-center">
+        <h2 class="h3">Attraktive Weiterbildungsmöglichkeiten</h2>
+      </div>
+      <div class="rich-text__text--large rte-setting text-center">Als Partner profitieren Sie von spannenden Workshops und attraktiven Weiterbildungsmöglichkeiten.</div>
+    <!--   <div class="rich-text__text--large rte-setting text-center">
+        Werden Sie Partner und profitieren Sie von attraktiven Weiterbildungsmöglichkeiten.
+      </div> -->
+      <div class="text-center">
+        <a href="{{ pages.partner-werden.url }}" class="btn hero__btn" aria-label="">{{ 'general.partner.become_partner' | t }}</a>
+      </div>
+    </div>
+  {% endcomment %}
+
+  <div class="page-width training_section">
+    <div class="columns columns-lg">
+      <div class="col col__title">
+        <h2>{{ 'general.workshop.title' | t }}</h2>
+      </div>
+      <div class="col col__text">
+        <div class="width-full">{{ 'general.workshop.description_html' | t }}</div>
+      </div>
+    </div>
+  </div>
+
+  {% section 'seminar' %}
+
+  {% comment %}
+
+
+    <div class="page-width training_section showroom">
+      <h3 class="supertitle">{{ 'general.workshop.supertitle' | t }}</h3>
+      <div class="columns columns-lg">
+        <div class="col col__title">
+          <h2>{{ 'general.workshop.impressions' | t }}</h2>
+        </div>
+        <div class="col col__text">
+          <div class="width-md">
+            {{ 'general.workshop.impressions_text' | t }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endcomment %}
+{% endif %}

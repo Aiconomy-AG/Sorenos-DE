@@ -1,0 +1,187 @@
+<script>
+function sortMap(map) {
+  try {
+    map.forEach(function(valueList, key, map) {
+      map.get(key).sort();
+    });
+  } catch(err){
+  }
+}
+
+function updateList(option, updatedList) {
+  try {
+    var selectedValue = $(option).children("option:selected").val();
+    var index = -1;
+
+    // remove previous list
+    $(option).find('option').remove();
+
+    //update list with new values
+    for (var i=0; i<updatedList.length; i++) {
+      $(option).append($('<option>', { 
+        value: updatedList[i],
+        text : updatedList[i] 
+      }));
+
+      if (updatedList[i] == selectedValue) {
+        index = i;
+      }
+    }
+    //update previous selected value    
+    if (index != -1) {
+      $(option).val(updatedList[index]).change(); 
+    } else if (updatedList[0]){
+      $(option).val(updatedList[0]).change();
+    }
+  } catch(err){
+  }
+}
+
+function updateListByMap(options, map) {
+  try {
+    var selectedValue1 = $(options[0]).children("option:selected").val();
+    map.forEach(function(valueList, key, map) {
+      if (key == selectedValue1) {
+        updateList(options[1], valueList);
+      }
+    });
+    //remove option-2 values on empty map
+    if (map.size == 0) {
+      $(options[1]).find('option').remove();
+    }
+  } catch(err){
+  }
+}
+
+function updateListByMap1(options, map1) {
+  try {
+    var selectedValue1 = $(options[0]).children("option:selected").val();
+    var selectedValue2 = $(options[1]).children("option:selected").val();
+    var variant = selectedValue1+" / "+selectedValue2;
+    map1.forEach(function(valueList, key, map) {
+      if (key == variant) {
+        updateList(options[2], valueList);
+      }
+    });
+    //remove option-3 values on empty map
+    if (map1.size == 0) {
+      $(options[2]).find('option').remove();
+    }
+  } catch(err) {
+  }
+}
+
+function removeImages(colorSelector) {
+  try{
+    var colorOptions = $(colorSelector).find('option');
+    var imageOptions = $('.product-single__thumbnails-product-template').find('li');
+    if (imageOptions.length != colorOptions.length) {
+      // hide previous images
+      $(imageOptions).hide();
+      
+      //show availabe variants images
+      for (var l=0; l<colorOptions.length; l++) {
+        var colorName = $(colorOptions[l]).val();
+        $("#"+colorName).show();
+      }
+      
+    }
+  } catch(err){
+    console.log(err);
+  }
+}
+
+$( document ).ready(function() {
+  if( typeof product_variants_available != "undefined" && typeof product_options_count != "undefined") {
+    var $addToCartForm = $('form[action="/cart/add"]');
+    if (window.MutationObserver && $addToCartForm.length) {
+      if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
+        observer.disconnect();
+      }
+      var config = { childList: true, subtree: true };
+      var observer = new MutationObserver(function() {
+        try{
+          var options = $('.single-option-selector');
+          if (product_options_count == 1 && options[0].length != product_variants_available.length) {
+            updateList(options[0], product_variants_available);
+            
+          } else if (product_options_count == 2 || product_options_count == 3) {
+            var map = new Map();
+            var map1 = new Map();
+            var list = [];
+            // initialize map & list with values
+            for (var i=0; i<product_variants_available.length; i++) {
+              var variant = product_variants_available[i].split("/");
+              var key = variant[0].trim();
+              var value = variant[1].trim();
+              if(map.has(key)) {
+                if (map.get(key).includes(value) == false) {
+                  map.get(key).push(value);
+                }
+              } else {
+                map.set(key, [value]);
+                list.push(key);
+              } 
+            }
+            //sort map values
+            if (product_options_count == 3) {
+              sortMap(map);
+            }
+            //initialize map1 if there are three options
+            if (product_options_count == 3) {
+              // initialize map1 with values
+              for (var i=0; i<product_variants_available.length; i++) {
+                var variant = product_variants_available[i].split("/");
+                var key = variant[0].trim() +" / "+ variant[1].trim();
+                var value = variant[2].trim();
+                if(map1.has(key)) {
+                  map1.get(key).push(value);
+                } else {
+                  map1.set(key, [value]);
+                }   
+              }
+            }
+            //update option-1
+            updateList(options[0], list);
+            //update option-2
+            updateListByMap(options, map);
+            //update option-3 based on option count
+            if (product_options_count == 3) {
+              updateListByMap1(options, map1);
+            }
+            //add event on option-1 change
+            $(options[0]).change(function () {
+              updateListByMap(options, map);
+              if (product_options_count == 3) {
+                updateListByMap1(options, map1);
+              }
+            });
+            //add event on option-2 change
+            if (product_options_count == 3) {
+              $(options[1]).change(function () {
+                updateListByMap1(options, map1);
+              });
+            }
+          }
+          // remove the images of not available variants
+          var selectors = $('.selector-wrapper');
+          var colorSelectorIndex = -1;
+          for (var k=0; k<selectors.length; k++) {
+            var label = $(selectors[k]).find("label").text();
+            if (label.trim().toLowerCase().includes("color")) {
+                colorSelectorIndex=k;
+            }
+          }
+          if (colorSelectorIndex!=-1) {
+            removeImages(options[colorSelectorIndex]);
+          }
+        } catch(err){
+        }
+        observer.disconnect();
+      });
+      observer.observe($addToCartForm[0], config);
+      $('.single-option-selector').trigger('change');
+    }
+  }
+});
+</script>

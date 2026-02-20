@@ -1,0 +1,170 @@
+<div class="section__event">
+  {% if product.featured_image != blank %}
+    <div class="section-hero">
+      <div class="hero-bg">
+        <img src="{{ product.featured_image | image_url }}" width="" height="">
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="event_main_contents">
+    <div class="event_backTolink backto_seminar">
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+        style="transform: rotate(180deg);"
+      >
+        <g transform="translate(-348 -2736)" fill="none" fill-rule="evenodd"><rect fill="url(#a)" x="24" y="1944" width="1392" height="1463" rx="16"></rect><path d="M247 2422h945v360H247z"></path><g transform="translate(348 2736)"><path d="M21.253 10a.75.75 0 00-.523 1.288l3.72 3.72H5.76a.75.75 0 100 1.5h18.69l-3.72 3.72a.75.75 0 101.061 1.06l5-5a.75.75 0 000-1.06l-5-5a.75.75 0 00-.538-.228z" fill="currentColor" fill-rule="nonzero"></path></g></g>
+      </svg>
+      <a href="/pages/schulungen" class="supertitle">Seminare</a>
+    </div>
+    <div class="page-width">
+      <div class="event_inner_content">
+        <div class="event_backTolink">
+          <a href="/pages/schulungen" class="supertitle">Sorenos Seminare</a>
+        </div>
+        <h1 class="h2">{{ product.title }}</h1>
+        <div class="event_description">
+          {{ product.description }}
+        </div>
+        {% if product.metafields.custom_fields.inhalt_de_ch != blank %}
+          <div class="event_inhalt">
+            {{ product.metafields.custom_fields.inhalt_de_ch }}
+          </div>
+        {% endif %}
+
+        {% for tag in product.tags %}
+          {% if tag contains 'courseStartDate_' %}
+            {% assign startdate = tag | remove: 'courseStartDate_' | date: '%d.%m.%Y' %}
+            {% assign startweek = tag | remove: 'courseStartDate_' | date: '%A' %}
+          {% endif %}
+
+          {% if tag contains 'courseEndDate_' %}
+            {% assign enddate = tag | remove: 'courseEndDate_' | date: '%d.%m.%Y' %}
+            {% assign endweek = tag | remove: 'courseEndDate_' | date: '%A' %}
+          {% endif %}
+
+          {% if tag contains 'courseStartTime_' %}
+            {% assign starttime = tag | remove: 'courseStartTime_' %}
+          {% endif %}
+
+          {% if tag contains 'courseEndTime_' %}
+            {% assign endtime = tag | remove: 'courseEndTime_' %}
+          {% endif %}
+
+          {% if tag contains 'courseLocation_' %}
+            {% assign location = tag | remove: 'courseLocation_' %}
+          {% endif %}
+        {% endfor %}
+
+        <table class="seminar__data">
+          <tbody>
+            {% if startdate != blank %}
+              <tr class="tr_datum">
+                <th>Datum</th>
+                <td>
+                  {% if startweek != blank %}
+                    {{
+                      startweek
+                      | replace: 'Monday', 'Montag'
+                      | replace: 'Tuesday', 'Dienstag'
+                      | replace: 'Wednesday', 'Mittwoch'
+                      | replace: 'Thursday', 'Donnerstag'
+                      | replace: 'Friday', 'Freitag'
+                      | replace: 'Saturday', 'Samstag'
+                      | replace: 'Sunday', 'Sonntag'
+                    -}}
+                    , {{ startdate }}
+                  {% endif %}
+                  {% if endweek != blank and startdate != enddate %}
+                    -
+                    {{
+                      endweek
+                      | replace: 'Monday', 'Montag'
+                      | replace: 'Tuesday', 'Dienstag'
+                      | replace: 'Wednesday', 'Mittwoch'
+                      | replace: 'Thursday', 'Donnerstag'
+                      | replace: 'Friday', 'Freitag'
+                      | replace: 'Saturday', 'Samstag'
+                      | replace: 'Sunday', 'Sonntag'
+                    -}}
+                    , {{ enddate }}
+                  {% else %}
+
+                  {% endif %}
+                </td>
+              </tr>
+            {% endif %}
+
+            {% if starttime != blank %}
+              <tr class="tr_zeit">
+                <th>Zeit</th>
+                <td>
+                  {{ starttime }}
+                  {% if endtime != blank %} - {{ endtime }} {% endif %}
+                </td>
+              </tr>
+            {% endif %}
+
+            {% if location != blank %}
+              <tr>
+                <th>Ort</th>
+                <td>{{ location | replace: '_ ', ', ' }}</td>
+              </tr>
+            {% endif %}
+
+            {% assign coursetype = '' %}
+            {% assign is_anfrage = false %}
+            {% for tag in product.tags %}
+              {% if tag contains 'courseType_' %}
+                {% assign coursetype = tag %}
+              {% endif %}
+            {% endfor %}
+
+            {% if coursetype == 'courseType_Event auf Anfrage' %}
+              {% assign btn_lable = 'Anfragen' %}
+              {% assign is_anfrage = true %}
+            {% else %}
+              {% assign btn_lable = 'Anmeldung' %}
+            {% endif %}
+
+            {% if is_anfrage == false %}
+              <tr>
+                <th>Preis</th>
+                <td>
+                  {{ product.price | money_with_currency }} - (
+                  {{- product.selected_or_first_available_variant.option1 -}}
+                  )
+                </td>
+              </tr>
+            {% endif %}
+
+            <tr>
+              <th></th>
+              <td>
+                <button class="btn_anmeldung">
+                  {{ btn_lable }}
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_de.js"></script>
+
+{% render 'seminar_popup', product: product, is_anfrage: is_anfrage, startdate: startdate %}
+
+{% schema %}
+{
+  "name": "Seminar page",
+  "settings": []
+}
+{% endschema %}

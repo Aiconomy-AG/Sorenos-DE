@@ -1,0 +1,92 @@
+{%- unless template == 'index' or template == 'cart' or page.title == 'Workshops' or template == 'blog'-%}
+
+    {%- if template contains 'product' -%}
+        {%- capture product_url_string -%}{%- for collection in product.collections -%}{{ collection.url }}|{%- endfor -%}{%- endcapture -%}
+        {%- assign object_url_string = product_url_string | append: product.url -%}
+    {% endif %}
+    {%- assign object_urls = object_url_string | split: '|' -%}
+    {% assign menu_active = false %}
+
+
+
+
+<nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+  <ol class="breadcrumbs__list">
+    <li class="breadcrumbs__item">
+         <a class="breadcrumbs__link" href="/" title="Home" rel="nofollow ugc">Home</a>
+    </li>
+    {% for link in linklists.main-menu.links %}
+        {% if link.child_active or link.active %}
+           {% assign menu_active = true %}
+            ›
+             <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ link.url }}" rel="nofollow ugc">
+                {{ link.title | escape }}
+            </a>
+             </li>
+            {% for clink in link.links %}
+                {% if clink.child_active or clink.active %}
+                    ›
+                     <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="{{ clink.url }}" rel="nofollow ugc">
+                        {{ clink.title | escape }}
+                    </a>
+                     </li>
+                    {% for gclink in clink.links %}
+                        {% if gclink.child_active or gclink.active %}
+                            ›
+                             <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ gclink.url }}" rel="nofollow ugc">
+                                {{ gclink.title | escape }}
+                            </a>
+                             </li>
+                        {% endif %}
+                    {%- endfor -%}
+                {% endif %}
+            {%- endfor -%}        
+             
+        {% endif %}
+    {%- endfor -%}
+    
+    {% if menu_active == false %}
+    {%- assign t = template | split: '.' | first -%}
+             {%- case t -%}
+             {%- when 'product' -%}
+             {%- if collection.url -%}
+              ›
+             <li class="breadcrumbs__item">
+             <a class="breadcrumbs__link" href="/pages/unsere-produkte" rel="nofollow ugc">
+                Produkte
+             </a>
+             </li>
+    
+             {%- if collection.handle == 'montage' or collection.handle == 'schneiden' or collection.handle == 'reinigung' or collection.handle == 'messen' -%}
+               ›
+      
+            <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="/collections/werkzeuge" rel="nofollow ugc">
+                Alle  Werkzeuge
+            </a>
+             </li> 
+            {%- endif -%}
+    
+                    ›
+      
+             <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="{{ collection.url }}" rel="nofollow ugc">
+                {{ collection.title | escape }}
+            </a>
+             </li>    
+             {%- endif -%}
+             {%- endcase -%}
+    {% endif %}
+    
+  </ol>
+{%- endunless -%}
+
+{%- if template contains 'product' -%}    
+    <span aria-hidden="true" id="breadcrumb-product">›</span>
+    <a class="breadcrumbs__link">{{ product.title }}</a>
+{% endif %}
+
+

@@ -1,0 +1,213 @@
+{% render "blocks.custom_fields" with resource_type: "products", blocks: section.blocks %}
+{% schema %}
+  {
+    "name": {
+        "en": "Custom Fields"
+    },
+    "settings": [
+        {
+            "type": "paragraph",
+            "content": "[View Documentation](https:\/\/custom-fields.docs.bonify.io\/)"
+        },
+        {
+            "type": "paragraph",
+            "content": "[Edit Custom Fields](https:\/\/customfields.bonify.io\/dashboard\/folienzuschnitt-ch.myshopify.com\/products\/configure)"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "cf_f_text",
+            "name": {
+                "en": "Text"
+            },
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "key",
+                    "label": "Select a Field",
+                    "options": [
+                        {
+                            "value": "fact1",
+                            "label": "fact1"
+                        },
+                        {
+                            "value": "rollenbreite",
+                            "label": "rollenbreite"
+                        },
+                        {
+                            "value": "spec15",
+                            "label": "spec15"
+                        },
+                        {
+                            "value": "spec14",
+                            "label": "spec14"
+                        },
+                        {
+                            "value": "spec12",
+                            "label": "spec12"
+                        },
+                        {
+                            "value": "spec11",
+                            "label": "spec11"
+                        },
+                        {
+                            "value": "spec13",
+                            "label": "spec13"
+                        },
+                        {
+                            "value": "fact15",
+                            "label": "fact15"
+                        },
+                        {
+                            "value": "fact14",
+                            "label": "fact14"
+                        },
+                        {
+                            "value": "fact13",
+                            "label": "fact13"
+                        },
+                        {
+                            "value": "fact12",
+                            "label": "fact12"
+                        },
+                        {
+                            "value": "fact11",
+                            "label": "fact11"
+                        },
+                        {
+                            "value": "fact10",
+                            "label": "fact10"
+                        },
+                        {
+                            "value": "spec10",
+                            "label": "spec10"
+                        },
+                        {
+                            "value": "spec9",
+                            "label": "spec9"
+                        },
+                        {
+                            "value": "spec8",
+                            "label": "spec8"
+                        },
+                        {
+                            "value": "spec7",
+                            "label": "spec7"
+                        },
+                        {
+                            "value": "spec6",
+                            "label": "spec6"
+                        },
+                        {
+                            "value": "fact9",
+                            "label": "fact9"
+                        },
+                        {
+                            "value": "fact8",
+                            "label": "fact8"
+                        },
+                        {
+                            "value": "fact7",
+                            "label": "fact7"
+                        },
+                        {
+                            "value": "fact6",
+                            "label": "fact6"
+                        },
+                        {
+                            "value": "spec5",
+                            "label": "spec5"
+                        },
+                        {
+                            "value": "spec4",
+                            "label": "spec4"
+                        },
+                        {
+                            "value": "spec3",
+                            "label": "spec3"
+                        },
+                        {
+                            "value": "spec2",
+                            "label": "spec2"
+                        },
+                        {
+                            "value": "spec1",
+                            "label": "spec1"
+                        },
+                        {
+                            "value": "fact5",
+                            "label": "fact5"
+                        },
+                        {
+                            "value": "fact4",
+                            "label": "fact4"
+                        },
+                        {
+                            "value": "fact3",
+                            "label": "fact3"
+                        },
+                        {
+                            "value": "fact2",
+                            "label": "fact2"
+                        },
+                        {
+                            "value": "innenfolien_aussenfolien",
+                            "label": "Innenfolien Aussenfolien"
+                        },
+                        {
+                            "value": "kategorie",
+                            "label": "Kategorie"
+                        },
+                        {
+                            "value": "garantie__horizontal",
+                            "label": "Garantie  Horizontal"
+                        },
+                        {
+                            "value": "garantie_vertikal",
+                            "label": "Garantie Vertikal"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "cf_f_pr",
+            "name": {
+                "en": "Product Reference"
+            },
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "key",
+                    "label": "Select a Field",
+                    "options": [
+                        {
+                            "value": "product_reference",
+                            "label": "product_reference"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "cf_f_file",
+            "name": {
+                "en": "File"
+            },
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "key",
+                    "label": "Select a Field",
+                    "options": [
+                        {
+                            "value": "file",
+                            "label": "file"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,308 @@
+<div class="page-width">
+  <div class="section-header text-center">
+    <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+  </div>
+      
+  <div class="registration-form">
+    <form action="" id="signupForm">
+      <div class="registration-grid">
+        
+        <div class="registration-grid-item col-6">
+          <lable class="lable ">Anrede</lable>
+          <div class="form-control">
+            <select >
+              <option selected>Anrede</option>
+              <option>Herr</option>
+              <option>Frau</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="registration-grid-item col-6">
+             <lable class="lable ">Firma</lable>
+          <div class="form-control">
+          	<input id="Firma" type="text"  name="Firma" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item clear col-3">
+          <lable class="lable ">Vorname</lable>
+          <div class="form-control">
+          	<input id="Vorname" name="Vorname"  type="text"/>
+          </div>
+        </div>
+        
+         <div class="registration-grid-item col-3">
+           <lable class="lable ">Nachname</lable>
+          <div class="form-control">
+          	<input id="Nachname" name="Nachname"  type="text" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item col-6">
+           <lable class="lable ">Strasse Hausnummer</lable>
+          <div class="form-control">
+          	<input id="Hausnummer" name="Hausnummer"  type="text" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item clear col-3">
+            <lable class="lable ">PLZ</lable>
+          <div class="form-control">
+          	<input id="PLZ" name="PLZ"  type="text" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item col-3">
+          <lable class="lable ">Stadt</lable>
+          <div class="form-control">
+          	<input id="Stadt" name="Stadt"  type="text" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item col-6 country_code_number">
+          <lable class="lable ">Telefonnummer</lable>
+          <div class="form-control">
+            <span class="country_code">+41</span>
+          	<input id="Telefonnummer" name="Telefonnummer"  type="tel" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item clear col-6">
+           <lable class="lable ">E-Mail</lable>
+          <div class="form-control">
+          	<input id="email" name="email"  type="email" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item col-6">
+           <lable class="lable ">E-Mail für Buchhaltung</lable>
+          <div class="form-control">
+          	<input id="confirm_email" name="confirm_email"  type="text" />
+          </div>
+        </div>	
+        
+         <div class="registration-grid-item clear col-6">
+           <lable class="lable ">Passwort</lable>
+          <div class="form-control">
+          	<input id="Passwort" name="Passwort"  type="password" />
+          </div>
+        </div>
+        
+        <div class="registration-grid-item col-6">
+             <lable class="lable ">Passwort bestätigen</lable>
+          <div class="form-control">
+          	<input id="confirm_Passwort" name="confirm_Passwort"  type="password" />
+          </div>
+        </div>
+
+         <div class="registration-grid-item">
+          <div class="form-control">
+            <label class="checkbox-label">
+              <input id="tc" name="tc"  type="checkbox"/>
+              <span>Regelmässig spannende Neuigkeiten erhalten</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="registration-grid-item clear button-grid">
+          <div class="form-control">
+            <input id="submit_signupform" type="submit" value="Jetzt beantragen"/><br/>
+            <div class="error" style="padding-bottom: 10px;"></div>
+            <a href="/account/login">Account vorhanden? Hier einloggen</a>
+          </div>
+        </div>
+   
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script>  
+  $(document).ready(function(){
+  $('.registration-grid select').removeClass("select-color-change");
+    $('.registration-grid select').click(function(){
+      
+    $(this).addClass("select-color-change");
+    });
+    
+    $('#submit_signupform').click(function(){
+      var select = $('select option:selected').val();
+      var firma = $('#Firma').val();
+      var vorname = $('#Vorname').val();
+      var nachname = $('#Nachname').val();
+      var hausnummer = $('#Hausnummer').val();
+      var plz = $('#PLZ').val();
+      var stadt = $('#Stadt').val();
+      var telefonnummer = $('#Telefonnummer').val();
+      var email = $('#email').val();
+      var confirm_email = $('#confirm_email').val();
+      var password = $('#Passwort').val();
+      var confirm_password = $('#confirm_Passwort').val();
+      var tc = $('#tc').val();
+            
+     
+    $.ajax({
+      url: "https://aico.folienzuschnitt.ch/api/v1/customer-registration-requests",
+      type: "POST",
+      contentType: "application/vnd.api+json",
+      data:JSON.stringify({"data":{"type":"customer-registration-requests","attributes":{salutation: select,first_name:vorname,last_name:nachname,email:email,accounting_email:confirm_email,company:firma,street:hausnummer,postcode:plz,city:stadt,phone:telefonnummer,password:password,receive_emails:1}}}),
+      dataType: 'json',
+      success: function(data,jqXHR){
+         console.log(jqXHR);
+        window.location.replace("/account/login?action=registion-true");
+    },
+    error: function (jqXHR, exception) {
+      var obj = jQuery.parseJSON(jqXHR.responseText);
+      $('.error-new').remove();
+      if(obj.message){
+            $('.registration-grid-item.button-grid .error').html('<p class="error-new" style="color: #ea4646;">Es existiert bereits ein Konto mit dieser E-Mail-Adresse.</p>');
+      }else{
+            $('.registration-grid-item.button-grid .error').html('<p class="error-new" style="color: #ea4646;">'+obj.errors[0].detail+'</p>');
+      }
+
+       console.log(obj.message);
+       console.log(exception);
+    }
+    });
+}); 
+    $(".registration-form #signupForm").validate({
+      rules: {
+        Firma: "required",
+        Vorname: "required",
+        Telefonnummer:{
+          required: true,
+          digits: true
+        },
+        Passwort: {
+          required: true,
+          minlength: 5
+        },
+        confirm_Passwort: {
+          required: true,
+          minlength: 5,
+          equalTo: "#Passwort"
+        },
+        email: {
+          required: true,
+          email: true
+        },
+        confirm_email: {
+          required: true,
+          email: true,
+           // equalTo: "#email"
+        },
+        tc: "required"
+      },
+      messages: {
+        Firma: "Bitte geben Sie Ihre Firma ein",
+        Vorname: "Bitte geben Sie ihren Vorname ein",
+        Nachname: "Bitte geben Sie einen Nachname ein",
+        Hausnummer: "Bitte geben Sie einen Adresse ein",
+        PLZ: "Bitte geben Sie einen Postleitzahl ein",
+        Stadt: "Bitte geben Sie einen Stadt ein",
+        Telefonnummer:{
+          required: "Bitte geben sie ihre Telefonnummer ein.",
+          digits:"Es sind nur Zahlen erlaubt. (Auch keine Abstände)"
+        },
+        Passwort: {
+          required: "Bitte geben Sie ein Passwort ein",
+          minlength: "Passwörter müssen mindestens 5 Zeichen lang sein und dürfen keine Leerzeichen enthalten"
+        },
+        confirm_Passwort: {
+          required: "Bitte geben Sie ein Passwort ein",
+          minlength: "Passwörter müssen mindestens 5 Zeichen lang sein und dürfen keine Leerzeichen enthalten",
+          equalTo: "Bitte geben Sie das Passwort wie oben ein"
+        },
+        email:{
+          required: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        },
+        confirm_email: {
+          required: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+          email: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+          // equalTo: "Bitte geben Sie die E-Mail wie links ein"
+        },
+        tc: "Bitte überprüfen Sie dieses Feld"
+      }
+    });
+
+  });
+
+
+
+</script>
+{% comment %}
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+
+      <div class="form-vertical">
+
+        <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+
+        {%- assign formId = 'RegisterForm' -%}
+        {% form 'create_customer', id: formId, novalidate: 'novalidate' %}
+          {% include 'form-status', form: form, form_id: formId %}
+
+          <label for="{{ formId }}-FirstName">{{ 'customer.register.first_name' | t }}</label>
+          <input type="text" name="customer[first_name]" id="{{ formId }}-FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocomplete="given-name">
+
+          <label for="{{ formId }}-LastName">{{ 'customer.register.last_name' | t }}</label>
+          <input type="text" name="customer[last_name]" id="{{ formId }}-LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocomplete="family-name">
+
+          <label for="{{ formId }}-email">{{ 'customer.register.email' | t }}</label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="{{ formId }}-email"
+            class="{% if form.errors contains 'email' %} input--error{% endif %}"
+            {% if form.email %} value="{{ form.email }}"{% endif %}
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            aria-required="true"
+            {%- if form.errors contains 'email' -%}
+              class="input--error"
+              aria-invalid="true"
+              aria-describedby="{{ formId }}-email-error"
+            {%- endif -%}
+          >
+          {%- if form.errors contains 'email' -%}
+            <span id="{{ formId }}-email-error" class="input-error-message">
+              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+              {% include 'icon-error' %}
+              <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+            </span>
+          {%- endif -%}
+
+          <label for="{{ formId }}-password">{{ 'customer.register.password' | t }}</label>
+          <input
+            type="password"
+            name="customer[password]"
+            id="{{ formId }}-password"
+            class="{% if form.errors contains 'password' %} input--error{% endif %}"
+            aria-required="true"
+            {%- if form.errors contains 'password' -%}
+              class="input--error"
+              aria-invalid="true"
+              aria-describedby="{{ formId }}-password-error"
+            {%- endif -%}
+          >
+          {%- if form.errors contains 'password' -%}
+            <span id="{{ formId}}-password-error" class="input-error-message">
+              {% include 'icon-error' %}
+              <span>{{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.</span>
+            </span>
+          {%- endif -%}
+
+          <p class="text-center">
+            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn">
+          </p>
+
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomment %}

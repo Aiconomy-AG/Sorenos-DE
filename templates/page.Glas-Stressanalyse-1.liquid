@@ -1,0 +1,4015 @@
+ 
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+
+<script>
+  //https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform#maps_places_autocomplete_addressform-javascript
+let autocomplete;
+let autocomplete_address;
+let address1Field;
+let postalField;
+
+function initAutocomplete() {
+  address1Field = document.querySelector("#montageort_google_address");
+  companyField = document.querySelector("#montageort_google");
+  
+  // Create the autocomplete object, restricting the search predictions to
+  // addresses in the US and Canada.
+  autocomplete_address = new google.maps.places.Autocomplete(address1Field, {    
+    fields: ["address_components", "geometry"],    
+    types: ['address'],
+  });
+  autocomplete = new google.maps.places.Autocomplete(companyField, {    
+    fields: ["address_components", "geometry"],    
+    types: ['establishment'],
+  });
+  address1Field.focus();
+  companyField.focus();
+  // When the user selects an address from the drop-down, populate the
+  // address fields in the form.
+  autocomplete.addListener("place_changed", fillIncompany);
+  autocomplete_address.addListener("place_changed", fillInAddress);
+}
+  
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  const place = autocomplete_address.getPlace();
+  let address1 = "";
+  let postcode = "";
+  let montageortField = document.querySelector("#meeresspiegel_google");
+  var gmarkers = [];
+  var lat = place.geometry.location.lat();
+  // get lng
+  var lng = place.geometry.location.lng();
+  
+  //montageortField.value = lat + "," + lng;
+//   console.log(place);
+  
+  var map = new google.maps.Map(
+    document.getElementById("map_canvas"), {
+      center: new google.maps.LatLng(lat, lng),      
+      mapTypeId: "terrain",
+    });
+  var marker = new google.maps.Marker({
+    position: map.getCenter(),
+    map: map
+  });
+  gmarkers.push(marker);
+
+  var elevationService = new google.maps.ElevationService();
+
+  var requestElevation = {
+    'locations': [gmarkers[0].getPosition()]
+  };
+
+  elevationService.getElevationForLocations(requestElevation, function(results, status) {
+    
+    if (status == google.maps.ElevationStatus.OK) {
+      if (results[0]) {
+        document.getElementById('meeresspiegel_google').value = parseFloat(results[0].elevation.toFixed(0)) + " Meter";
+      }
+    }
+  });
+  
+  montageortField.focus();
+}  
+
+function fillIncompany() {
+  // Get the place details from the autocomplete object.
+  const place = autocomplete.getPlace();
+  let address1 = "";
+  let postcode = "";
+  let montageortField = document.querySelector("#meeresspiegel_google");
+  var gmarkers = [];
+  var lat = place.geometry.location.lat();
+  // get lng
+  var lng = place.geometry.location.lng();
+  
+  //montageortField.value = lat + "," + lng;
+//   console.log(place);
+  
+  var map = new google.maps.Map(
+    document.getElementById("map_canvas"), {
+      center: new google.maps.LatLng(lat, lng),      
+      mapTypeId: "terrain",
+    });
+  var marker = new google.maps.Marker({
+    position: map.getCenter(),
+    map: map
+  });
+  gmarkers.push(marker);
+
+  var elevationService = new google.maps.ElevationService();
+
+  var requestElevation = {
+    'locations': [gmarkers[0].getPosition()]
+  };
+
+  elevationService.getElevationForLocations(requestElevation, function(results, status) {
+    
+    if (status == google.maps.ElevationStatus.OK) {
+      if (results[0]) {
+        document.getElementById('meeresspiegel_google').value = parseFloat(results[0].elevation.toFixed(0)) + " Meter";
+      }
+    }
+  });
+  
+  montageortField.focus();
+} 
+  
+window.initAutocomplete = initAutocomplete;
+
+</script>
+
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth main_page_div" data_shop_email="{{shop.email}}">
+      <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+      <div class="iq__price-update">
+        <div class="iq__price-update-dynamic">
+          {% comment %}
+          <div class="show__price-api-wrapper">
+            <div class="show__price--label">
+
+              <div class="show__price-api-title"> 
+                <p class="price__change-title">Glass-Stressanalyse jetzt durchführen</p>
+                <p class="price__change-value"></p>
+              </div> 
+
+            </div>
+            <div class="show__price-api-price-change">
+              0,00
+            </div> 
+          </div>
+          {% endcomment %}
+        </div>
+      </div>
+      <div class="rte">
+
+        <div class="glasstress-main">
+          <ul class="glasstress-nav">
+            <li><a href="#projektdaten">Projektdaten</a></li>
+            <li><a href="#fenster">Fenster</a></li>
+            <li><a href="#sonderformat">Sonderformat</a></li>
+            <li><a href="#innenbeschattung">Innenbeschattung</a></li>
+            <li><a href="#verglasungsart">Verglasungsart</a></li>
+            <li><a href="#abschluss">Upload</a></li>
+            <li><a href="#bemerkung">Bemerkung</a></li>
+          </ul>
+
+		<form id="data" method="post" enctype="multipart/form-data">
+          <div class="glasstress-section" id="projektdaten">
+            <h2>Projektdaten</h2>
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label">Projektname oder Projektnummer: <span class="required-field">*</span> <span class="error required-field projektnummer hide">Bitte ausfüllen</span></label>
+                <input class="form-control project-name" type="text" name="contact[projektnummer]" autocomplete="off">
+              </div>			
+            </div>
+
+                    
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label ">Montageort <span class="required-field">*</span> <span class="error required-field montageort hide">Bitte auswählen</span></label>
+                <div class="form-radio radio">
+                  
+
+                  <div ref="wrapper" class="form-check radio-selected">
+                    <label for="eb50it-Firmenadresse" class="form-check-label label-position-right" style="">
+                      <input id="eb50it-Firmenadresse" value="Firmenadresse" lang="en" class="form-check-input" type="radio" name="contact[Wo-installiert]">                      
+                      <span>Firmenadresse </span>
+                    </label>
+                  </div>
+
+                  <div ref="wrapper" class="form-check">
+                    <label for="eb50it-Privatadresse" class="form-check-label label-position-right" style="">
+                      <input id="eb50it-Privatadresse" value="Privatadresse" lang="en" class="form-check-input" type="radio" name="contact[Wo-installiert]">
+                      <span>Privatadresse </span>
+                    </label>
+                  </div>
+
+
+                </div>
+              </div>							
+            </div>
+
+	
+            <div class="row hide-Montageort hide">
+              <div class="col-md-6 input_box Montageort-company">
+                <label class="form-label">Firmenname</label>
+                <input class="form-control" id="montageort_google" name="contact[montageort]" type="text" placeholder="Bitte Firmenname eingeben" autocomplete="off">
+              </div>
+
+             <div class="col-md-6 input_box Montageort-address">
+                <label class="form-label">Strasse & Hausnummer</label>
+                <input class="form-control" id="montageort_google_address" name="contact[montageort]" type="text" placeholder="Bitte Strasse und Hausnummer eingeben" autocomplete="off">
+              </div>
+              
+              <div class="col-md-6 input_box">
+                <label class="form-label">Höhe über dem Meeresspiegel</label>
+                 <input class="form-control" id="meeresspiegel_google" type="text" inputmode="decimal" name="contact[Meeresspiegel]">
+              </div>
+            </div>	
+            
+            <hr class="cstm-hr">
+            <h2 class="mt-0">Folienart wählen</h2>
+             <p>Sie können pro Anfrage bis zu 2 Folienarten analysieren:</p>
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label">Windowfilm 1 <span class="required-field">*</span> <span class="error required-field windowfilm_1 hide">Bitte ausfüllen</span></label>
+                <select class="form-control windowfilm1_select" type="text" name="contact[windowfilm1]">
+                  <option value="" selected="selected"></option>
+                  {% for product_sonnenschutz in collections['sonnenschutzfolien'].products %}
+                  <option value="{{product_sonnenschutz.title}}">
+                    <span>{{product_sonnenschutz.title}}</span>
+                  </option>
+                  {% endfor %}
+                  {% for product_sicherheits in collections['sicherheitsfolien'].products %}
+                  <option value="{{product_sicherheits.title}}">
+                    <span>{{product_sicherheits.title}}</span>
+                  </option>
+                  {% endfor %}
+                  </select>
+              </div>			
+            </div>	
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label cmd-la">Windowfilm 2 <span style="color:#696969;margin-left:5px">(Variante 2)</span></label>
+                <select id="extni8m-windowfilm2"  lang="en" class="form-control" type="text" name="contact[windowfilm2]" ref="selectContainer">                  
+                   <option value="" selected="selected"></option>
+                  {% for product_sonnenschutz in collections['sonnenschutzfolien'].products %}
+                  <option value="{{product_sonnenschutz.title}}">
+                    <span>{{product_sonnenschutz.title}}</span>
+                  </option>
+                  {% endfor %}
+                  {% for product_sicherheits in collections['sicherheitsfolien'].products %}
+                  <option value="{{product_sicherheits.title}}">
+                    <span>{{product_sicherheits.title}}</span>
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>			
+            </div>	
+<!--             <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label">Windowfilm 3 </label>
+                <select id="eigc0k2-windowfilm3" lang="en" class="form-control" type="text" name="contact[windowfilm3]" ref="selectContainer">
+                  <option value="[object Object]" selected="selected"></option>
+                  <option value="recpVcAZIhfNOJyRg">
+                    <span>Avery R Silver 20 i</span>
+                  </option><option value="recnv0a32aojS5g3t">
+                  <span>Avery R Silver 35 i</span>
+                  </option><option value="recKHC7qy5ZBuohgo">
+                  <span>Bruxafol UV-Filter Film</span>
+                  </option><option value="recfif6odCucxFRer">
+                  <span>3M Thinsulate CC 75</span>
+                  </option><option value="recV0HZvctRBX7w5Z">
+                  <span>3M Prestige 20 Exterior</span>
+                  </option><option value="rec7QC3bzRNmBKKYG">
+                  <span>3M Prestige 40 Exterior</span>
+                  </option><option value="recoGV47tmxWdnFwS">
+                  <span>3M Prestige 70 Exterior</span>
+                  </option><option value="reciNaRJ1Uvx87qNY">
+                  <span>3M Prestige 90 Exterior</span>
+                  </option><option value="rec8Oi0sAINmMwgnl">
+                  <span>3M Silver 15 Exterior</span>
+                  </option><option value="recflKO1WUGM8UuOt">
+                  <span>3M Silver 35 Exterior</span>
+                  </option><option value="recStanvcR1U1WH9Z">
+                  <span>3M Silver 15 Plastic</span>
+                  </option><option value="rec1gl8Jq10zO5ka4">
+                  <span>Avery R Silver 20 X</span>
+                  </option><option value="rec1w3NnSu998ne4t">
+                  <span>Avery R Silver 20 XTRM</span>
+                  </option><option value="recjNNMUIOgQ3D7Cv">
+                  <span>Avery R Silver 20 Skylite XTRM</span>
+                  </option><option value="recnPlyTKsrICIpXH">
+                  <span>Avery R Silver 35 X</span>
+                  </option><option value="recTzjwizEBEuMX5d">
+                  <span>Avery DR Grey 10 X</span>
+                  </option><option value="recbxzR0ZhuDx3o2i">
+                  <span>Avery DR Grey 20 X</span>
+                  </option><option value="recgJt4Suo6uCQIJ2">
+                  <span>Avery DR Grey 35 X</span>
+                  </option><option value="recDJS7mOeYqEDRsD">
+                  <span>Avery SS Neutral 45 X</span>
+                  </option><option value="rec44vIasnJzAaHCJ">
+                  <span>Avery SS Neutral 70 X</span>
+                  </option><option value="recWG8LtRRx90hJh2">
+                  <span>3M Safty S40</span>
+                  </option><option value="recMWOYrpic47CcIT">
+                  <span>3M Safty S70</span>
+                  </option><option value="recvenkMfSd2AY1zf">
+                  <span>3M Safty S140</span>
+                  </option><option value="rec2HeeREH5a8XoDW">
+                  <span>3M Ultra S800</span>
+                  </option><option value="recLGCob95lLSrf96">
+                  <span>3M Safty S40 Exterior</span>
+                  </option><option value="recgqeD2keQRFMTRx">
+                  <span>3M Safty S70 Exterior</span>
+                  </option><option value="recmKTZHWe8rhx5UW">
+                  <span>3M Splitterschutzfilm S40</span>
+                  </option><option value="recVSjpY09IIWIw2v">
+                  <span>3M Splitterschutzfilm S70</span>
+                  </option><option value="rec58GnOV6AUoxeNz">
+                  <span>3M Splitterschutzfilm S140</span>
+                  </option><option value="recsxI1KEkBWY4Eqh">
+                  <span>3M Splitterschutzfilm S40 Exterior</span>
+                  </option><option value="receW3sR1l4W9ALtq">
+                  <span>3M Splitterschutzfilm S70 Exterior</span>
+                  </option></select>
+              </div>			
+            </div>	 -->
+          </div>
+          <div class="glasstress-section" id="fenster">
+            <h2>Fenster</h2>
+           
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label">Anzahl Gläser <span class="required-field">*</span> <span class="error anzahl required-field hide">Bitte ausfüllen</span></label>
+                <input class="form-control glass-quantity" type="text" inputmode="decimal" name="contact[Anzahl]">
+              </div>							
+            </div>
+            <div class="row">
+              <div class="col-md-6 input_box">
+                <label class="form-label">Glasbreite in mm <span class="required-field">*</span> <span class="error glasbreite required-field hide">Bitte ausfüllen</span></label>
+                <input class="form-control glass-width" type="text" inputmode="decimal" name="contact[Glasbreite]">
+              </div>							
+              <div class="col-md-6 input_box">
+                <label class="form-label">Glashöhe in mm <span class="required-field">*</span> <span class="error glashohe required-field hide">Bitte ausfüllen</span></label>
+                <input class="form-control glass-height" type="text" inputmode="decimal" name="contact[Glashöhe]">
+              </div>							
+            </div>
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label">Exposition vom Glas <span class="required-field">*</span> <span class="error expositionVomGlas required-field hide">Bitte ausfüllen</span></label>
+                <select id="exe5t7w-expositionVomGlas" lang="en" class="form-control" type="text" name="contact[expositionVomGlas]" ref="selectContainer">
+                  <option value="" selected="selected"></option>
+                  <option value="norden">
+                    <span>Norden</span>
+                  </option><option value="nordosten">
+                  <span>Nordosten</span>
+                  </option><option value="nordwesten">
+                  <span>Nordwesten</span>
+                  </option><option value="osten">
+                  <span>Osten</span>
+                  </option><option value="suden">
+                  <span>Süden</span>
+                  </option><option value="sudosten">
+                  <span>Südosten</span>
+                  </option><option value="sudwesten">
+                  <span>Südwesten</span>
+                  </option><option value="westen">
+                  <span>Westen</span>
+                  </option>
+                <option value="Alle Seiten">
+                  <span>Alle Seiten</span>
+                  </option>
+                </select>
+              </div>							
+            </div>
+            
+             <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-4 input_box pl-0">
+                    <label class="form-label ">Schiebetüren <span class="required-field">*</span> <span class="error schiebeturen required-field hide">Bitte auswählen</span> </label>
+                    <div class="form-radio radio">
+
+                      <div ref="wrapper" class="form-check radio-selected">
+                        <label for="Schiebetüren_Ja" class="form-check-label label-position-right" style="">
+                          <input id="Schiebetüren_Ja" value="Ja" lang="en" class="form-check-input" type="radio" name="contact[Schiebetüren]" >                      
+                          <span>Ja</span>
+                        </label>
+                      </div>
+
+                      <div ref="wrapper" class="form-check">
+                        <label for="Schiebetüren_Nein" class="form-check-label label-position-right" style="">
+                          <input id="Schiebetüren_Nein" value="Nein" lang="en" class="form-check-input" type="radio" name="contact[Schiebetüren]" >
+                          <span>Nein</span>
+                        </label>
+                      </div>
+                    </div>
+                    <br>
+                  </div>
+                  <div class="col-md-5 input_box">
+                    <label class="form-label ">Alter der Verglasung <span class="required-field">*</span> <span class="error Alter-der-Verglasung required-field hide">Bitte auswählen</span> </label>
+                    <div class="form-radio radio">
+
+                      <div ref="wrapper" class="form-check radio-selected">
+                        <label for="0-10-Jahre" class="form-check-label label-position-right" style="">
+                          <input id="0-10-Jahre" value="0-10 Jahre" lang="en" class="form-check-input" type="radio" name="contact[Alter-der-Verglasung]" >                      
+                          <span>0-10 Jahre</span>
+                        </label>
+                      </div>
+
+                      <div ref="wrapper" class="form-check">
+                        <label for="11-20-jahre" class="form-check-label label-position-right" style="">
+                          <input id="11-20-jahre" value="11-20 Jahre" lang="en" class="form-check-input" type="radio" name="contact[Alter-der-Verglasung]" >
+                          <span>11-20 Jahre</span>
+                        </label>
+                      </div>
+
+                      <div ref="wrapper" class="form-check">
+                        <label for="mehr-als-20-jahre" class="form-check-label label-position-right" style="">
+                          <input id="mehr-als-20-jahre" value="Mehr als 20 Jahre" lang="en" class="form-check-input" type="radio" name="contact[Alter-der-Verglasung]" >
+                          <span>Mehr als 20 Jahre</span>
+                        </label>
+                      </div>
+
+
+                    </div>
+                  </div>							
+                </div>  
+              </div>
+            
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label ">Fensterrahmen <span class="required-field">*</span> <span class="error fensterrahmen required-field hide">Bitte auswählen</span> </label>
+                <div class="form-radio radio form-radio--has-images">
+
+                  <div ref="wrapper" class="form-check radio-selected frame-input">
+                    <label for="eb50it-holzrahmen" class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'holzrahmen.png' | asset_url}});">
+
+                      <input id="eb50it-holzrahmen" value="Holzrahmen" lang="en" class="form-check-input" type="radio" name="contact[Holzrahmen][Holzrahmen]" ref="input" >
+                      <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                      <span>Holzrahmen</span>
+
+                    </label>
+                  </div>
+
+                  <div ref="wrapper" class="form-check frame-input">
+                    <label for="eb50it-metallrahmen" class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'Metallrahmen.png' | asset_url}});">
+
+                      <input id="eb50it-metallrahmen" value="Metallrahmen" lang="en" class="form-check-input" type="radio" name="contact[Holzrahmen][Holzrahmen]" ref="input" >
+                      <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                      <span>Metallrahmen</span>
+
+                    </label>
+                  </div>
+
+                  <div ref="wrapper" class="form-check frame-input">
+                    <label for="eb50it-kunststoffrahmen" class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'Kunststoffrahmen.png' | asset_url}});">
+
+                      <input id="eb50it-kunststoffrahmen" value="Kunstrahmen" lang="en" class="form-check-input" type="radio" name="contact[Holzrahmen][Holzrahmen]" ref="input" >
+                      <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                      <span>Kunststoffrahmen</span>
+
+                    </label>
+                  </div>
+                  
+                  <div ref="wrapper" class="form-check frame-input">
+                    <label for="eb50it-ohne-rahmen" class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'ohne_Rahmen-removebg.png' | file_url }});">
+
+                      <input id="eb50it-ohne-rahmen" value="Ohne Rahmen" lang="en" class="form-check-input" type="radio" name="contact[Holzrahmen][Holzrahmen]" ref="input" >
+                      <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                      <span>Ohne Rahmen</span>
+
+                    </label>
+                  </div>                  
+
+                </div>
+              </div>							
+            </div>
+            <hr class="cstm-hr">
+            <div class="row" id="sonderformat">
+                <div class="col-md-12">
+                    <h2 class="mt-0">Sonderformen und/oder Sprossenfenster <span class="required-field">*</span> <span class="error sonderformat required-field hide">Bitte auswählen</span></h2>
+                    <p class="mb-3">Handelt es sich bei Ihrem Fenster um eine Sonderform und/oder ein Sprossenfenster? Nachfolgend haben wir einige Beispiele aufgelistet:</p>
+                </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <div class="sonderformat-image-wrapper">
+                    <div class="form-radio radio form-radio--has-images">
+                        <div ref="wrapper" class="form-check radio-selected shade-input">
+                          <label for="eb50it-sonderformat " class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'SONDERFORMAT-img.png' | file_url }});background-size:cover;background-position: top;background-position-y: 10px;">
+        
+                            <input id="eb50it-sonderformat" value="sonderformat" lang="en" class="form-check-input" type="radio" name="contact[Sonderformat]" ref="input" >
+                            <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                            <span></span>
+        
+                          </label>
+                        </div>   
+                    </div>
+                </div> 
+               
+                    <div class="form-radio radio">
+                    <div ref="wrapper" class="form-check radio-selected">
+                        <label for="Sonderformat_Ja" class="form-check-label label-position-right">
+                        <input id="Sonderformat_Ja" value="Ja" lang="en" class="form-check-input" type="radio"
+                            name="contact[Sonderformat]">
+                        <span>Ja</span>
+                        </label>
+                    </div>
+                    <div ref="wrapper" class="form-check">
+                        <label for="Sonderformat_Nein" class="form-check-label label-position-right">
+                        <input id="Sonderformat_Nein" value="Nein" lang="en" class="form-check-input" type="radio"
+                            name="contact[Sonderformat]">
+                        <span>Nein</span>
+                        </label>
+                    </div>
+                    </div>
+                    <br>
+               
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <div class="sonderformat-image-wrapper">
+                    <div class="form-radio radio form-radio--has-images">
+                        <div ref="wrapper" class="form-check radio-selected shade-input">
+                          <label for="eb50it-sonderformat " class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'sprossenfenster-kunststoff.jpg' | file_url }});background-size:cover;background-position: top;background-position-y: 10px;">
+        
+                            <input id="eb50it-sonderformat" value="sonderformat" lang="en" class="form-check-input" type="radio" name="contact[Sonderformat]" ref="input" >
+                            <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                            <span></span>
+        
+                          </label>
+                        </div>   
+                    </div>
+                </div> 
+               
+                    <div class="form-radio radio">
+                    <div ref="wrapper" class="form-check radio-selected">
+                        <label for="Sprossenfensterkunststoff_Ja" class="form-check-label label-position-right">
+                        <input id="Sprossenfensterkunststoff_Ja" value="Ja" lang="en" class="form-check-input" type="radio"
+                            name="contact[Sprossenfenster-kunststoff]">
+                        <span>Ja</span>
+                        </label>
+                    </div>
+                    <div ref="wrapper" class="form-check">
+                        <label for="Sprossenfensterkunststoff_Nein" class="form-check-label label-position-right">
+                        <input id="Sprossenfensterkunststoff_Nein" value="Nein" lang="en" class="form-check-input" type="radio"
+                            name="contact[Sprossenfenster-kunststoff]">
+                        <span>Nein</span>
+                        </label>
+                    </div>
+                    </div>
+                    <br>
+               
+              </div>
+                           
+            </div>
+          
+
+
+          </div>
+
+            <div class="glasstress-section" id="innenbeschattung">
+            <h2>Innenbeschattung <span class="required-field">*</span> <span class="error innenbeschattung required-field hide">Bitte auswählen</span></h2>
+           
+                    
+            
+            <div class="row">
+              <div class="col-md-12 input_box">
+                <label class="form-label "></label>
+                <div class="form-radio radio form-radio--has-images">
+
+                  <div ref="wrapper" class="form-check radio-selected shade-input">
+                    <label for="eb50it-keine" class="form-check-label label-position-right form-check-label--radio-has-image" style="background-image: url({{'ImageTeaser_Fenster_Portfolio_Uebersicht_Allround_KS_120x.jpg' | file_url }});background-size: 65%;background-position: 15px 20px;">
+
+                      <input id="eb50it-keine" value="Keine Innenbeschattung" lang="en" class="form-check-input" type="radio" name="contact[Innenbeschattung]" ref="input" >
+                      <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                      <span>Keine Innenbeschattung</span>
+
+                    </label>
+                  </div>
+
+                  <div ref="wrapper" class="form-check shade-input">
+                    <label for="eb50it-vorhang" class="form-check-label label-position-right form-check-label--radio-has-image eb50it-vorhang" style="background-image: url({{'leha-plissee_freisteller_120x.jpg' | file_url }});background-size: 40%;background-position: 45px 3px;">
+
+                      <input id="eb50it-vorhang" value="Vorhang, Plissee, Rolle, etc." lang="en" class="form-check-input" type="radio" name="contact[Innenbeschattung]" ref="input" >
+                      <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                      <span>Vorhang, Plissee, Rolle, etc.</span>
+
+                    </label>
+                  </div>
+               
+
+                </div>
+              </div>							
+            </div>
+              
+            <div class="row hide-vorhang hide">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12 input_box">
+                    <label class="form-label ">Farbe der Innenbeschattung:</label>
+                    <div class="form-radio radio">
+
+                      <div ref="wrapper" class="form-check radio-selected">
+                        <label for="eb50it-Hell" class="form-check-label label-position-right" style="">
+                          <input id="eb50it-Hell" value="Hell" lang="en" class="form-check-input" type="radio" name="contact[Farbe-der-Innenbeschattung]" >                      
+                          <span>Hell</span>
+                        </label>
+                      </div>
+
+                      <div ref="wrapper" class="form-check">
+                        <label for="eb50it-Dunkel" class="form-check-label label-position-right" style="">
+                          <input id="eb50it-Dunkel" value="Dunkel" lang="en" class="form-check-input" type="radio" name="contact[Farbe-der-Innenbeschattung]" >
+                          <span>Dunkel</span>
+                        </label>
+                      </div>
+
+
+                    </div>
+                  </div>							
+                </div>
+              </div>							
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12 input_box">
+                    <label class="form-label ">Abstand der Innenbeschattung zum Glas</label>
+                    <div class="form-radio radio">
+
+                      <div ref="wrapper" class="form-check radio-selected">
+                        <label for="eb50it-0-10" class="form-check-label label-position-right" style="">
+                          <input id="eb50it-0-10" value="0-10 cm" lang="en" class="form-check-input" type="radio" name="contact[Abstand-der-Innenbeschattung]" >                      
+                          <span>0-10 cm</span>
+                        </label>
+                      </div>
+
+                      <div ref="wrapper" class="form-check">
+                        <label for="eb50it-11-50" class="form-check-label label-position-right" style="">
+                          <input id="eb50it-11-50" value="11-50 cm" lang="en" class="form-check-input" type="radio" name="contact[Abstand-der-Innenbeschattung]" >
+                          <span>11-50 cm</span>
+                        </label>
+                      </div>
+
+                      <div ref="wrapper" class="form-check">
+                        <label for="eb50it-50" class="form-check-label label-position-right" style="">
+                          <input id="eb50it-50" value="Mehr als 50 cm" lang="en" class="form-check-input" type="radio" name="contact[Abstand-der-Innenbeschattung]" >
+                          <span>Mehr als 50 cm</span>
+                        </label>
+                      </div>
+
+
+                    </div>
+                  </div>							
+                </div>  
+              </div>							
+            </div>   
+              
+          </div>
+
+
+          <div class="glasstress-section" id="verglasungsart">																		
+            <h2>Verglasungsart</h2>
+            <div class="row"> 
+              <div class="col-md-12 input_box">
+                <label class="form-label">Verglasungsart <span class="required-field">*</span> <span class="error verglasungsart required-field hide">Bitte auswählen</span> </label>
+                <div class="form-radio radio form-radio--has-images">
+
+                  <div ref="wrapper" class="form-check radio-selected coating-input" data-coating-name="1-fach-verglasung">
+                    <label for="e4frycm-1fachverglasung" class="form-check-label label-position-right form-check-label--radio-has-image" >
+
+                      <input id="e4frycm-1fachverglasung" value="1-fach-verglasung" lang="en" class="form-check-input" type="radio" name="contact[verglasungsart]" ref="input" >
+                      <div class="box" style="background-image: url({{'1-fach-Verglasung-21.png' | asset_url }});">
+                        <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                        <span>1-fach Verglasung</span>
+                      </div>
+                      <div class="radio-list  row_main">
+                        <div  class="glass-well-align-1" id="epmvsdo">
+
+                          <div class="card card-body bg-light">
+                            <div ref="nested-FachVerglasung">
+                              <div ref="component" class="formio-component formio-component-htmlelement formio-component-html" id="er2ieeb">
+
+                                <p ref="html" class=""><img src="{{'Glassaufbau-1-fach-Verglasung-v2.png' | asset_img_url: 'master' }}"></p>
+
+                                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                          <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                        </div>
+                        <div class="row-wrapper">
+                          <div class="row"> 
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasstärke <span class="required-field">*</span> <span class="error 1-fach-verglasung-glasstarke-innen required-field hide">Bitte ausfüllen</span></label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+
+                                  <select class="form-control" name="contact[1-fach-verglasung][glasstärke-innen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+                                  <!--                                 <span class="rs-label rs-bullet">0</span> -->                                                            
+                                  <!--                                 <input class="rs-range rs-range-line" type="range"  step="0.5" min="0" max="20" name="contact[1-fach-verglasung][glasstärke-innen]"> -->
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart <span class="required-field">*</span> <span class="error 1-fach-verglasung-glasart-innen required-field hide">Bitte ausfüllen</span></label>
+                              <select class="form-control" name="contact[1-fach-verglasung][glasart-innen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>	
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="red_color"> ( beschriftet als 2 ) </span></label>
+                              <select class="form-control" name="contact[1-fach-verglasung][beschichtung-innen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Sonnenschutzbeschichtung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low-E Beschichtung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>							
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </label>
+                  </div>
+
+                  <div ref="wrapper" class="form-check coating-input" data-coating-name="2-fach-verglasung">
+                    <label for="e4frycm-2fachverglasung" class="form-check-label label-position-right form-check-label--radio-has-image">
+                      <input id="e4frycm-2fachverglasung" value="2-fach-verglasung" lang="en" class="form-check-input" type="radio" name="contact[verglasungsart]" ref="input" >
+                      <div class="box" style="background-image: url({{'2-fach-Verglasung-21.png' | asset_url }})">
+                        <div class="icon"><img src="{{'icon.png' | asset_url }}"></div>
+                        <span>2-fach Verglasung</span>
+                      </div>
+
+                      <div class="radio-list radio-list-verglasung row_main">
+                        <div class="glass-well-align-2" id="e7r8yad">
+
+                          <div class="card card-body bg-light">
+                            <div ref="nested-FachVerglasung1">
+                              <div ref="component" class="formio-component formio-component-htmlelement formio-component-html1" id="ehya4e">
+
+                                <p ref="html" class=""><img src="{{'Glassaufbau-2-fach-Verglasung-v2.png' | asset_img_url: 'master' }}"></p>
+
+                                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                              </div>
+
+
+                            </div>
+                          </div>
+
+                          <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                        </div>
+                        <div class="row-wrapper">
+                          <div class="row">
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasstärke - aussen <span class="required-field">*</span> <span class="error 2-fach-verglasung-glasstarke-aussen required-field hide">Bitte ausfüllen</span></label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+                                  <select class="form-control" name="contact[2-fach-verglasung][glasstärke-aussen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+                                  <!--                                 <span class="rs-label rs-bullet">0</span>
+<input class="rs-range rs-range-line" type="range" step="0.5" value="0" min="0" max="20" name="contact[2-fach-verglasung][glasstärke-innen]"> -->
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart - aussen <span class="required-field">*</span> <span class="error 2-fach-verglasung-glasart-aussen required-field hide">Bitte ausfüllen</span></label>
+                              <select class="form-control" name="contact[2-fach-verglasung][glasart-aussen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="red_color"> ( beschriftet als 2 ) </span></label>
+                              <select class="form-control" name="contact[2-fach-verglasung][beschichtung-innen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Sonnenschutzbeschichtung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low-E Beschichtung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>							
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasstärke - innen <span class="required-field">*</span> <span class="error 2-fach-verglasung-glasstarke-innen required-field hide">Bitte ausfüllen</span> </label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+                                  <select class="form-control" name="contact[2-fach-verglasung][glasstärke-innen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+
+                                  <!--                                 <span class="rs-label rs-bullet">0</span>
+<input class="rs-range rs-range-line" type="range" step="0.5" value="0" min="0" max="20"> -->
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart - innen <span class="required-field">*</span> <span class="error 2-fach-verglasung-glasart-innen required-field hide">Bitte ausfüllen</span></label>
+                              <select class="form-control" name="contact[2-fach-verglasung][glasart-innen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="green_color"> ( beschriftet als 3 ) </span></label>
+                              <select class="form-control" name="contact[2-fach-verglasung][beschichtung-aussen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Sonnenschutzbeschichtung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low-E Beschichtung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>							
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </label>
+                  </div>
+
+                  <!-- 2-fach Verglasung End -->
+
+                  <div ref="wrapper" class="form-check 3fach coating-input" data-coating-name="3-fach-verglasung">
+                    <label for="e4frycm-3fachverglasung" class="form-check-label label-position-right form-check-label--radio-has-image">
+
+                      <input id="e4frycm-3fachverglasung" value="3-fach-verglasung" lang="en" class="form-check-input" type="radio" name="contact[verglasungsart]" ref="input" >
+                      <div class="box" style="background-image: url({{'3-fach-Verglasung-21.png' | asset_url}});">
+                        <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                        <span>3-fach Verglasung</span>
+                      </div>
+
+
+                      <div class="radio-list radio-list-verglasung1 row_main">
+
+                        <div  class="glass-well-align-3" id="epmvsdo">
+
+                          <div class="card card-body bg-light">
+                            <div ref="nested-FachVerglasung">
+                              <div ref="component" class="formio-component formio-component-htmlelement formio-component-html" id="er2ieeb">
+                                <p ref="html" class=""><img src="{{'Glassaufbau-3-fach-Verglasung-v2.png' | asset_img_url: 'master' }}"></p>
+                                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                        </div>
+                        <div class="row-wrapper">
+
+                          <div class="row">
+                            <div class="col-md-4 input_box pl-0">
+                              <label class="form-label">Glasstärke - aussen <span class="required-field">*</span> <span class="error fach-verglasung-3-glasstarke-aussen required-field hide">Bitte ausfüllen</span></label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+                                  <select class="form-control" name="contact[3-fach-verglasung][glasstärke-aussen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+
+                                  <!--                                 <span class="rs-label rs-bullet">0</span>
+<input class="rs-range rs-range-line" type="range" step="0.5" value="0" min="0" max="20" name="contact[3-fach-verglasung][glasstärke-innen]"> -->
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart - aussen <span class="required-field">*</span> <span class="error fach-verglasung-3-glasart-aussen required-field hide">Bitte ausfüllen</span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][glasart-aussen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="red_color"> ( beschriftet als 2 ) </span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][beschichtung-innen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Sonnenschutzbeschichtung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low-E Beschichtung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>
+                            							
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 input_box">
+                              <label class="form-label">Glasstärke - mittig <span class="required-field">*</span> <span class="error fach-verglasung-3-glasstarke-mittig required-field hide">Bitte ausfüllen</span></label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+                                  <select class="form-control" name="contact[3-fach-verglasung][glasstärke-mittig]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+
+                                  <!--                                 <span class="rs-label rs-bullet">0</span>
+<input class="rs-range rs-range-line" type="range" step="0.5" value="0" min="0" max="20" name="contact[3-fach-verglasung][glasstärke-mittig]"> -->
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-6 input_box">
+                              <label class="form-label">Glasart - mittig <span class="required-field">*</span> <span class="error fach-verglasung-3-glasart-mittig required-field hide">Bitte ausfüllen</span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][glasart-mittig]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                      
+<!--                             <div class="col-md-3 input_box">
+                              <label class="form-label">Beschichtung aussen <span class="blue_color"> ( 3 ) </span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][beschichtung-mittig-aussen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Hitzeschutzbedampfung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low e-Bedampfung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div> -->
+<!--                                   <div class="col-md-3 input_box">	
+                              <label class="form-label">Beschichtung innen <span class="blue_color">( 4 )</span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][beschichtung-mittig-innen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Hitzeschutzbedampfung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low e-Bedampfung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>															
+                            </div> -->
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasstärke - innen <span class="required-field">*</span> <span class="error fach-verglasung-3-glasstarke-innen required-field hide">Bitte ausfüllen</span></label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+
+                                  <select class="form-control" name="contact[3-fach-verglasung][glasstärke-innen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+
+                                  <!--                                 <span class="rs-label rs-bullet">0</span>
+<input class="rs-range rs-range-line" type="range" step="0.5"  	value="0" min="0" max="20"  name="contact[3-fach-verglasung][glasstärke-aussen]"> -->
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart - innen <span class="required-field">*</span> <span class="error fach-verglasung-3-glasart-innen required-field hide">Bitte ausfüllen</span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][glasart-innen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="green_color"> ( beschriftet als 5 ) </span></label>
+                              <select class="form-control" name="contact[3-fach-verglasung][beschichtung-aussen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Sonnenschutzbeschichtung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low-E Beschichtung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>
+                            							
+                          </div>
+                        </div>
+                      </div>
+
+                    </label>
+                  </div>
+
+                   <!-- 3-fach Verglasung End -->
+
+                   <!-- 4-fach Verglasung start -->
+                   <!--
+
+                   <div ref="wrapper" class="form-check ohne-rahmen coating-input" data-coating-name="ohne-rahmen">
+                    <label for="e4frycm-ohne-rahmen" class="form-check-label label-position-right form-check-label--radio-has-image">
+
+                      <input id="e4frycm-ohne-rahmen" value="ohne-rahmen" lang="en" class="form-check-input" type="radio" name="contact[verglasungsart]" ref="input" >
+                      <div class="box" style="background-image: url({{'ohne_Rahmen-removebg.png' | file_url}});">
+                        <div class="icon"><img src="{{'icon.png' | asset_url}}"></div>
+                        <span>Ohne Rahmen</span>
+                      </div>
+
+
+                      <div class="radio-list radio-list-verglasung1 row_main">
+
+                       
+                        <div class="row-wrapper">
+
+                          <div class="row">
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasstärke - aussen</label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+                                  <select class="form-control" name="contact[ohne-rahmen][glasstärke-innen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+
+                                 
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart - aussen</label>
+                              <select class="form-control" name="contact[ohne-rahmen][glasart-innen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="red_color"> ( beschriftet als 1 ) </span></label>
+                              <select class="form-control" name="contact[ohne-rahmen][beschichtung-innen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Hitzeschutzbedampfung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low e-Bedampfung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>
+                            							
+                          </div>
+                          <div class="row">
+                            <div class="col-md-3 input_box">
+                              <label class="form-label">Glasstärke - mittig</label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+                                  <select class="form-control" name="contact[ohne-rahmen][glasstärke-mittig]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+
+                                 
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-3 input_box">
+                              <label class="form-label">Glasart - mittig</label>
+                              <select class="form-control" name="contact[ohne-rahmen][glasart-mittig]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                      
+                            <div class="col-md-3 input_box">
+                              <label class="form-label">Beschichtung aussen <span class="blue_color"> ( 2 ) </span></label>
+                              <select class="form-control" name="contact[ohne-rahmen][beschichtung-mittig-aussen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Hitzeschutzbedampfung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low e-Bedampfung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>
+                                  <div class="col-md-3 input_box">	
+                              <label class="form-label">Beschichtung innen <span class="blue_color">( 3 )</span></label>
+                              <select class="form-control" name="contact[ohne-rahmen][beschichtung-mittig-innen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Hitzeschutzbedampfung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low e-Bedampfung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>															
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasstärke - innen</label>
+                              <div class="range-slider-area ">
+                                <div class="range-slider">
+
+                                  <select class="form-control" name="contact[ohne-rahmen][glasstärke-aussen]">
+                                    <option value="" selected="selected">
+                                    </option>
+                                    <option value="0.5">
+                                      <span>0.5</span>
+                                    </option>
+                                    <option value="1">
+                                      <span>1</span>
+                                    </option>
+                                    <option value="1.5">
+                                      <span>1.5</span>
+                                    </option>
+                                    <option value="2">
+                                      <span>2</span>
+                                    </option>
+                                    <option value="2.5">
+                                      <span>2.5</span>
+                                    </option>
+                                    <option value="3">
+                                      <span>3</span>
+                                    </option>
+                                    <option value="3.5">
+                                      <span>3.5</span>
+                                    </option>
+                                    <option value="4">
+                                      <span>4</span>
+                                    </option>
+                                    <option value="4.5">
+                                      <span>4.5</span>
+                                    </option>
+                                    <option value="5">
+                                      <span>5</span>
+                                    </option>
+                                    <option value="5.5">
+                                      <span>5.5</span>
+                                    </option>
+                                    <option value="6">
+                                      <span>6</span>
+                                    </option>
+                                    <option value="6.5">
+                                      <span>6.5</span>
+                                    </option>
+                                    <option value="7">
+                                      <span>7</span>
+                                    </option><option value="7.5">
+                                    <span>7.5</span>
+                                    </option>
+                                    <option value="8">
+                                      <span>8</span>
+                                    </option><option value="8.5">
+                                    <span>8.5</span>
+                                    </option>
+                                    <option value="9">
+                                      <span>9</span>
+                                    </option><option value="9.5">
+                                    <span>9.5</span>
+                                    </option>
+                                    <option value="10">
+                                      <span>10</span>
+                                    </option>
+                                    <option value="10.5">
+                                      <span>10.5</span>
+                                    </option>
+                                    <option value="11">
+                                      <span>11</span>
+                                    </option>
+                                    <option value="11.5">
+                                      <span>11.5</span>
+                                    </option>
+                                    <option value="12">
+                                      <span>12</span>
+                                    </option>
+                                    <option value="12.5">
+                                      <span>12.5</span>
+                                    </option>
+                                    <option value="13">
+                                      <span>13</span>
+                                    </option>
+                                    <option value="13.5">
+                                      <span>13.5</span>
+                                    </option>
+                                    <option value="14">
+                                      <span>14</span>
+                                    </option>
+                                    <option value="14.5">
+                                      <span>14.5</span>
+                                    </option>
+                                    <option value="15">
+                                      <span>15</span>
+                                    </option>
+                                    <option value="15.5">
+                                      <span>15.5</span>
+                                    </option>
+                                    <option value="16">
+                                      <span>16</span>
+                                    </option>
+                                    <option value="16.5">
+                                      <span>16.5</span>
+                                    </option>
+                                    <option value="17">
+                                      <span>17</span>
+                                    </option>
+                                    <option value="17.5">
+                                      <span>17.5</span>
+                                    </option>
+                                    <option value="18">
+                                      <span>18</span>
+                                    </option>
+                                    <option value="18.5">
+                                      <span>18.5</span>
+                                    </option>
+                                    <option value="19">
+                                      <span>19</span>
+                                    </option>
+                                    <option value="19.5">
+                                      <span>19.5</span>
+                                    </option>
+                                    <option value="20">
+                                      <span>20</span>
+                                    </option>
+                                  </select>
+
+                                 
+                                </div>
+                              </div>
+                            </div>							
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Glasart - innen</label>
+                              <select class="form-control" name="contact[ohne-rahmen][glasart-aussen]">
+                                <option value="" selected="selected">
+
+                                </option><option value="esg">
+                                <span>ESG</span>
+                                </option><option value="vsg">
+                                <span>VSG</span>
+                                </option><option value="tvg">
+                                <span>TVG</span>
+                                </option><option value="float">
+                                <span>Float</span>
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-md-4 input_box">
+                              <label class="form-label">Beschichtung <span class="green_color"> ( beschriftet als 4 ) </span></label>
+                              <select class="form-control" name="contact[ohne-rahmen][beschichtung-aussen]">
+                                <option value="" selected="selected"></option>
+                                <option value="hitzeschutzbedampfung">
+                                  <span>Hitzeschutzbedampfung</span>
+                                </option><option value="lowEBedampfung">
+                                <span>Low e-Bedampfung</span>
+                                </option><option value="keine">
+                                <span>Keine</span>
+                                </option></select>
+                            </div>
+                            							
+                          </div>
+                        </div>
+                      </div>
+
+                    </label>
+                  </div>
+                   -->
+                   <!-- 4-fach Verglasung End -->
+
+                </div>
+              </div>							
+            </div>
+          </div>
+          <div class="glasstress-section" id="abschluss">
+            <h2>UPLOAD <span class="required-field"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></h2>
+            <p>Fotos sind nötig  um die Situation besser beurteilen zu können. Erwünscht sind Fotos von der Aussen- und Innenansicht und ein paar Detailaufnehmen vom Fenster. Vielen Dank.</p>
+            <div class="form-group files">
+                <input type="file" id="photo" name='file' class='upload-file'  name="contact[file][photo]" multiple accept="image/png, image/gif, image/jpeg, application/pdf">
+                <input type="hidden" id="filecount" value='0'>
+              
+              <!--               <input type="file" class="form-control" multiple="" name="contact[file][photo]"> -->
+            </div>
+            
+            <div class="filename">
+              <p id="photos-area">
+                <span id="photoList">
+                  <span id="photo-names"></span>
+                </span>
+              </p>
+            </div>
+            <div class="img_error all_error"></div>
+            <p align="left">Ein Glasdatenblatt vom Glashersteller ermöglicht eine exakte Stressanalyse. Bitte laden Sie hier das Dokument hoch. WICHTIG: Bei einer 3-fach Verglasung benötigen wir zwingend das Glasdatenblatt.</p>
+            <div class="form-group files pdf-file">														
+              <input type="file" id="file" class="form-control upload-file" name="contact[file][data sheet]" multiple="multiple" multiple accept="image/png, image/gif, image/jpeg, application/pdf" />
+
+            </div>
+
+            <div class="pdfname">
+              <p id="files-area">
+                <span id="filesList">
+                  <span id="files-names"></span>
+                </span>
+              </p>
+            </div>
+            <div class="pdf_error all_error"></div>
+            <!--
+<div class="row form-bottom text-center">
+<div class="col-md-6">Dateiname</div>
+<div class="col-md-6">Dateigröße</div>
+</div>
+-->
+<p class="abschlus-info" style="color:#a5a5a5; font-size: 12px;"><span style="color:#ff0000; font-size: 12px;">*</span>Die maximale Dateigrösse aller hochgeladenen Dateien zusammen beträgt 50 MB.</p>
+          </div>
+          <!--           <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}"> -->
+          <span class="error-both"></span>
+          
+          <div class="glasstress-section" id="bemerkung">
+            <h2>Bemerkung</h2>
+            <div class="row">
+              <div class="col-md-7">
+                <textarea class="form-control" id="bemerkung" rows="5" cols="90" name="contact[Bemerkung]"></textarea>
+              </div>
+            </div>
+          </div>
+          
+			
+          <div class="custom-submit">	
+            <div class="all_error_wrapper">
+              <span class="error required-field all_error hide">Bitte füllen Sie alle Pflichtfelder aus.</span>
+            </div>
+
+            <button type="submit" id="custom_btn">Jetzt Glas-Stressanalyse einreichen</button>														
+          </div>
+
+          <div hidden id="hidden_inputs">
+            <input type="hidden" class="piece_id" value=''>
+            <input type="hidden" class="user-email" value='{{customer.email}}'>
+          </div>
+        </form>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+          $(document).ready(function(){
+
+
+            set_input_data();
+           
+
+
+            /*===============Returns url parameters==========*/
+            function get_url_params()
+            {
+              var url = decodeURI(window.location.href);
+              if(url.includes("?"))
+              {
+              	  var url_parameters = url.split('?')[1].split('&');
+
+    //            var url_string = 'https://www.folienzuschnitt.ch/pages/glas-stressanalyse-start';
+
+                  var params = [];
+                  for(let i = 0; i < url_parameters.length; i++)
+                  {
+                    var param_pair = url_parameters[i].split('=');
+                    params[param_pair[0]] = param_pair[1].replaceAll('%20', ' ');
+    //              params[url_string[i].split('=')[0]] = url_string[i];
+                  } 
+              	  return params;
+              }
+              return '';
+            }
+
+            /*===============Set url parameters==========*/
+            function set_input_data(){
+
+              var url_parameters = get_url_params();
+              if(url_parameters !== '')
+              {
+                  $('.windowfilm1_select').val(url_parameters["material_id"]);
+                  $('.glass-height').val(url_parameters["height"]);
+                  $('.glass-width').val(url_parameters["width"]);
+                  $('.glass-quantity').val(url_parameters["quantity"]);
+                  $('.project-name').val(url_parameters["proj_name"]);
+                  $('.piece_id').val(url_parameters["piece_id"]);
+                  $('#meeresspiegel_google').val(url_parameters["above_sea_level"]);
+                  if(url_parameters['location_typ'] == 'company_address' || url_parameters['location_typ'] == 'customer_address')
+                  {
+					$('#eb50it-Firmenadresse').trigger("click");
+                       $('.hide-Montageort').removeClass('hide'); 
+                       $('.Montageort-company').removeClass('hide');
+                       $('.Montageort-address').addClass('hide'); 
+                       $('#montageort_google').val(url_parameters["location"]);
+                  }
+                  else if(url_parameters['location_typ'] == 'privat_address')
+                  {
+					$('#eb50it-Privatadresse').trigger("click");
+                    $('.hide-Montageort').removeClass('hide'); 
+                    $('.Montageort-company').addClass('hide');
+                    $('.Montageort-address').removeClass('hide');
+                    $('#montageort_google_address').val(url_parameters["location"]);
+                  }
+                
+                if($('.user-email').val() === '')
+                {
+                	$('.user-email').val(url_parameters["customer_email"]);
+                }
+              }
+            }
+
+
+            $(".glasstress-nav a").on('click', function(event) {
+              if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                  scrollTop: $(hash).offset().top
+                }, 800, function(){
+
+                  window.location.hash = hash;
+                });
+              }
+            });
+            /*===============Range slider==========*/
+            $("input.rs-range-line").on('mousemove click',function (e) {
+              var curVal = $(this).val();
+              var bulletPosition = curVal/$(this).attr('max');
+              $(this).siblings('.rs-bullet').html(curVal);
+              $(this).siblings('.rs-bullet').css('left',(bulletPosition * 92) + "%");
+            });
+
+            $(".range-slider select").change(function(){
+              var value = $(this).val();
+              var that = $(this);
+              $(".range-slider select option").removeClass("disabled");
+              $(".range-slider select option").removeAttr("disabled");
+              $(this).find('option').each(function(){
+
+                var val = $(this).val();
+                var that = $(this);
+                if(val.slice(0,1).indexOf(value) > -1){
+//                   console.log(val);
+                  that.removeAttr("disabled");
+                }else{
+//                   that.attr("disabled", "disabled");
+                }
+
+
+              });
+            });
+
+
+            $(document).on("click", ".frame-input", function(){
+              $('.frame-input').removeClass('selected-frame');
+              $(this).addClass('selected-frame');
+            });
+            
+            $(document).on("click", ".coating-input", function(){
+              $('.coating-input').removeClass('selected-coating');
+              $(this).addClass('selected-coating');
+            });
+            
+            $(document).on("click", ".shade-input", function(){
+              $('.shade-input').removeClass('selected-shade');
+              $(this).addClass('selected-shade');
+            });
+
+            /* $(document).on("click", "#Sonderformat_Ja", function(){
+              $('.sonderformat-image-wrapper').removeClass('hide');
+            });
+
+            $(document).on("click", "#Sonderformat_Nein", function(){
+              $('.sonderformat-image-wrapper').addClass('hide');
+            }); */
+
+            $('.form-control').keydown(function(){
+              var value = $(this).val();
+              var val_title = $(this).parents('.input_box').find('label').text();
+              $('.price__change-title').text(val_title);
+              $('.price__change-value').text(value);
+            });
+
+            $('.form-control').change(function(){
+              var value = $(this).val();
+              var val_title = $(this).parents('.input_box').find('label').text();
+              $('.price__change-title').text(val_title);
+              $('.price__change-value').text(value);
+            });
+
+
+            $('#eb50it-vorhang').click(function() {
+             $('.hide-vorhang').removeClass('hide');              
+            });
+            
+            $('#eb50it-keine').click(function() {
+             $('.hide-vorhang').addClass('hide');
+            });
+            
+            $('#eb50it-Firmenadresse').click(function() {              
+             $('#montageort_google_address').val('');
+             $('#meeresspiegel_google').val('');
+             
+             $('.hide-Montageort').removeClass('hide'); 
+             $('.Montageort-company').removeClass('hide');
+             $('.Montageort-address').addClass('hide');             
+            });
+            
+            $('#eb50it-Privatadresse').click(function() {
+              $('#meeresspiegel_google').val('');
+              $('#montageort_google').val('');
+
+              $('.hide-Montageort').removeClass('hide'); 
+              $('.Montageort-company').addClass('hide');
+              $('.Montageort-address').removeClass('hide');
+            });
+               
+//              $(".file-delete").on('click', function() 
+//                alert("rr");
+//                 });
+         
+            
+            $('.pdfname, .filename').on('click', function(){
+              
+              let totalSize = 0;
+
+              $(".upload-file").each(function() {
+//                 console.dir(this);
+                for (let i = 0; i < this.files.length; i++) {
+                  totalSize += this.files[i].size;
+                }
+              });
+
+              let valid = totalSize >= 50000000;
+              if (!valid) {
+//                 alert("over size");
+                $('.error-both ').html('');
+                
+              }
+     
+            });
+            
+            $(".upload-file").on('change', function() {
+              let totalSize = 0;
+
+              $(".upload-file").each(function() {
+//                 console.dir(this);
+                for (let i = 0; i < this.files.length; i++) {
+                  totalSize += this.files[i].size;
+                }
+              });
+
+              let valid = totalSize <= 50000000;
+              if (!valid) {
+                $('.error-both ').html('Die maximale Grösse aller Dateien darf 50 MB nicht überschreiten.');
+                
+              }
+            });
+            var dt = new DataTransfer(); // Permet de manipuler les fichiers de l'input file
+            
+//             console.log(dt);
+	
+	$("#photo").on('change', function(e){
+              
+        $('.img_error, .error-both').html('');
+    
+        let n_totalSize = 0;
+
+        $(".upload-file").each(function() {
+          for (let i = 0; i < this.files.length; i++) {
+            n_totalSize += this.files[i].size;
+          }
+        });
+         
+        let existing_files_size = 0;
+   
+  		for(let i = 0; i < dt.items.length; i++){
+          	existing_files_size += dt.items[i].getAsFile().size;
+		}
+      
+      console.log(n_totalSize + existing_files_size);
+  
+  		if(n_totalSize + existing_files_size <= 50000000) {
+            // Ajout des fichiers dans l'objet DataTransfer
+            for (let file of this.files) {
+                let fileBloc = $('<span/>', {class: 'file-block'}),
+                    fileName = $('<span/>', {class: 'name', text: file.name});
+                fileBloc.append('<span class="photo-delete"><span>+</span></span>')
+                .append(fileName);
+                $("#photoList > #photo-names").append(fileBloc);
+                dt.items.add(file);
+            }
+			// Mise à jour des fichiers de l'input file après ajout
+          	this.files = dt.files;
+          console.log(this.files);
+        } else {
+//            console.log("3");
+           $('.img_error ').html('Die maximale Grösse aller Dateien darf 50 MB nicht überschreiten.');
+        }
+//             console.log("on change");
+//   console.log(dt);
+//       console.log("on change");
+    document.getElementById('photo').files = dt.files;
+//        console.log(dt);
+});            
+// EventListener for delete button created
+    $(document).on('click', 'span.photo-delete', function(){
+
+        $('.img_error,.error-both').html('');
+		let name = $(this).next('span.name').text();
+		
+        $( "span.photo-delete" ).next('span.name:contains("'+name+'")').parent().remove();
+                
+       var dt_remove_items = [];
+		for(let i = 0; i < dt.items.length; i++){
+			// Match file and name
+			if(name === dt.items[i].getAsFile().name){
+				dt_remove_items.push(i);
+			}
+		}
+      
+        
+        var counter = 0;
+        for (dt_remove_item of dt_remove_items) { 
+            if(counter > 0){
+              dt_remove_item = parseInt(dt_remove_item) - counter;
+            }
+           dt.items.remove(dt_remove_item);
+           counter++;
+        }
+
+		// Updating input file files after deletion
+		document.getElementById('photo').files = dt.files;
+
+	});            
+            
+var dtf = new DataTransfer(); // Permet de manipuler les fichiers de l'input file
+            
+
+
+$("#file").on('change', function(e){
+
+        $('.pdf_error,.error-both').html('');
+   		let p_totalSize = 0;
+
+  
+  		//new uploaded files
+        $(".upload-file").each(function() {
+          for (let i = 0; i < this.files.length; i++) {
+            p_totalSize += this.files[i].size;
+          }
+        });
+
+      	let existing_files_size = 0;
+   
+  		for(let i = 0; i < dtf.items.length; i++){
+     		existing_files_size += dtf.items[i].getAsFile().size;
+		}
+  
+  
+  
+  		if(p_totalSize + existing_files_size <= 50000000) {
+            
+            // Ajout des fichiers dans l'objet DataTransfer
+            
+            for (let file of this.files) {
+                
+                let fileBloc = $('<span/>', {class: 'file-block'}),
+                    fileName = $('<span/>', {class: 'name', text: file.name});
+                fileBloc.append('<span class="file-delete"><span>+</span></span>')
+                .append(fileName);
+                $("#filesList > #files-names").append(fileBloc);
+                dtf.items.add(file);
+            }
+	// Mise à jour des fichiers de l'input file après ajout
+          	this.files = dtf.files;
+        } else {
+//            console.log("2");
+           $('.pdf_error ').html('Die maximale Grösse aller Dateien darf 50 MB nicht überschreiten.');
+        }
+
+     
+    document.getElementById('file').files = dtf.files;
+
+});
+          
+	$(document).on('click', 'span.file-delete', function(){
+        $('.pdf_error,.error-both').html('');
+		let name = $(this).next('span.name').text();
+		// Supprimer l'affichage du nom de fichier
+		//$(this).parent().remove();
+        $( "span.file-delete" ).next('span.name:contains("'+name+'")').parent().remove();
+      
+      	var dtf_remove_items = [];
+		for(let i = 0; i < dtf.items.length; i++){
+			// Match file and name
+			if(name === dtf.items[i].getAsFile().name){
+				dtf_remove_items.push(i);
+			}
+		}
+      
+        
+        var counter = 0;
+        for (dtf_remove_item of dtf_remove_items) { 
+            if(counter > 0){
+              dtf_remove_item = parseInt(dtf_remove_item) - counter;
+            }
+           dtf.items.remove(dtf_remove_item);
+           counter++;
+        }
+      
+
+		// Updating input file files after deletion
+		document.getElementById('file').files = dtf.files;
+	});    
+            
+            
+           
+
+            
+              $(document).on('submit',"form#data",function(event){
+//             $("form#data").submit(function(e) {
+              //console.log("ddd");
+              event.preventDefault();
+                
+                let totalSize = 0;
+
+              $(".upload-file").each(function() {
+//                 console.dir(this);
+                for (let i = 0; i < this.files.length; i++) {
+                  totalSize += this.files[i].size;
+                }
+              });
+
+              let valid = totalSize <= 50000000;
+              if (valid) {
+                $('.error-both ').html('');
+                $('.pdf_error').html('');
+                $('.img_error').html('');
+                
+              }
+                
+//               $('.pdf_error').empty();
+//                 $('.img_error').empty();
+//                  $('.error-both').empty();
+                var count_of = $("#file").get(0).files.length;
+                var img_count_of = $("#photo").get(0).files.length;
+                
+               
+                
+                /*
+                 if(img_count_of != "")
+                {
+                  for (var i = 0; i < $("#photo").get(0).files.length; ++i)
+                     {
+                         var img =$("#photo").get(0).files[i].name;
+                         var img_ext = img.split('.').pop().toLowerCase();
+                            if($.inArray(img_ext,['jpg','jpeg','png'])===-1)
+                            {
+                               $('.img_error').html('Bitte laden Sie nur Bilddateien hoch');
+                               return false; 
+                            }
+                      }  
+
+                }
+               if($('.3fach .form-check-label input[type="radio"]:checked').val() == "3-fach-verglasung") {
+                  
+                  console.log(count_of);
+                  if(count_of != "")
+                    {
+                      for (var i = 0; i < $("#file").get(0).files.length; ++i)
+                         {
+                             var img =$("#file").get(0).files[i].name;
+                             var img_ext = img.split('.').pop().toLowerCase();
+                                if($.inArray(img_ext,['pdf'])===-1)
+                                {
+                                   $('.pdf_error').html('');
+                                   return false; 
+                                }
+                          }  
+
+                    }        
+                    else
+                    {
+                      $('.pdf_error').html('');
+                      return false;
+                    }
+                }
+                if(count_of != "")
+                {
+                  for (var i = 0; i < $("#file").get(0).files.length; ++i)
+                  {
+                    var img =$("#file").get(0).files[i].name;
+                    var img_ext = img.split('.').pop().toLowerCase();
+                    if($.inArray(img_ext,['pdf'])===-1)
+                    {
+                      $('.pdf_error').html('Bitte laden Sie nur PDF-Dateien hoch');
+                      return false; 
+                    }
+                  }  
+
+                } */
+           
+              if ($('#eb50it-Firmenadresse').is(':checked')) {
+                 var montageort = $('#montageort_google').val();                 
+              } else{
+                 var montageort = $('#montageort_google_address').val();                
+              }             
+              var meeresspiegel = $('#meeresspiegel_google').val();
+              var projektnummer = $('[name="contact[projektnummer]"]').val();
+              var windowfilm1 = $('[name="contact[windowfilm1]"]').val();
+              var windowfilm2 = $('[name="contact[windowfilm2]"]').val();
+              var windowfilm3 = $('[name="contact[windowfilm3]"]').val();
+              var Anzahl = $('[name="contact[Anzahl]"]').val();
+              var Glashohe = $('[name="contact[Glashöhe]"]').val();
+              var Glasbreite = $('[name="contact[Glasbreite]"]').val();
+              var expositionVomGlas = $('[name="contact[expositionVomGlas]"]').val();
+              var windowFrame = $('.selected-frame').find('span').html();
+
+              var Innenbeschattung = $('.selected-shade').find('span').html();
+              var Farbe_der_Innenbeschattung = $('[name="contact[Farbe-der-Innenbeschattung]"]:checked').val();
+              var Abstand_der_Innenbeschattung = $('[name="contact[Abstand-der-Innenbeschattung]"]:checked').val();
+              var Schiebeturen =  $('[name="contact[Schiebetüren]"]:checked').val();
+              var Alter_der_Verglasung = $('[name="contact[Alter-der-Verglasung]"]:checked').val();
+                
+              var Wo_installiert =  $('[name="contact[Wo-installiert]"]:checked').val();
+              var fensterrahmen_val = $('[name="contact[Holzrahmen][Holzrahmen]"]:checked').val();
+              var sonderformat_val = $('[name="contact[Sonderformat]"]:checked').val();
+              var Sprossenfensterkunststoff_val = $('[name="contact[Sprossenfenster-kunststoff]"]:checked').val();
+                           
+              var Innenbeschattung_val =  $('[name="contact[Innenbeschattung]"]:checked').val();
+              var verglasungsart_val =  $('[name="contact[verglasungsart]"]:checked').val();
+
+              var verglasungsart = $('.selected-coating').attr('data-coating-name');
+
+
+              var glass_thickness_inside = $('[name="contact['+verglasungsart+'][glasstärke-innen]"] option:selected').text();
+              var glass_type_inside = $('[name="contact['+verglasungsart+'][glasart-innen]"] option:selected').text();
+              var coating_inside_glass = $('[name="contact['+verglasungsart+'][beschichtung-innen]"] option:selected').text();
+
+
+              var glass_thickness_middle = $('[name="contact['+verglasungsart+'][glasstärke-mittig]"] option:selected').text();
+              var glass_type_middle = $('[name="contact['+verglasungsart+'][glasart-mittig]"] option:selected').text();
+              var coating_middle_in = $('[name="contact['+verglasungsart+'][beschichtung-mittig-innen]"] option:selected').text();
+              var coating_middle_out = $('[name="contact['+verglasungsart+'][beschichtung-mittig-aussen]"] option:selected').text();
+
+
+              var glass_thickness_outside = $('[name="contact['+verglasungsart+'][glasstärke-aussen]"] option:selected').text();
+              var glass_type_outside = $('[name="contact['+verglasungsart+'][glasart-aussen]"] option:selected').text();
+              var coating_outside = $('[name="contact['+verglasungsart+'][beschichtung-aussen]"] option:selected').text();
+                
+                var bemerkung = $('[name="contact[Bemerkung]"]').val();
+                
+// 			  console.log(glass_thickness_inside);
+
+
+//               var email = $('.main_page_div').attr('data_shop_email');
+              var email = $('.user-email').val();
+
+              var piece_id = $('.piece_id').val();
+
+              var pdf_count = 0;
+              var image_count = 0;
+              var form = new FormData();
+                
+                jQuery.each($('#file').prop('files'), function(i, file) {
+                  form.append("pdf_" + i, file);
+                  pdf_count++;
+	            });
+                jQuery.each($('#photo').prop('files'), function(i, file) {
+                  form.append("photo_" + i, file);
+                  image_count++;
+	            });
+              form.append("pdf_count", pdf_count);
+              form.append("image_count", image_count);
+//               form.append("pdf", $('#file').prop('files'));
+//               form.append("image", $('#photo').prop('files'));
+              form.append("installation_location", montageort);
+              form.append("above_sea_level", meeresspiegel);
+              form.append("project_name_or_number", projektnummer);
+              form.append("windowfilm1",windowfilm1);
+              form.append("windowfilm2", windowfilm2);
+              form.append("windowfilm3", windowfilm3);
+              form.append("nr_of_glasses", Anzahl);
+              form.append("glass_height_in_mm", Glashohe);
+              form.append("glass_width_in_mm", Glasbreite);
+              form.append("exposure_of_glass", expositionVomGlas);
+              form.append("window_frame", windowFrame);
+              form.append("interior_shade", Innenbeschattung);
+              form.append("interior_shade_color", Farbe_der_Innenbeschattung);
+              form.append("interior_shade_distance", Abstand_der_Innenbeschattung);
+              form.append("glass_name", verglasungsart);
+              form.append("glass_thickness_inside", glass_thickness_inside);
+              form.append("glass_type_inside", glass_type_inside);
+              form.append("coating_inside_glass", coating_inside_glass);
+              form.append("glass_thickness_middle", glass_thickness_middle);
+              form.append("glass_type_middle", glass_type_middle);
+              form.append("coating_outside", coating_middle_out);
+              form.append("coating_inside", coating_middle_in);
+              form.append("glass_thickness_outside", glass_thickness_outside);
+              form.append("glass_type_outside", glass_type_outside);
+              form.append("coating_outside_glass", coating_outside);
+              form.append("customer_remark", bemerkung);
+              form.append("email", email);
+              form.append("piece_id", piece_id);
+              form.append("sliding_doors", Schiebeturen);
+              form.append("glass_age", Alter_der_Verglasung);
+              form.append("window_special_format", sonderformat_val);
+                form.append("window_format_bar", Sprossenfensterkunststoff_val);
+
+
+                var flag=0;
+                
+               
+                
+                if(projektnummer == ''){
+                  $('.error.projektnummer').removeClass('hide');
+                	flag++;
+                }
+                else{
+                  $('.error.projektnummer').addClass('hide');
+                }
+                if(typeof Wo_installiert === 'undefined'){
+                  $('.error.montageort').removeClass('hide');
+                  flag++;
+                }
+                else{
+                  $('.error.montageort').addClass('hide');
+                }
+                if(windowfilm1 == ''){
+                	flag++;
+                  $('.error.windowfilm_1').removeClass('hide');
+                }
+                else{
+                   $('.error.windowfilm_1').addClass('hide');
+                }
+              
+                if(Anzahl==''){
+                  flag++;
+                  $('.error.anzahl').removeClass('hide');
+                }else{
+                  $('.error.anzahl').addClass('hide');
+                }
+                if(Glasbreite == ''){
+                  flag++;
+                  $('.error.glasbreite').removeClass('hide');
+                }
+                else{
+                  $('.error.glasbreite').addClass('hide');
+                }
+                if(Glashohe == ''){
+                  flag++;
+                  $('.error.glashohe').removeClass('hide');
+                }
+                else{
+                  $('.error.glashohe').addClass('hide');
+                }
+                if(expositionVomGlas == ''){
+                  flag++;
+                  $('.error.expositionVomGlas').removeClass('hide');
+                }
+                else{
+                  $('.error.expositionVomGlas').addClass('hide');
+                }
+                
+                if(typeof Schiebeturen === 'undefined'){
+                  flag++;
+                  $('.error.schiebeturen').removeClass('hide');
+                }
+                else{
+                  $('.error.schiebeturen').addClass('hide');
+                }
+                if(typeof Alter_der_Verglasung === 'undefined'){
+                  flag++;
+                  $('.error.Alter-der-Verglasung').removeClass('hide');
+                }
+                else{
+                  $('.error.Alter-der-Verglasung').addClass('hide');
+                }
+                if(typeof fensterrahmen_val === 'undefined'){
+                  flag++;
+                  $('.error.fensterrahmen').removeClass('hide');
+                }
+                else{
+                  $('.error.fensterrahmen').addClass('hide');
+                }
+                if(typeof Innenbeschattung_val === 'undefined'){
+                  flag++;
+                  $('.error.innenbeschattung').removeClass('hide');
+                }
+                else{
+                  $('.error.innenbeschattung').addClass('hide');
+                }
+                
+                if(typeof sonderformat_val === 'undefined'){
+                  flag++;
+                  $('.error.sonderformat').removeClass('hide');
+                }
+                else{
+                  $('.error.sonderformat').addClass('hide');
+                }
+
+                if(typeof Sprossenfensterkunststoff_val === 'undefined'){
+                  flag++;
+                  $('.error.sonderformat').removeClass('hide');
+                }
+                else{
+                  $('.error.sonderformat').addClass('hide');
+                }
+                
+                if(typeof verglasungsart_val === 'undefined'){
+                  flag++;
+                  $('.error.verglasungsart').removeClass('hide');
+                }
+                else{
+                  $('.error.verglasungsart').addClass('hide');
+                }
+                
+                if(verglasungsart_val == '1-fach-verglasung'){
+                  var fach_verglasung_1_glasstarke_innen =  $('[name="contact[1-fach-verglasung][glasstärke-innen]"]').val();
+                  var fach_verglasung_1_glasart_innen =  $('[name="contact[1-fach-verglasung][glasart-innen]"]').val();
+                  
+                  if(fach_verglasung_1_glasstarke_innen == ''){
+                    flag++;
+                    $('.1-fach-verglasung-glasstarke-innen').removeClass('hide');
+                  }
+                  else{
+                    $('.1-fach-verglasung-glasstarke-innen').addClass('hide');
+                  }
+                  if(fach_verglasung_1_glasart_innen == ''){
+                    flag++;
+                    $('.1-fach-verglasung-glasart-innen').removeClass('hide');
+                  }
+                  else{
+                    $('.1-fach-verglasung-glasart-innen').addClass('hide');
+                  }
+                
+                 
+                }
+                else{
+                  $('.1-fach-verglasung-glasstarke-innen').addClass('hide');
+                  $('.1-fach-verglasung-glasart-innen').addClass('hide');
+
+                }
+                
+                if(verglasungsart_val == '2-fach-verglasung'){
+                  var fach_verglasung_2_glasstarke_aussen =  $('[name="contact[2-fach-verglasung][glasstärke-aussen]"]').val();
+                  var fach_verglasung_2_glasstarke_innen =  $('[name="contact[2-fach-verglasung][glasstärke-innen]"]').val();
+                  var fach_verglasung_2_glasart_aussen =  $('[name="contact[2-fach-verglasung][glasart-aussen]"]').val();
+                  var fach_verglasung_2_glasart_innen =  $('[name="contact[2-fach-verglasung][glasart-innen]"]').val(); 
+                  
+                  
+                  if(fach_verglasung_2_glasstarke_aussen == ''){
+                    flag++;
+                    $('.2-fach-verglasung-glasstarke-aussen').removeClass('hide');
+                  }
+                  else{
+                    $('.2-fach-verglasung-glasstarke-aussen').addClass('hide');
+                  }
+                  if(fach_verglasung_2_glasstarke_innen == ''){
+                    flag++;
+                    $('.2-fach-verglasung-glasstarke-innen').removeClass('hide');
+                  }
+                  else{
+                    $('.2-fach-verglasung-glasstarke-innen').addClass('hide');
+                  }
+                  if(fach_verglasung_2_glasart_aussen == ''){
+                    flag++;
+                    $('.2-fach-verglasung-glasart-aussen').removeClass('hide');
+                  }
+                  else{
+                    $('.2-fach-verglasung-glasart-aussen').addClass('hide');
+                  }
+                  if(fach_verglasung_2_glasart_innen == ''){
+                    flag++;
+                    $('.2-fach-verglasung-glasart-innen').removeClass('hide');
+                  }
+                  else{
+                    $('.2-fach-verglasung-glasart-innen').addClass('hide');
+                  }
+                 
+                }
+                else{
+                  $('.2-fach-verglasung-glasstarke-aussen').addClass('hide');
+                  $('.2-fach-verglasung-glasstarke-innen').addClass('hide');
+                  $('.2-fach-verglasung-glasart-aussen').addClass('hide');
+                  $('.2-fach-verglasung-glasart-innen').addClass('hide');                 
+                }
+                
+                  
+                if(verglasungsart_val == '3-fach-verglasung'){
+                  var fach_verglasung_3_glasstarke_innen =  $('[name="contact[3-fach-verglasung][glasstärke-innen]"]').val();
+                  var fach_verglasung_3_glasart_innen =  $('[name="contact[3-fach-verglasung][glasart-innen]"]').val();
+                  var fach_verglasung_3_glasstarke_mittig =  $('[name="contact[3-fach-verglasung][glasstärke-mittig]"]').val();
+                  var fach_verglasung_3_glasart_mittig =  $('[name="contact[3-fach-verglasung][glasart-mittig]"]').val();
+                  var fach_verglasung_3_glasstarke_aussen =  $('[name="contact[3-fach-verglasung][glasstärke-aussen]"]').val();
+                  var fach_verglasung_3_glasart_aussen =  $('[name="contact[3-fach-verglasung][glasart-aussen]"]').val();
+                  
+                  if(fach_verglasung_3_glasstarke_innen == ''){
+                    flag++;
+                    $('.fach-verglasung-3-glasstarke-innen').removeClass('hide');
+                  }
+                  else{
+                    $('.fach-verglasung-3-glasstarke-innen').addClass('hide');
+                  }
+                  if(fach_verglasung_3_glasart_innen == ''){
+                    flag++;
+                    $('.fach-verglasung-3-glasart-innen').removeClass('hide');
+                  }
+                  else{
+                    $('.fach-verglasung-3-glasart-innen').addClass('hide');
+                  }
+                  if(fach_verglasung_3_glasstarke_mittig == ''){
+                    flag++;
+                    $('.fach-verglasung-3-glasstarke-mittig').removeClass('hide');
+                  }
+                  else{
+                    $('.fach-verglasung-3-glasstarke-mittig').addClass('hide');
+                  }
+                  if(fach_verglasung_3_glasart_mittig == ''){
+                    flag++;
+                    $('.fach-verglasung-3-glasart-mittig').removeClass('hide');
+                  }
+                  else{
+                    $('.fach-verglasung-3-glasart-mittig').addClass('hide');
+                  }
+                  if(fach_verglasung_3_glasstarke_aussen == ''){
+                    flag++;
+                    $('.fach-verglasung-3-glasstarke-aussen').removeClass('hide');
+                  }
+                  else{
+                    $('.fach-verglasung-3-glasstarke-aussen').addClass('hide');
+                  }
+                  if(fach_verglasung_3_glasart_aussen == ''){
+                    flag++;
+                    $('.fach-verglasung-3-glasart-aussen').removeClass('hide');
+                  }
+                  else{
+                    $('.fach-verglasung-3-glasart-aussen').addClass('hide');
+                  }
+                }
+                else{
+                  $('.fach-verglasung-3-glasstarke-innen').addClass('hide');
+                  $('.fach-verglasung-3-glasart-innen').addClass('hide');
+                  $('.fach-verglasung-3-glasstarke-mittig').addClass('hide');
+                  $('.fach-verglasung-3-glasart-mittig').addClass('hide');
+                  $('.fach-verglasung-3-glasstarke-aussen').addClass('hide');
+                  $('.fach-verglasung-3-glasart-aussen').addClass('hide');
+                }
+                              
+                if(img_count_of != "")
+                {
+                  for (var i = 0; i < $("#photo").get(0).files.length; ++i)
+                  {
+                    if($("#photo").get(0).files[i].size > 50000000){
+                      $('.img_error').html('Die maximale Grösse aller Dateien darf 50 MB nicht überschreiten.');
+                       flag++;
+                     }
+                  }  
+
+                }
+                
+                if(count_of != "")
+                {
+                  for (var i = 0; i < $("#file").get(0).files.length; ++i)
+                  {
+                    if($("#file").get(0).files[i].size > 50000000){
+                      $('.pdf_error').html('Die maximale Grösse aller Dateien darf 50 MB nicht überschreiten.');
+                       flag++;
+                     }
+                  }  
+
+                }
+                
+                 if($('.pdf_error').html() || $('.img_error').html() || $('.error-both').html()){
+                  
+                  // console.log("value of flag");
+                   var flag=1;
+//                   console.log(flag);
+                }
+
+                if(flag == 0){
+                  $('.all_error').addClass('hide');
+                  
+                  var settings = {
+                    "url": "https://aico.folienzuschnitt.ch/project-data",
+                    "method": "POST",
+                    "timeout": 0,
+                    "processData": false,
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": form,
+                    "cache": false
+                  };
+
+                  Swal.fire(
+                    'Erfolgreich!',
+                    'Glas-Stressanalyse wurde erfolgreich eingereicht!',
+                    'success'
+                  )
+
+                  $.ajax(settings).done(function (response) {
+                    console.log(response);
+                  });
+                }
+                else{
+                 	$('.all_error').removeClass('hide'); 
+                }
+            });
+          });
+        </script>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="map_canvas" style="display:none;height:0;overflow:hidden"></div>
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZMcV0P7mXOOkw33U9tuoNBlCZzslBklQ&callback=initAutocomplete&libraries=places&v=weekly"
+      defer
+    >
+</script>
+
+<style>
+  
+  
+  #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p{
+    transform: translate(10%,-60%);
+  }
+  /*   #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p img {
+  width: 305%;
+  max-width: 305%;
+  } */
+
+
+
+  .form-group.files input[type=file]::file-selector-button {
+    border: none;
+    padding:5px;
+    border-radius:5px;
+    background-color: #3588c8;
+    transition: 1s;
+    color:#fff;
+    cursor:pointer;
+  }
+
+  .form-group.files input[type=file]::file-selector-button:hover {
+    background-color: #2a6da0;
+    padding:5px;
+    border-radius:5px;
+    border: none;
+    color:#fff;
+  }
+
+  a.removeFile {
+    background: #3588C8;
+    color: white;
+    padding: 0px 8px;
+    border-radius: 50%;    
+    font-size: 12px;   
+  } 
+  a.removeFile:hover {    
+    color: white;     
+  } 
+
+  .mt-0{
+    margin-top:0px !important;
+  }
+  .cstm-hr{
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 20px 0;
+    margin: 30px 0;
+  }
+
+  .pdf_error,.img_error
+  {
+    color:#a5a5a5;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .glasstress-main{
+    margin: 0 auto;
+    max-width: 1180px;
+  }
+  .row {    
+    display: flex;
+    flex-wrap: wrap;    
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 25%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .col-md-4 {
+    flex: 0 0 auto;
+    width: 33.333333%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .col-md-7{
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .col-md-12 {
+    flex: 0 0 auto;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .mb-3{
+    margin-bottom:15px;
+  }
+
+  .form-control {
+    font-size: 15px;
+    font-weight: 400;
+    display:block;
+    min-height:42px;
+    border: 0px;
+    border-radius: 0;
+    background: #f5f5f5;
+    border-color: #e8e8e8;
+    color: #333;
+    box-shadow: 0px 1px 0px 0px rgb(0 0 0 / 8%) inset;
+    padding: 10px 15px;
+    outline: none;
+    width: 100%;
+    font-family: system-ui;    
+  }
+  .form-label {
+    display: block;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+  }
+
+
+
+
+  .row .form-radio--has-images {
+    display: flex;    
+    position: relative;
+  }
+  .form-radio [ref=wrapper] {
+    margin-right: 30px;
+  }
+  .form-check-label--radio-has-image input.form-check-input {
+    display: none;
+  }
+  .form-check-label--radio-has-image,
+  .form-check-label--radio-has-image .box {
+    background-repeat: no-repeat;    
+    display: block;    
+    margin: 10px auto;
+    background-size: 78%;
+    background-position: 50%;
+    border-radius: 24px;
+    background-color: #ffffff;
+  }
+  .form-check-label--radio-has-image .box{
+    width: 140px;
+    height: 140px;
+  }
+
+  .form-check-label .icon {    
+    width: 140px;
+    height: 140px;
+    top: -2px;    
+    left: -2px;    
+    transition: .3s;
+    background: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 24px;
+    border: 2px solid #e2e2e2;    
+    cursor: pointer;
+  }
+  .sonderformat-image-wrapper .form-check-label .icon {
+      width: 230px;
+    height: 230px;
+  }
+
+  .form-check-label .icon img{
+    transition: .3s;
+    opacity: 0;
+  }
+  .form-check-label--radio-has-image input:checked ~ .icon,
+  .form-check-label--radio-has-image input:checked ~ .box .icon{    
+    border: 2px solid #0f2152;
+  }
+  .form-check-label--radio-has-image input:checked ~ .icon img,
+  .form-check-label--radio-has-image input:checked ~ .box .icon img{
+    opacity: 1;
+  }
+
+  .form-check-label--radio-has-image input:checked ~ .radio-list{
+    display: block;
+  }
+
+
+  .form-check-label--radio-has-image span {
+    text-align: center;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    top: 6px; 
+  }
+  .glasstress-section .row {
+    margin-bottom: 30px;
+  }
+  .glasstress-section .row.hide-vorhang {
+    margin-bottom: 10px;
+  }
+  .glasstress-section .row.hide-vorhang .col-md-6 .row{
+    margin-bottom: 0px;
+  }
+
+  .form-check-label--radio-has-image .radio-list {
+    /* position: absolute; */
+    position: relative;
+    width: 520px;
+    left: 0;
+    margin: 70px -640px 0 0;
+    clear: both;
+    display: none;
+  }
+  .form-check-label--radio-has-image .radio-list.radio-list-verglasung{
+    margin-left: -170px;
+  }
+  .form-check-label--radio-has-image .radio-list.radio-list-verglasung1{
+    margin-left: -340px;
+    width: 740px;
+  }
+  .coating-input.ohne-rahmen .form-check-label--radio-has-image .radio-list.radio-list-verglasung1{
+    margin-left: -585px;
+    width: 800px;
+  }
+
+  .form-check-label--radio-has-image .radio-list .row-wrapper{
+    width: 90%;
+    margin-right: 0;
+  }
+
+  .form-check-label--radio-has-image .radio-list .row-wrapper .input_box {
+
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .form-check-label--radio-has-image .radio-list .row-wrapper .row .form-label span{
+    font-size: 11px;
+    margin-left: 5px;
+    letter-spacing: normal;
+    line-height: normal;
+  }
+
+  .form-check-label--radio-has-image span.red_color{   color: #fa402a;}
+  .form-check-label--radio-has-image span.blue_color{   color: #3588C8;font-weight: 800;}
+  .form-check-label--radio-has-image span.green_color{color: #379a57;font-weight: 800;}
+
+
+
+  .glasstress-section {
+    margin: 0 0 50px 0;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 20px 0;
+  }
+
+  ul.glasstress-nav {
+    background: #3588c8;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+    right: 0;
+    z-index:99999
+  }
+
+  ul.glasstress-nav li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.glasstress-nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 10px !important;
+    display: block;
+    border-bottom: 1px solid rgb(255 255 255 / 29%);
+    transition: .3s;
+  }
+
+  ul.glasstress-nav li a:hover {
+    background: #2a6da0;
+    color:#fff;
+  }
+
+
+  .range-slider-area {
+    -webkit-transition: 1s;
+    transition: 1s;
+    position: relative;
+  }
+
+  .range-slider-area .rs-range {
+    width: 100%;
+    -webkit-appearance: none;
+  }
+
+  .range-slider-area .rs-range:focus {
+    outline: none;
+  }
+
+  .range-slider-area .rs-range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #2a6da0;
+    border: 0 solid #010101;
+    border-radius: 15px;
+  }
+
+  .range-slider-area .rs-range::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    box-shadow: none;
+    background: #bfbfbf;
+    border: 0 solid #010101;
+    border-radius: 15px;
+  }
+
+  .range-slider-area .rs-range::-webkit-slider-thumb {
+    border: 2px solid #fff;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #bfbfbf;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+  }
+
+  .range-slider-area .rs-range::-moz-range-thumb {
+    border: 2px solid #fff;
+    box-shadow: 0 4px 4px #849DFF;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #bfbfbf;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -11px;
+  }
+
+  .range-slider-area .rs-range::-moz-focus-outer {
+    border: 0;
+  }
+
+  .range-slider-area .rs-label {
+    position: absolute;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    display: inline-block;
+    background: transparent;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-left: 0;
+    color: #000000;
+    font-size: 15px;
+    bottom: -20px;
+    white-space: nowrap;
+    top: auto;
+  }
+
+  .range-slider-area .rs-label::after {
+    content: "mm";
+    display: inline-block;
+    font-size: 15px;    
+    margin-top: -10px;
+  }
+
+
+
+  .files {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .files:before {
+    position: absolute;
+    bottom: 23px;
+    pointer-events: none;
+    height: auto;
+    content: "Es werden JPG-,PNG- und PDF-Dateien akzeptiert.*";
+    display: block;
+    background: url({{'icon2.png' | asset_url }}) no-repeat;
+    margin: 0 auto;
+    color: #a5a5a5;
+    text-transform: none;
+    text-align: left;
+    background-position: 0 11px;
+    font-size: 14px;
+    padding: 10px 0 10px 28px;
+  }
+
+  .files.pdf-file:before {
+    content: "Es werden JPG-,PNG- und PDF-Dateien akzeptiert.*";
+  }
+
+
+  .files input {
+    /*     outline: 2px dashed #e0e0e0; */
+    font-size: 15px;
+    font-weight: 400;
+    outline:none;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 40px 0px 60px 35%;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    background: none;
+    border:none;
+    box-shadow: none;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .custom-submit{
+    margin: 60px 0 0;
+  }
+  .custom-submit button {
+    padding: 18px 20px;
+    background: #3588c8;
+    color: #fff;
+    width: 100%;
+    border-radius: 2px;
+    font-family: system-ui;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .custom-submit button:hover {
+    background: #2a6da0;    
+  }
+  .glasstress-section:last-child {
+    border: 0;
+  }
+  #upload_file{
+    width:100%;
+  }
+  @media (min-width:750px){
+    .template-page.glasstress .page-container{
+      transform:none;
+    }
+  }
+
+
+
+
+
+  @media screen and (max-width:767px){
+    .glasstress-section .col-md-6{
+      width: 100%;
+      margin-bottom:20px;
+    }
+    .glasstress-section .row.form-bottom .col-md-6{
+      width: 50%;
+      margin-bottom:0;
+    }
+    .glasstress-section .col-md-12{
+      margin-bottom:20px;
+    }
+    .custom-submit {
+      margin: 30px 0 0;
+    }
+    .glasstress-section {
+      margin: 0 0 30px 0;
+    }
+    .glasstress-section .row{
+      margin-bottom:0;
+    }
+    .custom-submit button {
+      padding: 13px 20px;
+      font-size: 15px;
+    }
+    ul.glasstress-nav {
+      background: none;
+      margin: 20px 0;
+      padding: 0px 0 10px;
+      list-style: none;
+      position: static;
+      right: 0;
+      z-index: 99999;
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      justify-content: flex-start;
+    }
+    ul.glasstress-nav li a{
+      color: #3588c8;
+    }
+    .row .form-radio--has-images{
+      overflow-x:auto;
+      height:100%;
+    }
+    .shade-input .eb50it-vorhang {
+      background-size: 45% !important;
+      background-position: 45px 20px !important;
+    }
+  }
+  .show__price-api-wrapper {
+    display: flex;
+    padding: 15px;
+    background: #f6f6f6;
+    justify-content: space-between;
+    margin: 0 0 20px;
+  }
+  .show__price-api-title {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .show__price-api-title .price__change-title {
+    padding-right: 15px;
+  }
+  .show__price-api-title .price__change-title {
+    margin: 0;
+  }
+  @media(min-width:992px){
+    .glasstress-main .files input{
+      padding:40px 20px 60px 35%;
+    }
+  }
+  @media (min-width:768px) and (max-width:1359px){
+    .custom-submit {
+      margin: 30px 0 0;
+    }
+    .glasstress-section {
+      margin: 0 0 30px 0;
+    }
+    .glasstress-section .row.form-bottom{
+      margin: 0;
+
+    }
+  }
+
+  @media screen and (max-width:1750px){
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p{
+      transform: translate(-150%,-100%);
+    }
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p img {
+      width: 256%;
+      max-width: 256%;
+    }
+
+    #verglasungsart .form-radio .form-check .row_main .formio-component p {
+
+      transform: translate(-25%,-100%);
+    }
+    #verglasungsart .form-radio .form-check .row_main .formio-component p img {
+      width: 130%;
+      max-width: 130%;
+/*       width: 100%;
+      max-width: 100%; */
+    }
+  }
+  
+  @media screen and (max-width:1450px){
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p img {
+      width: 230%;
+      max-width: 230%;
+    }
+    #verglasungsart .form-radio .form-check .row_main .formio-component p {
+
+      transform: translate(-26%,-100%);
+    }
+    #verglasungsart .form-radio .form-check .row_main .formio-component p img {
+              width: 125%;
+      max-width: 125%;
+/*       width: 100%;
+      max-width: 100%; */
+    }
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p {
+      transform: translate(-145%,-105%);
+    }
+  }
+
+
+  @media screen and (max-width:1250px){
+
+
+  }
+
+
+  @media(max-width:1250px){
+    .form-check-label--radio-has-image .radio-list .row-wrapper .input_box {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    #verglasungsart .form-radio .form-check .row_main .formio-component p,
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p {
+      transform: none;
+    }
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p img {
+      width: auto;
+      max-width: max-content;
+    }
+    #verglasungsart .form-radio .form-check .row_main .formio-component p img {
+          width: 600px;
+    max-width: max-content;
+    }
+  }
+
+
+
+  @media(max-width:767px){
+    .radio-list-verglasung .input_box{
+      width:100%;
+      margin:0 0 25px;
+    }
+    .radio-list-verglasung1 .col-md-3{
+      width:100%;
+      margin:0 0 25px;
+    }
+    .form-check-label--radio-has-image .radio-list.radio-list-verglasung1{
+      width:520px;
+    }
+    #verglasungsart .form-radio .form-check .row_main .formio-component p img {
+        width: 100%;
+        max-width: max-content;
+    }
+  }
+  @media(max-width:590px){
+    .form-check-label--radio-has-image .radio-list,
+    .form-check-label--radio-has-image .radio-list.radio-list-verglasung1{
+      width:320px;
+    }
+    .formio-component p {
+      max-width: 200px;
+    }
+    .radio-list-verglasung .input_box{
+      width:100%;
+      margin:0 0 25px;
+    }
+    .radio-list-verglasung1 .col-md-3{
+      width:100%;
+      margin:0 0 25px;
+    }
+    #verglasungsart .form-radio .form-check:last-child .row_main .formio-component p img {
+       
+           width: 300px;
+    max-width: initial;
+    }
+    .sonderformat-image-wrapper .form-check-label .icon {
+        width: 250px;
+        height: 250px;
+    }
+  }
+  @media(max-width:380px){
+    .show__price-api-wrapper {
+      flex-direction: column;
+      align-items: self-start;
+    }
+    .show__price-api-title {
+      margin: 0 0 15px;
+      flex-direction: column;
+    }
+    .show__price-api-title .price__change-title{
+      padding:0 0 15px;
+    }
+    .form-check-label--radio-has-image .radio-list
+    {
+      width:259px;
+    }
+  }
+
+  @media (min-width:320px) and (max-width:991px){
+    ul.glasstress-nav li a{
+      font-size: 14px;
+      padding: 5px 10px !important;
+
+    }    
+    .files{
+      width:100%;
+    }
+    .files input{
+      padding:40px 10% 90px 10%;
+      margin: 0 0 15px;
+    }
+    .files:before{
+      margin:0 30px;
+    }
+  }
+
+  @media (min-width:992px) and (max-width:1199px){
+    ul.glasstress-nav li a{
+      font-size: 16px;
+      padding: 5px 20px !important;
+    }   
+    .files{
+      width:70%;
+    }
+    .files input{
+      padding:40px 20% 90px 20%;
+    }
+    .files:before{
+      margin:0 30px;
+    }
+  }
+  @media (min-width:768px) and (max-width:991px){
+    .files input {
+      padding: 40px 10% 60px 10%;
+    }
+  }
+  .cmd-la span
+  {
+    font-size:14px;
+    font-style: italic;
+  }
+  .required-field{
+    font-size: 12px;
+    color: #fa402a;
+  }
+  .all_error_wrapper {
+    margin-bottom: 15px;
+  }
+  .error.innenbeschattung{
+    text-transform: initial;
+    letter-spacing: initial;
+    font-weight: normal;
+  }
+
+
+  #files-area,
+  #photos-area{
+    width: 100%;
+  }
+  .file-block,
+  .photo-block{
+    display: flex;
+    margin-bottom: 5px;
+  }
+  .file-block > span.name,
+  .photo-block > span.name{
+    padding-right: 10px;
+    width: max-content;
+    display: inline-flex;
+  }
+  .file-delete,
+  .photo-delete{
+    display: flex;
+    width: 24px;
+    justify-content: center;
+    margin-right: 3px;
+    cursor: pointer;
+    background: #3588C8;
+    color: white;
+    border-radius: 50%;  
+
+    max-width: 24px;
+    height: 24px;
+    max-height: 24px;
+    min-height: 24px;
+    min-width: 24px;  
+
+  }
+  /*.file-delete:hover,
+  .photo-delete:hover{
+  background-color: rgba(144, 163, 203, 0.2);
+  }*/
+  .file-delete > span,
+  .photo-delete > span{
+    transform: rotate(45deg);
+  }
+  .pl-0{
+    padding-left: 0;
+  }
+</style>

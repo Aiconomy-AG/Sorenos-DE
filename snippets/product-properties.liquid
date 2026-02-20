@@ -1,0 +1,29 @@
+<div class="line-item-property__field">
+  <label>Inklusive Zeigetasche und Folienspezifikation</label>
+  
+  <div class="property__field-dropdown">
+    <div class="property__field-text">
+      <span class="pre-selected">Gewünschte Folie auswählen und einzeln in den Warenkorb legen</span>
+      <div class="property__field-inner-text"></div>
+    </div>
+    <div class="property__field-list"><span class="close-dropdown"></span>
+      <div class="property__field--wrapper">
+        {% for product_nw in collections['sonnenschutzfolien'].products %}
+<script type='application/json' class='bold-product-json'>{{ product_nw | json }}</script>
+        <div class="property__field-wrap">
+          <input type="checkbox" id="{{product_nw.handle}}" name="properties[{{product_nw.title}}]" value="{{product_nw.title}}">
+          <label class="ep_inline_block" for="{{product_nw.handle}}">{{product_nw.title}}</label>
+        </div>
+        {% endfor %}
+
+        {% for product_nw in collections['sicherheitsfolien'].products %}
+<script type='application/json' class='bold-product-json'>{{ product_nw | json }}</script>
+        <div class="property__field-wrap">
+          <input type="checkbox" id="{{product_nw.handle}}" name="properties[{{product_nw.title}}]" value="{{product_nw.title}}">
+          <label class="ep_inline_block" for="{{product_nw.handle}}">{{product_nw.title}}</label>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,306 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/localization/messages_de.js"></script>
+  
+<script>
+  document.getElementById('form-more-windows-inner').addEventListener('click', function() {
+    const formWrapper = document.getElementById('form-wrapper');
+    const newIndex = formWrapper.getElementsByClassName('cform_field_wrapper').length + 1;
+
+    const newForm = document.createElement('div');
+    newForm.classList.add('cform_field_wrapper');
+    newForm.innerHTML = `
+      <div class="cform_fouritems">
+    <div class="cform_fouritems-inner">
+      <label for="field_${newIndex}">Glas Breite cm</label>
+      <input type="text" id="field_${newIndex}" name="fenster[${newIndex}][glassWidth]" value="">
+    </div>
+    <div class="cform_fouritems-inner">
+      <label for="field_${newIndex}">Glas Höhe cm</label>
+      <input type="text" id="field_${newIndex}" name="fenster[${newIndex}][glassHeight]" value="">
+    </div>
+    <div class="cform_fouritems-inner">
+      <span>Verglasung</span>
+      <select name="fenster[${newIndex}][glazing]">
+        <option value="">Bitte auswählen</option>
+        <option value="1-fach">1-fach</option>
+        <option value="2-fach">2-fach</option>
+        <option value="3-fach">3-fach</option>
+      </select>
+    </div>
+    <div class="cform_fouritems-inner">
+      <span>Ausrichtung</span>
+      <select name="fenster[${newIndex}][orientation]">
+        <option value="">Bitte auswählen</option>
+        <option value="Südost">Südost</option>
+        <option value="Süd">Süd</option>
+        <option value="Südwest">Südwest</option>
+        <option value="West">West</option>
+        <option value="Nordwest">Nordwest</option>
+        <option value="Nord">Nord</option>
+        <option value="Nordost">Nordost</option>
+        <option value="Ost">Ost</option>
+      </select>
+    </div>
+  </div>
+  <div class="cform_fouritems">
+    <div class="cform_fouritems-inner">
+      <span>Lage</span>
+      <select name="fenster[${newIndex}][location]">
+        <option value="">Bitte auswählen</option>
+        <option value="Fassadenfenster">Fassadenfenster</option>
+        <option value="Dachfenster">Dachfenster</option>
+        <option value="Glastrennwände">Glastrennwände</option>
+      </select>
+    </div>
+    <div class="cform_fouritems-inner">
+      <span>Wunsch</span>
+      <select name="fenster[${newIndex}][request]">
+        <option value="">kein Bedürfnis</option>
+        <option value="Hitzeschutz">Hitzeschutz</option>
+        <option value="UV-Schutz">UV-Schutz</option>
+        <option value="Blendschutz">Blendschutz</option>
+        <option value="Splitterschutz">Splitterschutz</option>
+        <option value="Einbruchschutz">Einbruchschutz</option>
+        <option value="Sichtschutz">Sichtschutz</option>
+      </select>
+    </div>
+    <div class="cform_fouritems-inner">
+      <span>Einsatzort</span>
+      <select name="fenster[${newIndex}][applicationSite]">
+        <option value="">Bitte auswählen</option>
+        <option value="Büro">Büro</option>
+        <option value="Privat">Privat</option>
+        <option value="Gewerbe">Gewerbe</option>
+      </select>
+    </div>
+    <div class="cform_fouritems-inner">
+      <span>Anzahl</span>
+      <input type="text" name="fenster[${newIndex}][quantity]" value="">
+    </div>
+  </div>
+  <div class="product-upload-photos-wrapper">
+    <div class="cform_fouritems-inner input--line">
+      <label for="field8">Mitteilung*</label>
+      <textarea name="fenster[${newIndex}][remarks]" required></textarea>
+    </div>
+    <div class="cform_fouritems-inner input--button">
+      <label for="field9">Fotos (max. 3) </label>
+      <label for="file-upload_${newIndex}" class="custom-file-upload btn button">
+            Fotos auswählen
+      </label>
+      <input
+        id="file-upload_${newIndex}" 
+        type="file"
+        name="fenster[${newIndex}][photos]"
+        value=""
+        accept="image/png, image/gif, image/jpeg, application/pdf"
+        multiple
+        class="file_input button"
+      >
+    </div>
+  </div>`;
+   
+    formWrapper.appendChild(newForm);
+  });
+
+  $(document).on('click','#send_form_data', function() {
+    const $this = $(this);
+    const $formWrapper = $('#form-wrapper');
+    const $formItems = $formWrapper.find('.cform_field_wrapper');
+    // Create a new FormData object
+    var formData = new FormData();    
+    var attributes = []; 
+    var file_count = 0;
+    
+    $formItems.each(function(index, item) {
+        let inputVal = 0;
+        const $inputs = $(item).find('input, select, textarea');
+        const windowData = {};
+        var photos = [];      
+        let indexval = index+1;
+        
+      
+        $inputs.each(function(_, input) {            
+            const name = $(input).attr('name'); 
+            if(name){ 
+                const finalname =  name.match(/\[([a-zA-Z_]+)\]$/)[1];                                      
+                //console.log('finalname',finalname);                
+              
+                if(finalname == 'photos'){
+                  var files = $('input[name="fenster['+indexval+'][photos]"]')[0].files;
+                  // Check if the input has files
+                  if (files && files.length > 0) {
+                    for (var i = 0; i < files.length; i++) {
+                        //formData.append('files[]', files[i]);
+                        file_count++;
+                        formData.append("file_" + file_count, files[i]);
+                        //console.log(files[i]);                    
+                    } 
+                  }
+                }
+                else {
+                  windowData[finalname] = $(input).val();
+                }
+              
+                if($(input).val() !== '') {
+                    inputVal++;
+                }
+            }
+        });   
+      
+        if(inputVal > 0) {
+            //formData[`fenster_${index + 1}`] = windowData;
+        }
+       
+        attributes.push(windowData);
+        
+    });    
+  
+    const $contactFormWrapper = $('.contact-productpage-wrapper');
+    const formValues = $contactFormWrapper.find('input, textarea').toArray().reduce((values, input) => {
+        values[$(input).attr('name')] = $(input).val();
+        return values;
+    }, {});
+
+    const contact = Object.keys(formValues).reduce((result, key) => {
+        const newKey = key.replace(/^contact\[(.+)\]$/, '$1');
+        result[newKey] = formValues[key];
+        return result;
+    }, {});
+
+    var formValue = {
+        "x-shopify-shop-domain": "{{ shop.permanent_domain }}",
+        "emailTo": "info@sorenos.ch",
+        "product": {
+          "name": '',
+          "quantity": '',
+          "sku": ''
+        },
+        "attributes": attributes,
+        "contactFields": contact        
+    };
+
+   
+    $("form.offer_form").validate({
+        lang: 'de',
+        errorPlacement: function(error, element) {
+            error.addClass("custom-error");
+            error.appendTo(element.parent());
+        },
+        wrapper: 'div',
+        highlight: function(element, errorClass, validClass) {
+            $(element).addClass('error-highlight');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass('error-highlight');
+        }
+    });
+
+    if ($('form#offer_contact_form').valid()) {
+     
+      // Append structured data as JSON
+      formData.append('file_count', file_count);
+      formData.append('structuredData', JSON.stringify(formValue));
+      //console.log(JSON.stringify(formValue));
+      //console.log('file_count',file_count);
+      
+      $.ajax({
+        url: "https://app.aico.swiss/67606625/api/product-offer-request-mail",        
+        type: "POST",
+        data: formData,        
+        timeout: 0,
+        contentType: false, // Important for multipart/form-data
+        processData: false, // Don't process the data (jQuery defaults to processing as URL-encoded)    
+        mimeType: "multipart/form-data",        
+        cache: false,
+        headers:{"Authorization": "Bearer wa1yz2iWhnsi9K14igUhU4OwFPMKEPIT0fKIE3nE061e3c6d"},
+        beforeSend: function(){
+          $this.addClass('loading');
+          $this.find('.loading-overlay__spinner').removeClass('hidden');
+          $this.attr('aria-disabled',true);
+          $this.attr('disabled',true);
+          $this.parents('.offer_form').find('div#form_error').addClass('hidden');
+          $this.parents('.offer_form').find('div#form_success').addClass('hidden');
+        },
+        success: function (data) {
+          $this.parents('.offer_form').find('div#form_success').removeClass('hidden');
+          $('.contact-productpage-wrapper').find('input, textarea, select, file').val('');
+          $('.cform_field_wrapper').find('input, textarea, select').val('');
+          $('.cform_field_wrapper:not(:first-child)').remove();
+          setTimeout(function(){
+            $this.parents('.offer_form').find('div#form_error').addClass('hidden');
+            $this.parents('.offer_form').find('div#form_success').addClass('hidden');
+            $('.product-popup-modal__toggle').trigger('click');
+          },3000);
+        },
+        complete:function(){
+          $this.removeClass('loading');
+          $this.find('.loading-overlay__spinner').addClass('hidden');
+          $this.attr('aria-disabled',false);
+          $this.attr('disabled',false);
+        },
+        error:function(jqXHR, textStatus, errorThrown ){
+          $this.parents('.offer_form').find('div#form_error').removeClass('hidden');
+        }
+      });
+    }
+});
+
+  $(document).ready(function() {
+
+       $(document).on('change','#request-offer-modal .cform_fouritems select', function(event) {     
+         if ($(this).val()) {
+           $(this).addClass('selected');
+         }
+         else {
+           $(this).removeClass('selected');
+         }
+      });
+    
+      $(document).on('click','.offer-wrap .btn-offerte', function(event) {
+          event.preventDefault();
+          $("#request-offer-modal").addClass('active');
+          $("body").addClass('body_wrapper');
+      });
+
+      $(".product-popup-modal .modal__close").click(function(){
+        $("#request-offer-modal").removeClass('active');
+        $("body").removeClass('body_wrapper');
+      });
+
+      // Close popup when clicking outside of it
+      $(document).on('mouseup touchstart', function(e) {
+        var $popup = $('#request-offer-modal');       
+        // If the target of the click isn't the popup or its descendants
+        //!$popup.is(e.target) && 
+        if ($popup.has(e.target).length === 0) {
+          $popup.removeClass('active'); // Hide popup
+          $("body").removeClass('body_wrapper'); // remove class from body
+        }
+      });
+
+      $(".product-popup-modal .cform_fouritems .tooltip").mouseenter(function() {
+          $(this).next().addClass('active');
+      }).mouseleave(function() {
+          $(this).next().removeClass('active');
+      });
+    
+      /*$(".product-popup-modal .cform_fouritems .tooltip").on("click", function () {
+         //$(".product-popup-modal .cform_fouritems .tooltip_content").removeClass('active');
+         $(this).next().toggleClass('active');
+      });*/
+      
+      $(document).on('change','.file_input', function() {
+        const maxFiles = 3;
+        const files = $(this).get(0).files;
+        
+        if (files.length > maxFiles) {
+          alert(`Sie können nur maximal ${maxFiles} Dateien hochladen`);
+          $(this).val(''); // Clear the selected files
+        }
+      });
+    
+  });
+  
+</script>

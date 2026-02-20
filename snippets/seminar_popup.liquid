@@ -1,0 +1,439 @@
+<style>
+  .wrapper {
+    height: 100vh;
+    /* This part is important for centering the content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* End center */
+    background: -webkit-linear-gradient(to right, #834d9b, #d04ed6);
+    background: linear-gradient(to right, #834d9b, #d04ed6);
+  }
+
+  .product-popup-modal.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, .7);
+    transition: all .4s;
+  }
+
+  .product-popup-modal.modal.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .product-popup-modal .modal__content {
+    border-radius: 4px;
+    position: relative;
+    width: 630px;
+    max-width: 90%;
+    background: #fff;
+    padding: 3em 4em;
+    text-align: center;
+  }
+
+  .product-popup-modal .modal__close {
+    position: absolute;
+    top: 0px;
+    right: 8px;
+    color: #585858;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 30px;
+  }
+
+  #event-offer-modal.product-popup-modal .modal__content {
+      border-radius: 4px;
+      position: absolute;
+      width: 100%;
+      max-width: 95%;
+      background: #fff;
+      padding: 3em 4em;
+      text-align: left;
+
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      padding: 100px;
+      height: 80%;
+      top: 50%;
+      overflow: auto;
+      max-width: 600px;
+  }
+  #event-offer-modal.product-popup-modal .product-popup-modal__toggle {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      z-index: 1;
+      border: 0;
+      padding: 0;
+      justify-content: flex-end;
+      display: flex;
+  }
+
+  #event-offer-modal {
+    z-index: 99;
+    overflow: auto;
+    position: fixed;
+  }
+  .product-popup-modal .custom-error label.error {
+    color: #d20000;
+    font-size: 16px !important;
+  }
+  #form_success {
+    color: green;
+    margin-top: 5px;
+  }
+  #form_error {
+    color: red;
+    margin-top: 5px;
+  }
+  button.send_form_data[disabled] {
+     opacity: 0.5;
+     cursor: no-drop;
+  }
+</style>
+<div id="event-offer-modal" class="modal product-popup-modal">
+  <div class="modal__content">
+    <div class="modal__innercontent">
+      <!-- Popup Content start -->
+      <div class="product-popup-modal__content-info">
+        <form method="post" class="offer_form" id="offer_contact_form" enctype="multipart/form-data">
+          {% if is_anfrage == true %}
+            {% assign subject = 'ANFRAGE: ' | append: product.title %}
+          {% else %}
+            {% assign subject = 'ANMELDUNG: ' | append: product.title %}
+          {% endif %}
+
+          <input type="hidden" name="contact[subject]" value="{{ subject }}">
+          <input type="hidden" name="contact[date]" value="{{ startdate }}">
+
+          <div class="product__form-wrapper-outer">
+            <div class="contact-productpage-wrapper">
+              <div class="gradient">
+                <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+                  <div class="right--align_form">
+                    <h2 class="title title-wrapper--no-top-margin inline-richtext h1">
+                      {{ product.title }}
+                    </h2>
+
+                    <div class="cpform_row">
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-name">
+                          Anrede
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <select class="field__input field__select" name="contact[salutation]">
+                          <option value="Herr">Herr</option>
+                          <option value="Frau">Frau</option>
+                        </select>
+                      </div>
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-name">
+                          Vorname
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          class="field__input"
+                          type="text"
+                          id="ContactForm-name"
+                          name="contact[firstName]"
+                          value=""
+                          placeholder="Vorname"
+                          required
+                        >
+                      </div>
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-lastname">
+                          Nachname
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          class="field__input"
+                          type="text"
+                          id="ContactForm-lastname"
+                          name="contact[lastName]"
+                          value=""
+                          placeholder="Nachname"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="cpform_row">
+                      <div class="cpform_row blank_col">
+                        <div class="field">
+                          <label class="field__label" for="ContactForm-company"> Firma </label>
+                          <input
+                            class="field__input"
+                            type="text"
+                            id="ContactForm-company"
+                            name="contact[company]"
+                            value=""
+                            placeholder="Firma"
+                          >
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-street">
+                          Strasse
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          class="field__input"
+                          type="text"
+                          id="ContactForm-street"
+                          name="contact[streetAndNumber]"
+                          value=""
+                          placeholder="Strasse"
+                          required
+                        >
+                      </div>
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-Postcode">
+                          PLZ
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          class="field__input"
+                          type="text"
+                          id="ContactForm-Postcode"
+                          name="contact[zipAndCity]"
+                          value=""
+                          placeholder="PLZ"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="cpform_row blank_col">
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-Ort"> Ort <span aria-hidden="true">*</span></label>
+                        <input
+                          class="field__input"
+                          type="text"
+                          id="ContactForm-Ort"
+                          name="contact[zipAndCityDifferent]"
+                          value=""
+                          placeholder="Ort"
+                          required
+                        >
+                      </div>
+                    </div>
+                    <div class="cpform_row">
+                      <div class="field field--with-error">
+                        <label class="field__label" for="ContactForm-email">
+                          E-Mail
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          autocomplete="email"
+                          type="email"
+                          id="ContactForm-email"
+                          class="field__input"
+                          name="contact[email]"
+                          spellcheck="false"
+                          autocapitalize="off"
+                          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                          aria-required="true"
+                          {% if form.errors contains 'email' %}
+                            aria-invalid="true"
+                            aria-describedby="ContactForm-email-error"
+                          {% endif %}
+                          placeholder="email"
+                          required
+                        >
+                        {%- if form.errors contains 'email' -%}
+                          <small class="contact__field-error" id="ContactForm-email-error">
+                            <span class="form__message">
+                              {%- render 'icon-error' -%}
+                              {{- form.errors.translated_fields.email | capitalize }}
+                              {{ form.errors.messages.email -}}
+                            </span>
+                          </small>
+                        {%- endif -%}
+                      </div>
+                      <div class="field">
+                        <label class="field__label" for="ContactForm-phone">
+                          Telefon
+                          <span aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          id="ContactForm-phone"
+                          class="field__input"
+                          autocomplete="tel"
+                          name="contact[phone]"
+                          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                          placeholder="Telefon"
+                          required
+                        >
+                      </div>
+                    </div>
+
+                    <div class="cpform_textarea">
+                      <div class="field">
+                        <label class="form__label field__label" for="ContactForm-body">
+                          Anmerkung
+                          
+                        </label>
+                        <textarea
+                          id="ContactForm-body"
+                          class="text-area field__input"
+                          name="contact[message]"
+                          placeholder="Anmerkung"
+                          
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    {% if is_anfrage == true %}
+                      {% assign btn_lable = 'Anfragen' %}
+                    {% else %}
+                      {% assign btn_lable = 'Anmeldung' %}
+                    {% endif %}
+                    <div class="contact__button">
+                      <button type="button" id="send_form_data" class="button send_form_data">
+                        {{ btn_lable }}
+                      </button>
+                    </div>
+                    <div
+                      id="form_success"
+                      class="form-status form-status-list form__message hidden"
+                      tabindex="-1"
+                      autofocus=""
+                    >
+                      Vielen Dank! Wir melden uns bald bei Ihnen.
+                    </div>
+
+                    <div
+                      id="form_error"
+                      class="form-status form-status-list form__message hidden"
+                      tabindex="-1"
+                      autofocus=""
+                    >
+                      <span>Etwas ist schief gelaufen, bitte versuchen Sie erneut.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Popup Content end -->
+    </div>
+    <a href="#" class="modal__close">&times;</a>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $(document).on('click','.section__event .btn_anmeldung', function(event) {
+          event.preventDefault();
+          $("#event-offer-modal").addClass('active');
+          $("body").addClass('body_wrapper');
+      });
+
+      $(".product-popup-modal .modal__close").click(function(){
+        $("#event-offer-modal").removeClass('active');
+        $("body").removeClass('body_wrapper');
+      });
+
+  });
+
+  function getFormData($form){
+      var unindexed_array = $form.serializeArray();
+      var indexed_array = {};
+      $.map(unindexed_array, function(n, i){
+          // With contact[]
+          //indexed_array[n['name']] = n['value'];
+          // Without contact[]
+          var inputName = n['name'];
+          var finalName = inputName.replace(/contact\[(.*?)\]/, '$1');
+          indexed_array[finalName] = n['value'];
+      });
+      return indexed_array;
+  }
+
+  $(document).on('click','#send_form_data', function() {
+      const $this = $(this);
+
+      $("form.offer_form").validate({
+        lang: 'de',
+        errorPlacement: function(error, element) {
+            console.log(error,element);
+            error.addClass("custom-error");
+            error.appendTo(element.parent());
+        },
+        wrapper: 'div',
+        highlight: function(element, errorClass, validClass) {
+            $(element).addClass('error-highlight');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).removeClass('error-highlight');
+        }
+      });
+
+      if ($('form.offer_form').valid()) {
+
+          var $form = $("form.offer_form");
+          var formData = getFormData($form);
+
+          var contact_Name = ''+formData.salutation+' '+formData.firstName+' '+formData.lastName+'';
+          var contact_address = ''+formData.streetAndNumber+' '+formData.zipAndCity+' '+formData.zipAndCityDifferent+'';
+          var formValue = {
+              "x-shopify-shop-domain": "{{ shop.permanent_domain }}",
+              "person-email": "info@sorenos.ch", // mail send to
+              // "person-email": "d.groza@aico.swiss", // mail send to
+              "subject": formData.subject,
+              "contact_date":formData.date,
+              "contact_Name": contact_Name,
+              "contact_email": formData.email,
+              "contact_telefonnummer": formData.phone,
+              "contact_organisation": formData.company,
+              "contact_PLZ": formData.zipAndCity,
+              "contact_ort": formData.zipAndCityDifferent,
+              "contact_strasse": formData.streetAndNumber,
+              "contact_Kommentar": formData.message
+          };
+
+        console.log(JSON.stringify(formValue));
+
+          $.ajax({
+          url: "https://app.aico.swiss/67606625/api/v1/ecommerce-orders/contact-mail",
+          type: 'POST',
+          contentType: 'application/vnd.api+json',
+          data: JSON.stringify(formValue),
+          dataType: 'json',
+          headers:{"Authorization": "Bearer wa1yz2iWhnsi9K14igUhU4OwFPMKEPIT0fKIE3nE061e3c6d"},
+          beforeSend: function(){
+            $this.attr('disabled',true);
+            $this.parents('.offer_form').find('div#form_error').addClass('hidden');
+            $this.parents('.offer_form').find('div#form_success').addClass('hidden');
+          },
+          success: function (data) {
+            $this.parents('.offer_form').find('div#form_success').removeClass('hidden');
+            $('.offer_form').find('input, textarea, select').val('');
+          },
+          complete:function(){
+            $this.attr('disabled',false);
+          },
+          error:function(jqXHR, textStatus, errorThrown ){
+            $this.parents('.offer_form').find('div#form_error').removeClass('hidden');
+          }
+        });
+
+      }
+      else {
+         //console.log('not valid');
+      }
+
+   });
+</script>

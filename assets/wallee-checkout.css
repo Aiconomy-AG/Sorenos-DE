@@ -1,0 +1,117 @@
+@-webkit-keyframes rotate {
+	 0% {
+		 -webkit-transform: rotate(0);
+		 transform: rotate(0);
+	}
+	 100% {
+		 -webkit-transform: rotate(360deg);
+		 transform: rotate(360deg);
+	}
+}
+ @keyframes rotate {
+	 0% {
+		 -webkit-transform: rotate(0);
+		 transform: rotate(0);
+	}
+	 100% {
+		 -webkit-transform: rotate(360deg);
+		 transform: rotate(360deg);
+	}
+}
+ .hidden {
+	 display: none;
+}
+ header.section-header {
+	 text-align: center;
+	 margin: 20px 0;
+}
+ .payment-method-wrapper {
+	 background: #fff;
+	 background-clip: padding-box;
+	 border: 1px #d9d9d9 solid;
+	 border-radius: 5px;
+	 color: #545454;
+	 width: 94%;
+	 margin: 0 auto;
+	 max-width: 400px;
+}
+ .payment-method-container ~ .payment-method-container {
+	 border-top: 1px solid #d9d9d9;
+}
+ .payment-method-container label {
+	 display: table;
+	 padding: 16px;
+	 position: relative;
+	 width: 100%;
+	 zoom: 1;
+	 margin-bottom: 0;
+	 cursor: pointer;
+}
+ .payment-method-radio {
+	 display: table-cell;
+	 padding-right: 10px;
+	 white-space: nowrap;
+}
+ .payment-method-radio input {
+	 cursor: pointer;
+}
+ .payment-method-radio .btn__spinner {
+	 display: none;
+	 -webkit-animation: fade-in 0.5s ease-in-out, rotate 0.5s linear infinite;
+	 animation: fade-in 0.5s ease-in-out, rotate 0.5s linear infinite;
+	 height: 14px;
+	 width: 14px;
+     {% if settings.color_accent %}
+      fill: {{ settings.color_accent }};
+    {% endif %}
+	 vertical-align: middle;
+	 position: relative;
+	 top: 2px;
+}
+ .payment-method-label {
+	 display: table-cell;
+	 white-space: nowrap;
+	 width: 100%;
+	 line-height: 20px;
+}
+ .payment-method-image {
+	 display: table-cell;
+	 white-space: nowrap;
+}
+ .payment-method-image img {
+	 height: 20px;
+	 max-width: 50px;
+	 vertical-align: middle;
+}
+ .payment-form {
+	 border-top: 1px solid #d9d9d9;
+	 padding: 16px 16px 0 !important;
+}
+ .payment-form.hidden {
+	 display: block !important;
+	 position: absolute;
+	 left: -10000px;
+}
+ .action-wrapper {
+	 max-width: 400px;
+	 width: 94%;
+	 margin: 20px auto;
+}
+ .cancel-link svg {
+	 width: 10px;
+	 height: 10px;
+	 fill: currentColor;
+}
+ .confirm-btn {
+	 float: right;
+}
+ .payment-method-container.loading .payment-method-radio input {
+	 display: none;
+}
+ .payment-method-container.loading .payment-method-radio .btn__spinner {
+	 display: block;
+}
+ .single-payment-method .payment-method-radio {
+	 display: none;
+}
+ 

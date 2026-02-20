@@ -1,0 +1,189 @@
+.content-builder-content.content-builder-json .card.content-card {
+    margin-block: 80px;
+    padding-inline: 48px;
+}
+.content-builder-content .card.content-card .title.link_title {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 130%;
+}
+
+.content-builder-content .card.content-card .link_description.rte {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 130%;
+    margin-block-start: 20px;
+    color: #272727;
+}
+
+.content-builder-content .card.content-card a.button.button--primary {
+    margin-block-start: 30px;
+    padding: 15px 50px;
+}
+
+.content-builder-content .card.content-card a.button.button--primary:before,
+.content-builder-content .card.content-card a.button.button--primary:after {
+    display: none;
+}
+.content-builder-content .card.content-card a.button.button--primary {
+    background-color: #ded9d3;
+    border: 1px solid #272727;
+    justify-content: center;
+    padding: 15px 50px;
+    transition: background-color .3s ease,opacity .2s ease;
+    align-items: center;
+    border-radius: 0;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 120%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 1;
+  color:#272727;
+      width: fit-content;
+}
+.content-builder-content .card.content-card a.button.button--primary:hover {
+    background-color: #f4f0ec
+}
+.content-builder-content .card.content-card .image_column.image_size__medium img {
+   aspect-ratio: 1120 / 984;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+.content-builder-content .card.content-card .product_image img {
+    aspect-ratio: 600 / 600;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+    object-position: center;
+}
+.content-builder-content .card.content-card .image_column.image_size__medium {
+    display: flex;
+    inline-size: 100%;
+    position: relative;
+    block-size: 100%;
+}
+.content-builder-content .card.content-card .link-wrapper .link-inner {
+    display: grid;
+
+}
+
+
+
+.content-builder-content .card.content-card div.product_image {
+    display: block;
+    margin: 0;
+    margin-block: 40px -40px;
+    z-index: 1;
+}
+
+.content-builder-content .card.content-card .text_column {
+    padding: 30px 30px 40px;
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-inline-size: 452px;
+}
+.content-builder-content .row-translated-title {
+    display: none;
+}
+@media (min-width: 768px) {
+  .content-builder-content .card.content-card .link-wrapper .link-inner {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.content-builder-content .card.content-card .image_column.image_size__medium {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+}
+
+.content-builder-content .card.content-card div.product_image {
+    grid-column: 7 / span 2;
+    grid-row: 1;
+
+}
+    .content-builder-content .card.content-card .text_column {
+    grid-column: 1 / span 6;
+    grid-row: 1;
+}
+  .content-builder-content .card.content-card:nth-child(2n+2) .image_column.image_size__medium {
+    order: 0;
+    grid-column: 1 / span 5;
+}
+
+.content-builder-content .card.content-card:nth-child(2n+2) div.product_image {
+    order: 1;
+    grid-column: 5 / span 2;
+}
+
+.content-builder-content .card.content-card:nth-child(2n+2) .text_column {
+    order: 2;
+    grid-column: 7 / span 6;
+    grid-row: 1;
+}
+
+}
+@media (max-width: 900px) {
+  .content-builder-content.content-builder-json .card.content-card {
+    margin-block: 60px;
+    padding-inline: 16px;
+  }
+  .content-builder-content .card.content-card .title.link_title {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .content-builder-content .card.content-card a.button.button--primary {
+    padding: 15px 20px;
+  }
+}
+@media (max-width: 767px) {
+    .content-builder-content .card.content-card .image_column.image_size__medium {
+      grid-column: 1;
+      grid-row: 1;
+  }
+  
+  .content-builder-content .card.content-card div.product_image {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      margin-block: 40px -40px;
+      z-index: 1;
+  }
+  
+  .content-builder-content .card.content-card .text_column {
+      padding: 30px 30px 40px;
+  }
+  
+  .content-builder-content .card.content-card .image_column.image_size__medium img {
+      aspect-ratio: 690 / 440;
+  }
+  .content-builder-content .card.content-card .link_description.rte {
+    margin-block-start: 10px;
+  }
+}
+@media (max-width: 749px) {
+  .content-builder-content.content-builder-json .card.content-card {
+    margin-block: 40px;
+  }
+}
+
+/* Custom css */
+.content-builder-content iframe { 
+  max-width: 100%;
+}
+.content-builder-content.content-builder-json .card.content-card.contentId-14,
+.content-builder-content.content-builder-json .card.content-card.contentId-15{
+  margin-block: 20px;
+  padding-inline: 0;
+}

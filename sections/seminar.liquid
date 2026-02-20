@@ -1,0 +1,175 @@
+<div class="intensive-training-section">
+  <div class="page-width">
+    <h3>SORENOS Seminar und Intensiv-Trainings</h3>
+    <ul class="seminar-list">
+      {% assign order_1 = 0 %}
+      {% assign order_2 = 9999 %}
+      {%- for product in section.settings.collection.products -%}
+        {% if product.id != blank %}
+          {% assign ctype = '' %}
+          {% for tag in product.tags %}
+            {% if tag contains 'courseType_Event auf Anfrage' %}
+              {% assign ctype = tag %}
+            {% endif %}
+
+            {% if tag contains 'courseStartDate_' %}
+              {% assign startdate = tag | remove: 'courseStartDate_' | date: '%d.%m.%Y' %}
+              {% assign startweek = tag | remove: 'courseStartDate_' | date: '%A' %}
+            {% endif %}
+
+            {% if tag contains 'courseEndDate_' %}
+              {% assign enddate = tag | remove: 'courseEndDate_' | date: '%d.%m.%Y' %}
+              {% assign endweek = tag | remove: 'courseEndDate_' | date: '%A' %}
+            {% endif %}
+
+            {% if tag contains 'courseStartTime_' %}
+              {% assign starttime = tag | remove: 'courseStartTime_' %}
+            {% endif %}
+
+            {% if tag contains 'courseEndTime_' %}
+              {% assign endtime = tag | remove: 'courseEndTime_' %}
+            {% endif %}
+          {% endfor %}
+
+          {% if ctype == 'courseType_Event auf Anfrage' %}
+            {% assign order = order_2 %}
+          {% else %}
+            {% assign order_1 = order_1 | plus: 1 %}
+            {% assign order = order_1 %}
+            {% assign target_date = startdate | date: '%s' %}
+            {% assign today_date = 'now' | date: '%s' %}
+
+            {% assign seconds_difference = target_date | minus: today_date %}
+            {% assign days_difference = seconds_difference | divided_by: 86400 %}
+
+            {% if days_difference > 0 %}
+              {% assign order = days_difference %}
+            {% endif %}
+          {% endif %}
+
+          <li class="appear-in seminar_wrap" style="order:{{ order }};">
+            <div class="card seminar-card">
+              {% if product.metafields.custom_fields.image_de_ch != blank %}
+                {% assign pro_image = product.metafields.custom_fields.image_de_ch %}
+              {% elsif product.featured_image != blank %}
+                {% assign pro_image = product.featured_image | image_url: width: 450 %}
+              {% endif %}
+
+              {% if pro_image != blank %}
+                <div class="card__image">
+                  <div class="image-wrapper">
+                    <img class="lazyload" loading="lazy" src="{{ pro_image }}" width="250" height="auto">
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="card__content">
+                <h3 class="card__title">
+                  {{ product.title }}
+                </h3>
+
+                {% if product.metafields.custom_fields.shortDescription_de_ch != blank %}
+                  <div class="card__lead">
+                    {{ product.metafields.custom_fields.shortDescription_de_ch }}
+                  </div>
+                {% endif %}
+
+                <div class="card__footer">
+                  <div class="card__info">
+                    <span>
+                      <span class="card__termin"><b>Nächster Termin:</b></span>
+                      {% if enddate != blank or startdate != blank %}
+                        <span class="card__date">
+                          {% if startweek != blank %}
+                            {{
+                              startweek
+                              | replace: 'Monday', 'Montag'
+                              | replace: 'Tuesday', 'Dienstag'
+                              | replace: 'Wednesday', 'Mittwoch'
+                              | replace: 'Thursday', 'Donnerstag'
+                              | replace: 'Friday', 'Freitag'
+                              | replace: 'Saturday', 'Samstag'
+                              | replace: 'Sunday', 'Sonntag'
+                            -}}
+                            , {{ startdate }}
+                          {% endif %}
+                          {% if endweek != blank and startdate != enddate %}
+                            - <br>
+                            {{
+                              endweek
+                              | replace: 'Monday', 'Montag'
+                              | replace: 'Tuesday', 'Dienstag'
+                              | replace: 'Wednesday', 'Mittwoch'
+                              | replace: 'Thursday', 'Donnerstag'
+                              | replace: 'Friday', 'Freitag'
+                              | replace: 'Saturday', 'Samstag'
+                              | replace: 'Sunday', 'Sonntag'
+                            -}}
+                            , {{ enddate }}
+                          {% endif %}
+                        </span>
+                      {% else %}
+                        <span class="card__date"> Auf Anfrage </span>
+                      {% endif %}
+                    </span>
+
+                    <a class="card__link" href="{{ product.url }}" title="{{ product.title }}">
+                      <span>Informationen</span>
+                      <span class="btn__arrow">
+                        <svg
+                          viewBox="0 0 14 10"
+                          fill="none"
+                          aria-hidden="true"
+                          focusable="false"
+                          class="icon icon-arrow"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+
+                  {% assign coursetype = '' %}
+                  {% for tag in product.tags %}
+                    {% if tag contains 'courseType_' %}
+                      {% assign coursetype = tag %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if coursetype == 'courseType_Event auf Anfrage' %}
+                    {% assign btn_lable = 'Auf Anfrage' %}
+                  {% else %}
+                    {% assign btn_lable = 'Anmelden' %}
+                  {% endif %}
+
+                  <div class="card__btn">
+                    <a class="card__link" href="{{ product.url }}" title="{{ product.title }}">
+                      <span class="badge--sm btn btn-{{ btn_lable | handleize }}">
+                        {{ btn_lable }}
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        {% endif %}
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Seminar",
+  "settings": [
+     {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select collection"
+     }
+  ]
+}
+{% endschema %}

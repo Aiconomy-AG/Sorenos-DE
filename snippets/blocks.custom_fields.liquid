@@ -1,0 +1,131 @@
+<div class="custom-fields-section">
+  
+    {% if resource_type == "products" %}
+    <div class="custom-fields-section__products">
+      {% for block in blocks %}
+      {% if block.type contains "cf_" %}
+      <div class="custom-fields-section__item custom-fields-section__item--{{ block.type }} custom-fields-section__item--{{ block.type }}--{{ block.settings.key }}" {{ block.shopify_attributes }}>
+        {% case block.settings.key %}
+        
+          {% when "fact1" %}
+            {% render "custom_fields.products.fact1" %}
+        
+          {% when "fact10" %}
+            {% render "custom_fields.products.fact10" %}
+        
+          {% when "fact11" %}
+            {% render "custom_fields.products.fact11" %}
+        
+          {% when "fact12" %}
+            {% render "custom_fields.products.fact12" %}
+        
+          {% when "fact13" %}
+            {% render "custom_fields.products.fact13" %}
+        
+          {% when "fact14" %}
+            {% render "custom_fields.products.fact14" %}
+        
+          {% when "fact15" %}
+            {% render "custom_fields.products.fact15" %}
+        
+          {% when "fact2" %}
+            {% render "custom_fields.products.fact2" %}
+        
+          {% when "fact3" %}
+            {% render "custom_fields.products.fact3" %}
+        
+          {% when "fact4" %}
+            {% render "custom_fields.products.fact4" %}
+        
+          {% when "fact5" %}
+            {% render "custom_fields.products.fact5" %}
+        
+          {% when "fact6" %}
+            {% render "custom_fields.products.fact6" %}
+        
+          {% when "fact7" %}
+            {% render "custom_fields.products.fact7" %}
+        
+          {% when "fact8" %}
+            {% render "custom_fields.products.fact8" %}
+        
+          {% when "fact9" %}
+            {% render "custom_fields.products.fact9" %}
+        
+          {% when "file" %}
+            {% render "custom_fields.products.file" %}
+        
+          {% when "garantie_vertikal" %}
+            {% render "custom_fields.products.garantie_vertikal" %}
+        
+          {% when "garantie__horizontal" %}
+            {% render "custom_fields.products.garantie__horizontal" %}
+        
+          {% when "innenfolien_aussenfolien" %}
+            {% render "custom_fields.products.innenfolien_aussenfolien" %}
+        
+          {% when "kategorie" %}
+            {% render "custom_fields.products.kategorie" %}
+        
+          {% when "pdf_download" %}
+            {% render "custom_fields.products.pdf_download" %}
+        
+          {% when "product_reference" %}
+            {% render "custom_fields.products.product_reference" %}
+        
+          {% when "rollenbreite" %}
+            {% render "custom_fields.products.rollenbreite" %}
+        
+          {% when "spec1" %}
+            {% render "custom_fields.products.spec1" %}
+        
+          {% when "spec10" %}
+            {% render "custom_fields.products.spec10" %}
+        
+          {% when "spec11" %}
+            {% render "custom_fields.products.spec11" %}
+        
+          {% when "spec12" %}
+            {% render "custom_fields.products.spec12" %}
+        
+          {% when "spec13" %}
+            {% render "custom_fields.products.spec13" %}
+        
+          {% when "spec14" %}
+            {% render "custom_fields.products.spec14" %}
+        
+          {% when "spec15" %}
+            {% render "custom_fields.products.spec15" %}
+        
+          {% when "spec2" %}
+            {% render "custom_fields.products.spec2" %}
+        
+          {% when "spec3" %}
+            {% render "custom_fields.products.spec3" %}
+        
+          {% when "spec4" %}
+            {% render "custom_fields.products.spec4" %}
+        
+          {% when "spec5" %}
+            {% render "custom_fields.products.spec5" %}
+        
+          {% when "spec6" %}
+            {% render "custom_fields.products.spec6" %}
+        
+          {% when "spec7" %}
+            {% render "custom_fields.products.spec7" %}
+        
+          {% when "spec8" %}
+            {% render "custom_fields.products.spec8" %}
+        
+          {% when "spec9" %}
+            {% render "custom_fields.products.spec9" %}
+        
+        {% endcase %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  
+</div>

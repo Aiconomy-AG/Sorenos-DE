@@ -1,0 +1,2171 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "popup_enable": false,
+    "color_text": "#0f2152",
+    "color_body_text": "#33426b",
+    "color_sale_text": "#c74b48",
+    "color_button": "#01598e",
+    "color_small_button_text_border": "#0a1638",
+    "color_text_field_text": "#0a1638",
+    "color_text_field_border": "#01598e",
+    "color_text_field": "#ffffff",
+    "color_image_overlay": "#01598e",
+    "image_overlay_opacity": 0,
+    "color_borders": "#ffffff",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "open_sans_n6",
+    "type_header_base_size": 28,
+    "type_base_font": "open_sans_n4",
+    "type_base_size": 16,
+    "predictive_search_show_vendor": true,
+    "predictive_search_show_price": true,
+    "social_facebook_link": "",
+    "social_linkedin_link": "https://www.linkedin.com/company/folienzuschnitt-ch/",
+    "social_instagram_link": "https://www.instagram.com/folienzuschnitt.ch/",
+    "favicon": "shopify://shop_images/Artboard_1_Kopie.png",
+    "checkout_logo_image": "shopify://shop_images/Folienzuschnitt_Logo_web.png",
+    "checkout_sidebar_background_color": "#f1f1f1",
+    "checkout_heading_font": "Open Sans",
+    "checkout_body_font": "Open Sans",
+    "checkout_accent_color": "#3588c8",
+    "checkout_button_color": "#3588c8",
+    "checkout_error_color": "#c74b48",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify://shop_images/Sorenos_Logo.png",
+          "logo_max_width": 200,
+          "main_linklist": "sorenosmenu",
+          "message": false,
+          "home_page_only": true,
+          "message_text": "Hier etwas ankündigen",
+          "message_link": "",
+          "color_bg": "#0a1638",
+          "color_text": "#f1f1f1",
+          "show_locale_selector": true
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify://shop_images/UA1850_ADWS_schraeg.jpg",
+          "layout": "left",
+          "title": "Folienzuschnitt-Service",
+          "text": "<p>Unsere neuste Maschine, die UA1850 ADWS, ist eine umfassende Konvertierungslösung und ein weltweit etabliertes System für den Handel mit Folien. Neben dem hochpräzisen Umwickeln und automatischen Ablängen unterstützt die UA1850 ADWS das genaue Abstechen von Folien bis zu einem Rest von 50mm Breite.</p>",
+          "button_label": "Mehr erfahren",
+          "button_link": "shopify://pages/praziseste-konvertierungslosungen-mit-ua1850-adws"
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "blocks": {
+          "feature-columns-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Titel oder Text hinzufügen",
+              "text": "<p>Blogposts, Produkte oder Promotions mit Ihren Kunden teilen. Nutzen Sie diesen Text, um Produkte zu beschreiben, Details zu Verfügbarkeit und Stil mitzuteilen oder als Ort, wo Reviews oder FAQs stehen.</p>",
+              "button_label": ""
+            }
+          },
+          "feature-columns-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Titel oder Text hinzufügen",
+              "text": "<p>Blogposts, Produkte oder Promotions mit Ihren Kunden teilen. Nutzen Sie diesen Text, um Produkte zu beschreiben, Details zu Verfügbarkeit und Stil mitzuteilen oder als Ort, wo Reviews oder FAQs stehen.</p>",
+              "button_label": ""
+            }
+          },
+          "feature-columns-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Titel oder Text hinzufügen",
+              "text": "<p>Blogposts, Produkte oder Promotions mit Ihren Kunden teilen. Nutzen Sie diesen Text, um Produkte zu beschreiben, Details zu Verfügbarkeit und Stil mitzuteilen oder als Ort, wo Reviews oder FAQs stehen.</p>",
+              "button_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "feature-columns-0",
+          "feature-columns-1",
+          "feature-columns-2"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "title": "Vorgestellte Kategorie",
+          "collection": "",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "blocks": {
+          "quotes-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Kunden-Reviews und Testimonials, die Kundenzufriedenheit beweisen.</p>",
+              "author": "Name des Autors"
+            }
+          },
+          "quotes-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Kunden-Reviews und Testimonials, die Kundenzufriedenheit beweisen.</p>",
+              "author": "Name des Autors"
+            }
+          },
+          "quotes-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Kunden-Reviews und Testimonials, die Kundenzufriedenheit beweisen.</p>",
+              "author": "Name des Autors"
+            }
+          }
+        },
+        "block_order": [
+          "quotes-0",
+          "quotes-1",
+          "quotes-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "image-bar": {
+        "type": "image-bar",
+        "blocks": {
+          "image-bar-0": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "cta_label": ""
+            }
+          },
+          "image-bar-1": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "cta_label": ""
+            }
+          },
+          "image-bar-2": {
+            "type": "image",
+            "settings": {
+              "alignment": "center",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "image-bar-0",
+          "image-bar-1",
+          "image-bar-2"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1be21aef-dc9d-4a6b-a7cf-1b0be13aa8bd": {
+            "type": "text",
+            "settings": {
+              "title": "Kontakt",
+              "text": "<p><strong>SORENOS GmbH</strong><br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <br/><a href=\"mailto:info@sorenos.ch\" title=\"info@sorenos.de\">info@sorenos.de</a></p>"
+            }
+          },
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "Quick-Links",
+              "menu": "footer"
+            }
+          },
+          "3660fdea-07f8-46a4-bfea-4539df997fa9": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Abonnieren Sie unseren Newsletter"
+            }
+          }
+        },
+        "block_order": [
+          "1be21aef-dc9d-4a6b-a7cf-1b0be13aa8bd",
+          "footer-0",
+          "3660fdea-07f8-46a4-bfea-4539df997fa9"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#0f2152",
+          "color_footer_text": "#f1f1f1",
+          "show_locale_selector": false,
+          "show_currency_selector": true
+        }
+      },
+      "16077047033e472bc6": {
+        "type": "slideshow",
+        "blocks": {
+          "63a2702d-ebb7-469d-8b48-451bb5424f50": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/org_709fd7391a1a33ca_1649600608000.jpg",
+              "alignment": "center center",
+              "slide_title": "Konnex",
+              "subheading": "2006 Fenster | 3m Prestige 70 Exterior | 4103m2",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "16077047033e472bc6-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/20180729-signvision-pago-0011.jpg",
+              "alignment": "center bottom",
+              "slide_title": "PAGO AG",
+              "subheading": "Avery R Silver 20 XTRM",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "c69e8c49-e1c0-4c6d-90e6-a4ce07151c2f": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/20200903-signvision-uni-0321.jpg",
+              "alignment": "center bottom",
+              "slide_title": "WBZ St.Gallen",
+              "subheading": "3M Prestige 40 Exterior",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "d65ac702-694d-462b-98fc-36aaa8b67d78": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/20180807-signvision-museum-0009.jpg",
+              "alignment": "center center",
+              "slide_title": "Völkerkundemuseum",
+              "subheading": "3M Prestige 90 Exterior",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "8fcf022c-a671-49b0-a0d5-4ffe11fb64ba": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/20200903-signvision-uni-0266.jpg",
+              "alignment": "center center",
+              "slide_title": "WBZ St.Gallen",
+              "subheading": "3M Prestige 40 Exterior",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "2530acfb-dd4b-46e1-9ed2-548bc02f641d": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/20180906-signvision-zurich-0016.jpg",
+              "alignment": "center center",
+              "slide_title": "Zürich Versicherung",
+              "subheading": "3M Prestige 40 Exterior",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "63a2702d-ebb7-469d-8b48-451bb5424f50",
+          "16077047033e472bc6-0",
+          "c69e8c49-e1c0-4c6d-90e6-a4ce07151c2f",
+          "d65ac702-694d-462b-98fc-36aaa8b67d78",
+          "8fcf022c-a671-49b0-a0d5-4ffe11fb64ba",
+          "2530acfb-dd4b-46e1-9ed2-548bc02f641d"
+        ],
+        "disabled": true,
+        "settings": {
+          "slideshow_height": "large",
+          "text_size": "large",
+          "text_alignment": "center bottom",
+          "show_overlay": true,
+          "autorotate": false,
+          "autorotate_speed": 5,
+          "button_label": "mehr Referenzen entdecken",
+          "button_link": "shopify://pages/referenzen"
+        }
+      },
+      "16097496851803271d": {
+        "type": "map",
+        "settings": {
+          "heading": "Besuchen Sie uns!",
+          "address": "<p>Turmstraße 11 - 78467 Konstanz DE</p><p><strong>Montag bis Freitag</strong> 7.30 Uhr bis 12.00 Uhr 13.00 Uhr bis 17.00 Uhr</p>",
+          "map_address": "https://maps.app.goo.gl/nt7nYmxj6ZGSJFgN8",
+          "button_text": "Zur Wegbeschreibung",
+          "show_pin": true,
+          "api_key": "",
+          "background_image": "shopify://shop_images/Bildschirmfoto_2026-02-10_um_13.49.43.png",
+          "background_image_position": "center center"
+        }
+      },
+      "teamimgcol": {
+        "type": "teamimgcol",
+        "blocks": {
+          "d9daa9d3-0508-4403-b142-005dd48a59f2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Walter Zai",
+              "text": "<p>Geschäftsführer</p><p><a href=\"mailto:a.izzi@sorenos.ch\" title=\"mailto:w.zai@sorenos.de\">w.zai@sorenos.de</a></p><p><a href=\"tel:+41 43 488 00 32\" title=\"tel:+41 43 488 00 32\">+41 43 488 00 32</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "8482e8c2-9c3d-4f78-8536-4eff0c0b5140": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Stefan.png",
+              "title": "Stefan Hollenstein",
+              "text": "<p>Inhaber</p><p><a href=\"mailto:s.hollenstein@sorenos.ch\" title=\"mailto:s.hollenstein@sorenos.ch\">s.hollenstein@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p><p></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "a54eceea-23f1-4c3b-b418-6b6214a13dd0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Jacqueline.png",
+              "title": "Jacqueline Erb",
+              "text": "<p>Verkauf Innendienst und Administration<br/></p><p><a href=\"mailto:j.erb@sorenos.ch\" title=\"mailto:j.erb@sorenos.ch\">j.erb@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 31\" title=\"tel:+41 43 488 00 31\">+41 43 488 00 31</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "7f21d15a-9f25-42e2-8c47-6a0fa99aeAE9": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Claudia.png",
+              "title": "Claudia Suremann",
+              "text": "<p>Verkauf Aussendienst und Ausbildnerin</p><p><a href=\"mailto:c.suremann@sorenos.ch\" title=\"mailto:c.suremann@sorenos.ch\">c.suremann@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 35\" title=\"tel:+41 43 488 00 35\">+41 43 488 00 35</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "397ecfcb-0d85-4a46-81b9-63a46794dFD7": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Sandro.png",
+              "title": "Sandro Graf",
+              "text": "<p>Verkauf Innendienst<br/><a href=\"mailto:s.graf@sorenos.ch\" title=\"mailto:s.graf@sorenos.ch\">s.graf@sorenos.ch</a><br/><a href=\"tel:+41 43 488 00 34\" title=\"tel:+41 43 488 00 34\">+41 43 488 00 34</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "text_block_LkrtNM": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Etienne.png",
+              "title": "Etienne Bakacsi",
+              "text": "<p>Zuschnitt<br/><a href=\"mailto:e.bakacsi@sorenos.ch\" title=\"mailto:e.bakacsi@sorenos.ch\">e.bakacsi@sorenos.ch<br/></a><a href=\"tel:+41 43 488 00 39\" title=\"tel:+41 43 488 00 39\">+41 43 488 00 39</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "text_block_YNeEMN": {
+            "type": "text_block",
+            "disabled": true,
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Timon.png",
+              "title": "Timon Roschacher",
+              "text": "<p>Berater Folienzuschnitt Software<br/><a href=\"mailto:t.roschacher@sorenos.ch\" title=\"mailto:t.roschacher@sorenos.ch\">t.roschacher@sorenos.ch</a><br/><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "d9daa9d3-0508-4403-b142-005dd48a59f2",
+          "8482e8c2-9c3d-4f78-8536-4eff0c0b5140",
+          "a54eceea-23f1-4c3b-b418-6b6214a13dd0",
+          "7f21d15a-9f25-42e2-8c47-6a0fa99aeAE9",
+          "397ecfcb-0d85-4a46-81b9-63a46794dFD7",
+          "text_block_LkrtNM",
+          "text_block_YNeEMN"
+        ],
+        "settings": {
+          "title": "Team",
+          "align_text": "left"
+        }
+      },
+      "mapincontact": {
+        "type": "mapincontact",
+        "settings": {
+          "heading": "Besuchen Sie uns!",
+          "address": "<p>Turmstraße 11 – 78467 Konstanz DE</p><p><strong>Montag bis Freitag</strong> 7.30 Uhr bis 12.00 Uhr 13.00 Uhr bis 17.00 Uhr</p>",
+          "map_address": "https://www.google.com/maps/place/Turmstraße+11,+78467+Konstanz,+Deutschland/@47.6707304,9.1529227,16z/data=!3m1!4b1!4m6!3m5!1s0x479af6f47abdd901:0x53571b5af9b6da96!8m2!3d47.6707304!4d9.1554976!16s%2Fg%2F11c20_km4l?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
+          "button_text": "Zur Wegbeschreibung",
+          "show_pin": true,
+          "api_key": "",
+          "background_image": "shopify://shop_images/Bildschirmfoto_2026-02-10_um_13.49.43.png",
+          "background_image_position": "center center"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 4,
+          "rows": 8,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_vendor": false,
+          "enable_payment_button": false,
+          "show_share_buttons": false,
+          "media_size": "medium",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "Zubehör",
+          "show_vendor": false
+        }
+      },
+      "service01_hero": {
+        "type": "service01_hero",
+        "settings": {
+          "image": "shopify://shop_images/projektberatung-hero.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service01_richtext": {
+        "type": "service01_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Projektberatung",
+          "text": "<p>Durch unsere langjährige Tätigkeit in der Ausführung von Projekten rund um die Glasbeschichtung haben wir uns sehr viel Wissen angeeignet. Dieses geben wir gerne weiter. <br/> <br/>Ihre Projekte werden systematisch, Schritt für Schritt mit professionellen Glas Analyse- Werkzeugen aufgenommen. Wir prüfen die die Machbarkeit in Bezug auf Glas sowie am Objekt selbst und berücksichtigen dabei die Wünsche Ihrer Kunden. </p><p>Aufgrund von ausgeführten Grossprojekten sind wir auch mit komplexen Aufgabenstellungen vertraut und können Ihnen dank unserer guten Vernetzung zu Herstellern, Lieferanten und Experten wertvolle Unterstützung bieten. Wir verfügen über alle nötigen Dokumentationen und Muster, welche Sie Ihrer Kundschaft bei Bedarf abgeben können. </p><p>Wir freuen uns Sie beim nächsten spannenden Projekt begleiten zu dürfen.</p>",
+          "text_size": "large"
+        }
+      },
+      "service02_hero": {
+        "type": "service02_hero",
+        "settings": {
+          "image": "shopify://shop_images/glasstress_72f458fb-b82e-467d-98bf-129a824f69cc.jpg",
+          "alignment": "bottom",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service02_richtext": {
+        "type": "service02_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Glas-Stressanalyse",
+          "text": "<p>Nicht jedes Folienprodukt ist für jedes Glas geeignet. Wir berechnen für Sie anhand einer dafür entwickelten Software die thermische Belastung.</p><p>Um Ihnen die Abklärung so einfach und schnell wie möglich zu machen, haben wir eigens dafür ein Eingabetool entwickelt. </p><p>Alle nötigen Informationen für eine sorgfältige Abklärung werden auf dieser Plattform eingetragen und ausgewertet.</p><p>Folgende Werte lassen sich nach EN 410 und EN 673 mit und ohne Folie berechnen:</p><p> </p><p>- Thermische Glasbelastung</p><p>- Lichttransmission</p><p>- G-Wert</p><p>- U-Wert</p><p> </p><p>Werden Sie Partner und profitieren Sie von diesen einzigartigen Vorteilen und der Sicherheit, die wir Ihnen durch die Glas-Stressanalyse bieten können.</p>",
+          "text_size": "large"
+        }
+      },
+      "service03_hero": {
+        "type": "service03_hero",
+        "settings": {
+          "image": "shopify://shop_images/slider_01.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service03_richtext": {
+        "type": "service03_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Foliensortiment",
+          "text": "<p>Wir arbeiten mit den weltweit führenden Herstellern zusammen und bieten Ihnen ein optimiertes und übersichtliches Sortiment an hochwertigen Flachglasfolien an.<br/><br/>Neue Produkte werden laufend von uns auf Ihre Praxistauglichkeit geprüft. So gewährleisten wir den höchstmöglichen Standard und bleiben stetig à jour.<br/><br/>Bestellen Sie Laufmeter, komplette und abgestochene Rollen oder bereits zugeschnittene Folien. Ganz wie es für Sie passt. Dank unserem Onlineshop ist dies einfach und schnell möglich.</p>",
+          "text_size": "large"
+        }
+      },
+      "service04_hero": {
+        "type": "service04_hero",
+        "settings": {
+          "image": "shopify://shop_images/folienzuschnitt_93c3c9bd-da52-4121-9e3e-a1fe99778f44.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service04_richtext": {
+        "type": "service04_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Folienzuschnitt-Service",
+          "text": "<p>Das Zuschneiden von Window-Films ist mit viel Zeitaufwand verbunden und erfordert viel Konzentration damit so wenig Verschnitt wie möglich produziert wird. Die Schnittqualität ist dabei ebenso entscheidend.<br/><br/>Unsere Software berechnen, dank eines ausgeklügelten Algorithmus, die bestmögliche Materialausnützung und schneidet alle Positionen maschinell millimetergenau zu. Alles wird nach Positionen verpackt und direkt zu Ihnen ins Geschäft oder auf die Baustelle verschickt.<br/><br/>Die Lot-Nummern werden bei jeder Bestellung automatisch auf das entsprechende Projekt erfasst und können bei Bedarf abgerufen werden.<br/><br/>Das Garantieblatt wird mit den angegebenen Projektdaten automatisch ausgefüllt und Sie werden benachrichtigt, sobald die Garantiezeit einer Folie abläuft damit Sie frühzeitig reagieren können.<br/><br/>Es war noch nie so einfach Sonnen- und Splitterschutz Projekte durchzuführen.</p>",
+          "text_size": "large"
+        }
+      },
+      "service05_hero": {
+        "type": "service05_hero",
+        "settings": {
+          "image": "shopify://shop_images/kelly-sikkema-pXmyDPziB8w-unsplash.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service05_richtext": {
+        "type": "service05_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Schulungen",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+          "text_size": "large"
+        }
+      },
+      "feature_row_3m": {
+        "type": "feature_row_3m",
+        "settings": {
+          "image": "shopify://shop_images/Untitled-1_0001_Layer-3.png",
+          "layout": "left",
+          "title": "Über 3M",
+          "text": "<p>Im Jahr 1902 gegründet, beschäftigte sich 3M anfangs mit Abbau und Weiterverarbeitung von Mineralien zur Herstellung von Schleifpapier für die Automobilindustrie. Aufgrund von Kundennachfragen erweiterte das Unternehmen allmählich seine Produktpalette. So entwickelten beispielsweise unternehmenseigene Forscher das erste Abdeck-Klebeband für die Zweifarben-Lackierung der damals in Mode kommenden Automobile.</p><p>Auf dieser Basis begann das Unternehmen bald, sich zu diversifizieren und international aufzustellen. Heute hat es Niederlassungen in über 70 Ländern.</p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "feature_row_avery": {
+        "type": "feature_row_avery",
+        "settings": {
+          "image": "shopify://shop_images/Untitled-1_0002_Layer-2.png",
+          "layout": "left",
+          "title": "Über Avery",
+          "text": "<p>Vom Bauernhof zum Weltunternehmen: Wir machen mit unseren Produkten die (Arbeits-)Welt seit 70 Jahren effizienter und angenehmer. Unsere Erfindungen - das Etikett  und der Quittungsblock - kommen in jedem Büro oder Betrieb zum Einsatz. Und auch im privaten Umfeld sind unsere Produkte wie die von Generationen geliebten Sticker nicht wegzudenken. Unser Forschungslabor arbeitet kontinuierlich an Innovationen, damit Sie auch in Zukunft Ihren Alltag perfekt organisieren können.</p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "feature_row_haverkamp": {
+        "type": "feature_row_haverkamp",
+        "settings": {
+          "image": "shopify://shop_images/Untitled-1_0000_Layer-4.png",
+          "layout": "left",
+          "title": "Über Haverkamp",
+          "text": "<p>Kompetenz und Innovation seit über 40 Jahren. Der Wunsch nach Schutz, Sicherheit und Wohlbefinden ist so individuell wie der Mensch selbst. HAVERKAMP entwickelt Systeme, die wirken ohne aufzufallen und schützen ohne einzuengen.<br/>Dazu bieten wir ein umfangreiches Produktprogramm zur mechanischen Sicherheitstechnik, zur Freilandsicherung und für Raumklimakonzepte mit innovativer Folientechnologie.</p><p></p><p><br/></p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service03_col": {
+        "type": "service03_col",
+        "blocks": {
+          "e4badc4c-42e3-4fe8-902b-355963a28e30": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/20180729-signvision-pago-0011.jpg",
+              "title": "Sonnenschutzfolien",
+              "text": "<p>Hochwertige Sonnenschutzfolien sorgen für angenehmes Raumklima und helfen dabei, auch bei grosser Hitze, im Innenraum einen kühlen Kopf zu bewahren. </p>",
+              "button_label": "Zum Shop",
+              "button_link": "shopify://collections/sonnenschutzfolien"
+            }
+          },
+          "d3e0ed2a-6091-49d2-81ab-5d0b55c441ba": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Splitterschutz_1920x930_909a2720-3191-4b7f-bd6b-95546b8cb72f.png",
+              "title": "Sicherheitsfolien",
+              "text": "<p>Schützen Sie das, was Ihnen lieb ist. Mit einer hochtransparenten Sicherheitsfolie können Sie Ihr Glas noch sicherer machen.</p>",
+              "button_label": "Zum Shop",
+              "button_link": "shopify://collections/sicherheitsfolien"
+            }
+          }
+        },
+        "block_order": [
+          "e4badc4c-42e3-4fe8-902b-355963a28e30",
+          "d3e0ed2a-6091-49d2-81ab-5d0b55c441ba"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "team_hero": {
+        "type": "team_hero",
+        "settings": {
+          "image": "shopify://shop_images/Titelbild-UeberUns.webp",
+          "alignment": "top",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "team_rich01": {
+        "type": "team_rich01",
+        "settings": {
+          "full_width": false,
+          "section_title": "Für höchste Qualität",
+          "text": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>",
+          "text_size": "medium"
+        }
+      },
+      "team_jobs": {
+        "type": "team_jobs",
+        "settings": {
+          "full_width": false,
+          "section_title": "Jobs",
+          "text": "<p>Momentan sind alle unsere Stellen besetzt. Blindbewerbungen richten Sie an:</p><p><a href=\"mailto:info@folienzuschnitt.ch\" title=\"mailto:info@folienzuschnitt.ch\">info@folienzuschnitt.ch</a></p>",
+          "text_size": "medium"
+        }
+      },
+      "team_partner": {
+        "type": "team_partner",
+        "settings": {
+          "full_width": false,
+          "section_title": "Partner",
+          "text": "<p>Uns ist es wichtig, Engagement zu zeigen und Verantwortung zu übernehmen. Wir setzen uns deswegen für die Qualität unserer Branche, die Ausbildung unserer Mitarbeitenden sowie für Arbeitssicherheit, Kundeninteressen und vieles mehr ein.</p><p>Daher sind wir aktiv als Mitglied in folgenden Organisationen:</p>",
+          "text_size": "medium"
+        }
+      },
+      "team_partner_logos": {
+        "type": "team_partner_logos",
+        "blocks": {
+          "05f0bf38-1dca-4a06-b1f0-f4ca643b1911": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify://shop_images/VWP.png"
+            }
+          },
+          "2d8e907f-659a-4f3d-ab11-ee2c2cf751ab": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify://shop_images/SVIT.png"
+            }
+          },
+          "516591f5-f881-4ed2-bb0e-e4a7dab4d6ae": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify://shop_images/RUZ.png"
+            }
+          }
+        },
+        "block_order": [
+          "05f0bf38-1dca-4a06-b1f0-f4ca643b1911",
+          "2d8e907f-659a-4f3d-ab11-ee2c2cf751ab",
+          "516591f5-f881-4ed2-bb0e-e4a7dab4d6ae"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "contact_richtext": {
+        "type": "contact_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Gerne sind wir für Sie da",
+          "text": "<p>Wir beraten Sie gerne rund um das Thema Glasbeschichtungen und stehen bei Fragen zur Verfügung. Zögern Sie nicht uns zu kontaktieren.<br/><br/><strong>KONTAKTDATEN:</strong><br/>SORENOS GmbH<br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <br/><a href=\"mailto:info@sorenos.de\" title=\"mailto:info@sorenos.de\">info@sorenos.de</a></p><p><strong>ÖFFNUNGSZEITEN:</strong><br/>Montag bis Freitag  <br/>7.30 Uhr bis 12.00 Uhr<br/>13.00 Uhr bis 17.00 Uhr</p>",
+          "text_size": "large"
+        }
+      },
+      "workshops_hero": {
+        "type": "workshops_hero",
+        "settings": {
+          "image": "shopify://shop_images/DSC01922_f08a8166-324c-4114-98ae-248f7a1f244d.jpg",
+          "alignment": "top",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "large",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "workshops_richtext": {
+        "type": "workshops_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Aktuelle Workshops",
+          "text": "<p>Aktuell sind keine Daten vorhanden. Möchten Sie informiert werden, wann der nächste Workshop statt findet? </p><p></p>",
+          "text_size": "medium"
+        }
+      },
+      "teamimgcol2": {
+        "type": "teamimgcol2",
+        "blocks": {
+          "7f21d15a-9f25-42e2-8c47-6a0fa99aeae9": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Claudia.png",
+              "title": "Claudia Suremann",
+              "text": "<p>VERKAUF AUSSENDIENST UND AUSBILDNERIN</p><p><a href=\"mailto:c.suremann@sorenos.ch\" title=\"mailto:c.suremann@sorenos.ch\">c.suremann@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "397ecfcb-0d85-4a46-81b9-63a46794dfd7": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Sandro.png",
+              "title": "Sandro Graf",
+              "text": "<p>VERKAUF INNENDIENST<br/><a href=\"mailto:s.graf@sorenos.ch\" title=\"mailto:s.graf@sorenos.ch\">s.graf@sorenos.ch</a><br/><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "text_block_YNeEmh": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Timon.png",
+              "title": "Timon Roschacher",
+              "text": "<p>BERATER FOLIENZUSCHNITT SOFTWARE<br/><a href=\"mailto:t.roschacher@sorenos.ch\" title=\"mailto:t.roschacher@sorenos.ch\">t.roschacher@sorenos.ch</a><br/><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "text_block_Lkrtnm": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Etienne.png",
+              "title": "Etienne Bakacsi",
+              "text": "<p>ZUSCHNITT<br/><a href=\"mailto:e.bakacsi@sorenos.ch\" title=\"mailto:e.bakacsi@sorenos.ch\">e.bakacsi@sorenos.ch<br/></a><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "7f21d15a-9f25-42e2-8c47-6a0fa99aeae9",
+          "397ecfcb-0d85-4a46-81b9-63a46794dfd7",
+          "text_block_YNeEmh",
+          "text_block_Lkrtnm"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "0b479ac3-ba12-4e24-bd75-714e19eff326": {
+            "type": "collection",
+            "settings": {
+              "collection": "sonnenschutzfolien"
+            }
+          },
+          "d498341b-7d56-4dcc-8047-59462610fa89": {
+            "type": "collection",
+            "settings": {
+              "collection": "sicherheitsfolien"
+            }
+          },
+          "d6ab4763-08cd-45a2-860d-73f61a1fe024": {
+            "type": "collection",
+            "settings": {
+              "collection": "werkzeug"
+            }
+          },
+          "a080b2e0-aab9-4f74-848b-8823fd563ebe": {
+            "type": "collection",
+            "settings": {
+              "collection": "promotionsmaterial"
+            }
+          }
+        },
+        "block_order": [
+          "0b479ac3-ba12-4e24-bd75-714e19eff326",
+          "d498341b-7d56-4dcc-8047-59462610fa89",
+          "d6ab4763-08cd-45a2-860d-73f61a1fe024",
+          "a080b2e0-aab9-4f74-848b-8823fd563ebe"
+        ],
+        "settings": {
+          "display_type": "selected",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "custom-fields-products": {
+        "type": "custom-fields-products",
+        "settings": {}
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": false,
+          "blog_show_date": true
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": false,
+          "blog_show_date": false,
+          "show_share_buttons": false
+        }
+      },
+      "related-products-by-tag-group": {
+        "type": "related-products-by-tag-group",
+        "settings": {
+          "show_related_products": true,
+          "related_title": "Zubehör",
+          "related_grid_num": "4",
+          "related_grid_row": "3"
+        }
+      },
+      "partner-werden-section": {
+        "type": "partner-werden-section",
+        "blocks": {
+          "99a730ea-4f8f-4e16-9987-830c35fc6e57": {
+            "type": "image-section",
+            "settings": {
+              "image": "shopify://shop_images/Folie2.jpg",
+              "alignment": "center",
+              "hero_layout": "fixed_width",
+              "hero_size": "adapt"
+            }
+          },
+          "152cd201-5290-49e1-90d0-c7a7c3f3d371": {
+            "type": "image-section",
+            "settings": {
+              "image": "shopify://shop_images/Folie3.jpg",
+              "alignment": "center",
+              "hero_layout": "fixed_width",
+              "hero_size": "adapt"
+            }
+          },
+          "f77cd049-9cd7-4498-84b6-8c0359534207": {
+            "type": "image-section",
+            "settings": {
+              "image": "shopify://shop_images/Folie4.jpg",
+              "alignment": "center",
+              "hero_layout": "fixed_width",
+              "hero_size": "adapt"
+            }
+          },
+          "55ffe68f-df9f-4d80-93e7-57d1ace0ea6a": {
+            "type": "image-section",
+            "settings": {
+              "image": "shopify://shop_images/Folie5.jpg",
+              "alignment": "center",
+              "hero_layout": "fixed_width",
+              "hero_size": "adapt"
+            }
+          },
+          "072c81d1-1f78-47a9-802f-2a2c5b3fb021": {
+            "type": "image-section",
+            "settings": {
+              "image": "shopify://shop_images/Folie6.jpg",
+              "alignment": "center",
+              "hero_layout": "fixed_width",
+              "hero_size": "adapt"
+            }
+          },
+          "6cd9f5f5-f999-4fea-97a4-b652da34e009": {
+            "type": "image-section",
+            "settings": {
+              "image": "shopify://shop_images/Folie7.jpg",
+              "alignment": "center",
+              "hero_layout": "fixed_width",
+              "hero_size": "adapt"
+            }
+          }
+        },
+        "block_order": [
+          "99a730ea-4f8f-4e16-9987-830c35fc6e57",
+          "152cd201-5290-49e1-90d0-c7a7c3f3d371",
+          "f77cd049-9cd7-4498-84b6-8c0359534207",
+          "55ffe68f-df9f-4d80-93e7-57d1ace0ea6a",
+          "072c81d1-1f78-47a9-802f-2a2c5b3fb021",
+          "6cd9f5f5-f999-4fea-97a4-b652da34e009"
+        ],
+        "settings": {}
+      },
+      "unsere-produkte": {
+        "type": "unsere-produkte",
+        "blocks": {
+          "811a15e3-03f5-4af8-8f7c-5a8e9af64ea2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Getty_ID_117146888.jpg",
+              "title": "Sonnenschutzfolien",
+              "text": "<p>Rund 30 verschiedene Folien, in Ausführungen für innen und aussen, stehen zur Verfügung. Ob hochtransparenter UV-Schutz, starker Hitzeschutz, Blendschutz oder Sichtschutz, wir haben für Sie das passende Produkt.</p>",
+              "button_label": "Zum Shop",
+              "button_link": "shopify://collections/sonnenschutzfolien"
+            }
+          },
+          "cb1b93fd-3e48-48db-ae4d-86bd00d74de7": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Splitterschutz_1920x930_909a2720-3191-4b7f-bd6b-95546b8cb72f.png",
+              "title": "Sicherheitsfolien",
+              "text": "<p>Unsere Hochleistungssicherheits- und Splitterschutzfolien sind kratz- und UV-beständig, nach internationalen Standards geprüft und zertifiziert und zudem mit einer Garantie von bis zu 15 Jahren versehen.</p>",
+              "button_label": "zup shop",
+              "button_link": "shopify://collections/sicherheitsfolien"
+            }
+          },
+          "ae333388-2c61-492c-b3cf-c14c941d2f20": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Werkzeugshop.jpg",
+              "title": "Werkzeuge / Verbrauchsmaterial",
+              "text": "<p>Nur das Beste ist gut genug. Wir bieten eine Vielzahl von Werkzeuge und Verbrauchsmaterialien rund um das Thema Windowfilm-Montage.</p>",
+              "button_label": "zum shop",
+              "button_link": "shopify://collections/werkzeug"
+            }
+          },
+          "95847783-bd6e-41d5-9f10-1b1814e586df": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify://shop_images/Folienmuster.jpg",
+              "title": "Promotionsmaterial",
+              "text": "<p>Bestellen Sie schnell und einfach Folienmuster, damit Sie ihre Kunden optimal beraten können.</p>",
+              "button_label": "zum shop",
+              "button_link": "shopify://collections/promotionsmaterial"
+            }
+          }
+        },
+        "block_order": [
+          "811a15e3-03f5-4af8-8f7c-5a8e9af64ea2",
+          "cb1b93fd-3e48-48db-ae4d-86bd00d74de7",
+          "ae333388-2c61-492c-b3cf-c14c941d2f20",
+          "95847783-bd6e-41d5-9f10-1b1814e586df"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left",
+          "grid": 4
+        }
+      },
+      "contact-hero": {
+        "type": "contact-hero",
+        "settings": {
+          "image": "shopify://shop_images/Team_Sorenos_WEB_2025.png",
+          "alignment": "center",
+          "hero_layout": "fixed_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": true,
+          "cart_notes_enable": true
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "image": "shopify://shop_images/Folie1.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": ""
+        }
+      },
+      "partner-hero": {
+        "type": "partner-hero",
+        "settings": {
+          "image": "shopify://shop_images/partner-banner.png",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "WERDEN SIE UNSER PARTNER",
+          "text": "<p>Wir sind Ihr rundum Dienstleister im Bereich Glasbeschichtungen</p>",
+          "button_label": "Jetzt Partneranfrage einreichen",
+          "button_link": "shopify://pages/partner-register"
+        }
+      },
+      "service06_hero": {
+        "type": "service06_hero",
+        "settings": {
+          "image": "shopify://shop_images/sav.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "service06_richtext": {
+        "type": "service06_richtext",
+        "settings": {
+          "full_width": false,
+          "section_title": "Präziseste Konvertierungslösungen mit UA1850 ADWS",
+          "text": "<p>Unsere neuste Maschine, die UA1850 ADWS, ist eine umfassende Konvertierungslösung und ein weltweit etabliertes System für den Handel mit Folien. Neben dem hochpräzisen Umwickeln und automatischen Ablängen unterstützt die UA1850 ADWS das genaue Abstechen von Folien bis zu einem Rest von 50mm Breite.</p><p>Dank dem System erreichen wir beste Abstechergebnisse. Mit dem UA1850 ADWS können Folienrollen mit einem Durchmesser von bis zu 400mm auf der Abwicklung gerüstet werden. Maximal 280 mm Durchmesser können auf der oberen Welle aufgewickelt und abgestochen werden. Die maximale Medienbreite beim Umwickeln beträgt 1850mm, beim Abstechen können Rollen bis zu einer Breite von 1900mm gerüstet werden. </p>",
+          "text_size": "large"
+        }
+      },
+      "projekte-blog": {
+        "type": "projekte-blog",
+        "settings": {
+          "title": "Blog",
+          "blog": "blog",
+          "post_limit": 12,
+          "blog_show_author": false,
+          "blog_show_date": false,
+          "show_view_all": false
+        }
+      },
+      "kundenfeedback": {
+        "type": "kundenfeedback",
+        "blocks": {
+          "video_qhYaqE": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/360969c27ab8483ea371172a25f40dad.mp4",
+              "image": "shopify://shop_images/Finanziell.png"
+            }
+          },
+          "video_cDmV3a": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": ""
+            }
+          },
+          "video_3DYAMz": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/9424cbadc1ee413986212f1b8ae7b7dc.mp4",
+              "image": "shopify://shop_images/Fazit.png"
+            }
+          },
+          "video_WCCiD8": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/283f81afb590495885fc186f94a813ff.mp4",
+              "image": "shopify://shop_images/Unterschied.png"
+            }
+          },
+          "video_xnNM7K": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/e6239d55e4714a4faced77cf187a1f4f.mp4",
+              "image": "shopify://shop_images/Software.png"
+            }
+          },
+          "video_wkeEh4": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/85c9b8b871c04da78d8038e5aeab7671.mp4",
+              "image": "shopify://shop_images/Zusammenarbeit.png"
+            }
+          },
+          "video_EHwXLY": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/68229e6f9f6f471686acc9521038448a.mp4",
+              "image": "shopify://shop_images/Alltag.png"
+            }
+          }
+        },
+        "block_order": [
+          "video_qhYaqE",
+          "video_cDmV3a",
+          "video_3DYAMz",
+          "video_WCCiD8",
+          "video_xnNM7K",
+          "video_wkeEh4",
+          "video_EHwXLY"
+        ],
+        "settings": {
+          "heading": ""
+        }
+      },
+      "1610359416ea746e1d": {
+        "type": "rich-text",
+        "disabled": true,
+        "settings": {
+          "full_width": false,
+          "section_title": "Referenzen",
+          "text": "",
+          "text_size": "small"
+        }
+      },
+      "multicolumn_4QVLiz": {
+        "type": "multicolumn",
+        "blocks": {
+          "column_cAchEx": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M5.5 4a1.5 1.5 0 00-1.045 2.576L15.609 17.73c-1.302 1.809-2.209 3.932-2.209 6.323 0 6.057 4.943 11 11 11 2.392 0 4.522-.9 6.33-2.201l10.725 10.724a1.5 1.5 0 002.121-2.123l-37-37A1.5 1.5 0 005.5 4zm18.877.031A1.5 1.5 0 0022.9 5.553v3a1.5 1.5 0 103 0v-3a1.5 1.5 0 00-1.523-1.522zM37.45 9.457a1.5 1.5 0 00-1.031.453l-2.121 2.121a1.501 1.501 0 102.123 2.123l2.12-2.12a1.5 1.5 0 00-1.091-2.577zm-13.05 3.596c-1.45 0-2.876.292-4.196.838l2.37 2.369a8.077 8.077 0 011.825-.207c4.411 0 8 3.589 8 8 0 .617-.074 1.227-.213 1.82l2.377 2.377c.546-1.319.836-2.745.836-4.197 0-6.065-4.935-11-11-11zm-6.659 6.81l10.85 10.85c-1.233.78-2.618 1.34-4.192 1.34-4.436 0-8-3.564-8-8 0-1.576.562-2.957 1.342-4.19zM5.9 22.553a1.5 1.5 0 100 3h3a1.5 1.5 0 100-3h-3zm34 0a1.5 1.5 0 100 3h3a1.5 1.5 0 100-3h-3zM13.41 33.498a1.5 1.5 0 00-1.031.453l-2.121 2.121a1.501 1.501 0 102.123 2.123l2.12-2.12a1.5 1.5 0 00-1.091-2.577zm10.967 4.533a1.5 1.5 0 00-1.477 1.522v3a1.5 1.5 0 103 0v-3a1.5 1.5 0 00-1.523-1.522z\" fill=\"currentColor\" fill-rule=\"nonzero\"></path>\n</svg>",
+              "title": "Sonnenschutzfolien",
+              "text": "<p>Leistungsstarker Sonnen- und Hitzeschutz</p>",
+              "link_label": "",
+              "link": "shopify://collections/sonnenschutzfolien",
+              "full_link": true,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_j8FFTB": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><polygon id=\"a\" points=\"-8.8817842e-16 0 37.306656 0 37.306656 34.518795 -8.8817842e-16 34.518795\"></polygon></defs><g fill=\"none\" fill-rule=\"evenodd\"><path d=\"M23.97 12.14c3.8 0 7.44 1.04 10.62 2.8l2.32-2.14a24.97 24.97 0 0 0-12.94-3.66C12.63 9.14 2.66 17 .01 27.27a1.5 1.5 0 0 0 2.9.74c2.28-8.86 11.12-15.87 21.05-15.87\" fill=\"currentColor\"></path><path d=\"M47.99 27.47a23.88 23.88 0 0 0-8.46-12.85l-2.25 2.07a20.98 20.98 0 0 1 7.75 11.32 1.5 1.5 0 0 0 2.96-.54\" fill=\"currentColor\"></path><g transform=\"translate(6.23 6)\"><mask id=\"b\" fill=\"#fff\"><use xlink:href=\"#a\"></use></mask><path d=\"M35.66 0c-.4.02-.78.2-1.05.5L.43 31.86a1.58 1.58 0 0 0 .78 2.62c.54.12 1.12-.06 1.49-.48L36.88 2.64A1.57 1.57 0 0 0 35.66 0\" fill=\"currentColor\" mask=\"url(#b)\"></path></g><path d=\"M18.16 30.08a6.6 6.6 0 0 1-.85-3.23v-.05a6.64 6.64 0 0 1 6.62-6.66h.04a6.6 6.6 0 0 1 3.74 1.13l2.23-2.05a9.64 9.64 0 0 0-14.01 12.91l2.23-2.05Z\" fill=\"currentColor\"></path><path d=\"M29.82 23.57c.52.94.82 2.03.83 3.18v.05a6.64 6.64 0 0 1-6.61 6.67h-.06c-1.37 0-2.64-.4-3.7-1.1l-2.23 2.05a9.64 9.64 0 0 0 14-12.9l-2.23 2.05Z\" fill=\"currentColor\"></path></g></svg>",
+              "title": "Sichtschutz- & Designfolien",
+              "text": "<p>Privatsphäre für zu Hause und am Arbeitsplatz</p>",
+              "link_label": "",
+              "link": "shopify://collections/glasdekorfolie",
+              "full_link": true,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_qGEtfC": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g fill=\"none\" fill-rule=\"evenodd\">\n    <path stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" d=\"M31 10v24.661\"></path>\n    <path d=\"M16.316 35.621a1.5 1.5 0 001.046.424h5.657a1.5 1.5 0 100-3h-2.036l5.925-5.924a1.5 1.5 0 10-2.121-2.122l-5.925 5.925v-2.036a1.5 1.5 0 10-3 0v5.657c0 .406.164.794.454 1.076z\" fill=\"currentColor\" fill-rule=\"nonzero\"></path>\n    <path stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" d=\"M16.408 10.625L26.5 21.5\"></path>\n  </g>\n</svg>",
+              "title": "UV Schutzfolien",
+              "text": "<p>Volle Transparenz und höchster Schutz vor schädlichen UV-Strahlen</p>",
+              "link_label": "",
+              "link": "shopify://collections/sonnenschutzfolien",
+              "full_link": true,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_X3fPtk": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "<svg width=\"48px\" height=\"48px\" viewbox=\"0 0 48 48\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <g id=\"Desktop-Sorenos\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"icons8-protect\" transform=\"translate(-559.000000, -1031.000000)\">\n            <g transform=\"translate(564.000000, 1033.000000)\">\n                <path d=\"M19.048828,0.000730654152 C18.6620519,-0.0113391721 18.2855726,0.126516665 17.998047,0.385496254 C17.998047,0.385496254 10.490168,7.00073065 1.5,7.00073065 C0.671607186,7.00081348 0,7.67233784 0,8.50073065 L0,20.7604967 C0,27.4385447 3.0894135,38.4271327 18.417969,44.8835427 C18.7901728,45.0402243 19.2098272,45.0402243 19.582031,44.8835427 C34.910586,38.4271337 38,27.4385447 38,20.7604967 L38,8.50073065 C38,7.67233784 37.3283928,7.00081348 36.5,7.00073065 C27.509832,7.00073065 20.001953,0.385496254 20.001953,0.385496254 C19.7394666,0.149004633 19.4019329,0.0127461516 19.048828,0.000730654152 Z M19,3.42846505 C21.062966,5.08709575 27.111257,9.33791965 35,9.87573065 L35,20.7604967 C35,26.5027537 32.793444,35.7664147 19,41.8269027 C5.206556,35.7664147 3,26.5027537 3,20.7604967 L3,9.87573065 C10.888743,9.33791965 16.937034,5.08709575 19,3.42846505 Z M26.470703,15.9870587 C26.0811443,15.998412 25.7112943,16.1609218 25.439453,16.4401837 L16.5,25.3796367 L12.560547,21.4401837 C12.1843188,21.0483372 11.6256503,20.8904962 11.0999963,21.0275334 C10.5743423,21.1645706 10.16384,21.5750729 10.0268028,22.1007269 C9.88976558,22.6263809 10.0476065,23.1850495 10.439453,23.5612777 L15.439453,28.5612777 C16.0252478,29.1468304 16.9747522,29.1468304 17.560547,28.5612777 L27.560547,18.5612777 C28.0034486,18.1299296 28.1363675,17.4710473 27.8953348,16.9017265 C27.6543022,16.3324057 27.0886886,15.9692602 26.470703,15.9870587 L26.470703,15.9870587 Z\" id=\"Shape\" fill=\"currentColor\" fill-rule=\"nonzero\"></path>\n            </g>\n        </g>\n    </g>\n</svg>",
+              "title": "Sicherheitsfolien",
+              "text": "<p>Splitterschutzfolien<br/>Einbruchschutzfolien</p>",
+              "link_label": "",
+              "link": "shopify://collections/sicherheitsfolien",
+              "full_link": true,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_WMc6qJ": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_1316_12219)\">\n<path d=\"M14.9258 13.105C13.9867 14.5662 13.3618 16.2068 13.0908 17.9225C12.1983 23.805 15.8883 29.75 20.6608 32.605C21.3322 33.0067 22.0344 33.3545 22.7608 33.645C26.3258 35.0725 30.4558 34.2425 32.9933 31.3575C34.0746 30.1879 34.739 28.6938 34.8833 27.1075C35.1458 22.9425 30.9183 18.3175 25.0633 18.3275C23.7261 18.3456 22.3966 18.1229 21.1383 17.67C20.3359 17.3687 19.562 16.9964 18.8258 16.5575C17.3245 15.6564 16.0024 14.4859 14.9258 13.105Z\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linejoin=\"round\"></path>\n<path d=\"M24.7901 18.3825C24.0471 17.1832 23.6345 15.8087 23.5941 14.3985C23.5537 12.9882 23.887 11.5924 24.5601 10.3525C24.6801 10.135 26.8276 6.35251 31.2126 6.22501C34.8826 6.11001 37.1526 8.6375 37.8601 9.565C38.0326 9.7953 38.2582 9.98055 38.5176 10.105C38.9023 10.2868 39.2971 10.4462 39.7001 10.5825L41.4801 11.1875L40.4376 13.9675C40.3512 14.1958 40.3126 14.4394 40.3242 14.6833C40.3358 14.9271 40.3974 15.1659 40.5051 15.385C43.6976 21.9025 43.0051 29.405 38.7826 34.44C37.5744 35.8725 36.1125 37.07 34.4701 37.9725C30.9439 39.8846 26.845 40.4564 22.9301 39.5825C22.7876 39.55 22.6401 39.52 22.4951 39.485C21.4026 39.235 20.3951 38.9475 19.4801 38.645C19.1886 38.5508 18.8778 38.5326 18.5772 38.5921C18.2767 38.6516 17.9963 38.7868 17.7626 38.985C17.6601 39.07 17.5551 39.16 17.4476 39.2575C16.5651 40.0425 16.3201 40.4675 15.8426 40.8625C15.4892 41.1517 15.0847 41.3722 14.6501 41.5125C13.7903 41.7877 12.8683 41.8025 12.0001 41.555C10.501 41.1484 9.13588 40.3533 8.04262 39.25C6.49072 37.6436 5.59163 35.5175 5.52012 33.285C5.46762 32.5825 5.42512 30.685 6.66762 29.615C7.76512 28.6675 9.28762 28.865 11.4851 29.155C12.6187 29.3054 13.7354 29.5632 14.8201 29.925C15.1357 30.031 15.4746 30.0475 15.799 29.9724C16.1234 29.8974 16.4206 29.7339 16.6576 29.5L17.2201 28.9375\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linejoin=\"round\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_1316_12219\">\n<rect width=\"48\" height=\"48\" fill=\"white\"></rect>\n</clippath>\n</defs>\n</svg>",
+              "title": "Vogelschutzfolien",
+              "text": "<p>Die unsichtbare Gefahr sichtbar machen.</p>",
+              "link_label": "",
+              "link": "shopify://collections/vogelschutzfolien",
+              "full_link": true,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_3kw9PF": {
+            "type": "column",
+            "disabled": true,
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M20.21 5a9.504 9.504 0 00-7.253 3.363l-6.709 7.93A9.506 9.506 0 004 22.43V33.5C4 36.52 6.48 39 9.5 39h29c3.02 0 5.5-2.48 5.5-5.5v-23C44 7.48 41.52 5 38.5 5H20.21zm0 3H38.5c1.398 0 2.5 1.102 2.5 2.5V18H8.732l6.516-7.7A6.5 6.5 0 0120.211 8zM7.18 21H41v12.5c0 1.398-1.102 2.5-2.5 2.5h-29A2.478 2.478 0 017 33.5V22.43c0-.487.074-.962.18-1.43zm23.32 4a1.5 1.5 0 100 3h5a1.5 1.5 0 100-3h-5z\" fill=\"currentColor\" fill-rule=\"nonzero\"></path>\n</svg>",
+              "title": "Scheibentönungsfolien",
+              "text": "<p>Autoscheiben tönen mit Hochleistungsfolien</p>",
+              "link_label": "",
+              "link": "",
+              "full_link": false,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_qtrNMH": {
+            "type": "column",
+            "disabled": true,
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M34.84 6.01a6.67 6.67 0 0 0-5.95 4.78c-.13.45-.22.9-.25 1.33a6.4 6.4 0 0 1-.78 2.49l-5.32-2.8a3.94 3.94 0 0 0-4.62.71L16.45 14a1.34 1.34 0 0 0 0 1.9l.47.47-1.88 1.89a2.65 2.65 0 0 0 0 3.72l10.98 10.98a2.65 2.65 0 0 0 3.72 0l1.89-1.88.48.47c.52.53 1.37.53 1.9 0l1.47-1.47a3.95 3.95 0 0 0 .7-4.62l-2.79-5.32a6.4 6.4 0 0 1 2.5-.78 6.66 6.66 0 0 0 6-5.34 6.76 6.76 0 0 0-7.05-8Zm.71 2.67a3.96 3.96 0 0 1 3.69 4.83 4.04 4.04 0 0 1-3.59 3.18 9.18 9.18 0 0 0-3.8 1.24l-1.78-1.77a9.14 9.14 0 0 0 1.24-3.8c.02-.26.07-.53.15-.8v-.01a4.04 4.04 0 0 1 4.09-2.87Zm-15.03 5.38c.26-.04.53 0 .77.13l6.36 3.34 2.82 2.83 3.34 6.35c.25.5.16 1.08-.23 1.47l-.53.53L19.3 14.95l.53-.53c.2-.2.44-.32.7-.36Zm-1.7 4.2 10.91 10.92-1.85 1.85-10.9-10.91 1.84-1.85Zm-9.48 11.9a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm5.37 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm5.37 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68ZM9.34 35.53a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm21.48 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68ZM9.34 40.9a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm5.37 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm5.37 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm5.37 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Zm5.37 0a1.34 1.34 0 1 0 0 2.68 1.34 1.34 0 0 0 0-2.68Z\" fill=\"currentColor\" fill-rule=\"nonzero\"></path></svg>",
+              "title": "Bedruckbare-Folien",
+              "text": "<p>Individuell und kreativ</p>",
+              "link_label": "",
+              "link": "",
+              "full_link": false,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_zBHEer": {
+            "type": "column",
+            "disabled": true,
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M36 1a1 1 0 100 2 1 1 0 000-2zM21 3a2 2 0 00-2 2v2a2 2 0 002 2h.5v2.027c-4.906.272-8.948 4.042-9.492 8.98l-.008.06V42a4 4 0 004 4h14a4 4 0 004-4V20c-.548-4.938-4.593-8.707-9.5-8.975V9h.5a2 2 0 002-2V5a2 2 0 00-2-2h-4zm12 0a1 1 0 100 2 1 1 0 000-2zm-3 2a1 1 0 100 2 1 1 0 000-2zm6 0a1 1 0 100 2 1 1 0 000-2zm-3 2a1 1 0 100 2 1 1 0 000-2zm3 2a1 1 0 100 2 1 1 0 000-2zm-13.938 5h1.883a7.105 7.105 0 016.791 5H15.27a7.106 7.106 0 016.792-5zM15 22h16v20c0 .551-.449 1-1 1H16c-.551 0-1-.449-1-1V22zm8 6a4 4 0 100 8 4 4 0 000-8z\" fill=\"currentColor\" fill-rule=\"nonzero\"></path>\n</svg>",
+              "title": "Design-Folien",
+              "text": "<p>Styling am Glas</p>",
+              "link_label": "",
+              "link": "",
+              "full_link": false,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_ARkGrf": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M34.291 3c-2.042.003-4.019.79-5.77 2.025a1.5 1.5 0 00-1.117.674 1.5 1.5 0 00-.136.12l-15.81 15.808a4.44 4.44 0 00-1.298 2.996l-.082 2.543-4.639 4.639a1.5 1.5 0 00-.41 1.355l2.078 10.395a1.5 1.5 0 002.534.765l8.796-8.797 2.54-.082c1.126-.036 2.2-.5 2.998-1.298l11.484-11.485c2.015-.34 3.977-1.205 5.537-2.765.067-.067.088-.159.152-.227a1.5 1.5 0 00.817-1.22c2.737-3.899 2.626-9.205-.797-12.628C39.28 3.931 36.794 2.996 34.29 3zm-.014 2.984a6.674 6.674 0 014.77 1.955c2.125 2.126 2.446 5.312 1.101 7.944l-9.029-9.03c1.01-.515 2.072-.865 3.158-.869zm-5.601 2.67l9.564 9.565c-1.124.904-2.402 1.505-3.742 1.638a1.5 1.5 0 00-.912.432L21.852 32.022v.001c-.26.26-.604.409-.971.42l-6.445.207a1.414 1.414 0 01-1.485-1.484l.207-6.445c.012-.365.163-.714.422-.973L28.676 8.654zm-1.08 7.293a2 2 0 00-1.373.606l-8.317 8.314a2 2 0 102.828 2.83l8.317-8.316a2 2 0 00-1.455-3.434zM9.96 31.525c.157 2.184 1.933 3.958 4.117 4.114L9.5 40.217l-1.371-6.86 1.832-1.832z\" fill=\"currentColor\" fill-rule=\"nonzero\"></path>\n</svg>",
+              "title": "Werkzeuge",
+              "text": "<p>Montage-Werkzeuge und –Zubehör im Onlineshop</p>",
+              "link_label": "",
+              "link": "shopify://collections/werkzeuge",
+              "full_link": true,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          }
+        },
+        "block_order": [
+          "column_cAchEx",
+          "column_j8FFTB",
+          "column_qGEtfC",
+          "column_X3fPtk",
+          "column_WMc6qJ",
+          "column_3kw9PF",
+          "column_qtrNMH",
+          "column_zBHEer",
+          "column_ARkGrf"
+        ],
+        "settings": {
+          "class": "section-folien",
+          "title": "Unsere Folien & Werkzeuge für alle Bedürfnisse.",
+          "heading_size": "h1",
+          "image_width": "full",
+          "image_ratio": "adapt",
+          "columns_desktop": 3,
+          "column_alignment": "left",
+          "background_style": "none",
+          "button_label": "",
+          "button_link": "",
+          "columns_mobile": "1",
+          "swipe_on_mobile": false,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "multicolumn_RkUiP3": {
+        "type": "multicolumn",
+        "blocks": {
+          "column_69qc8r": {
+            "type": "column",
+            "settings": {
+              "image": "shopify://shop_images/Online-bestellen_final-SG.jpg",
+              "svg_icon": "",
+              "title": "<strong>Registrieren und loslegen </strong>",
+              "text": "<p>Wir beliefern ausschliesslich Firmen, welche Windowfilm professionell verarbeiten. Registrieren Sie sich jetzt und profitieren Sie von vielen Vorteilen.</p>",
+              "link_label": "Partner werden",
+              "link": "https://folienzuschnitt.sorenos.ch/admin/login",
+              "full_link": false,
+              "button_label_2": "",
+              "button_link_2": ""
+            }
+          },
+          "column_ettFmH": {
+            "type": "column",
+            "settings": {
+              "svg_icon": "",
+              "title": "Haben Sie Fragen?",
+              "text": "<p>Wir beraten Sie gerne, bei allen Fragen rund um Folien.</p>",
+              "link_label": "Kontakt",
+              "link": "shopify://pages/kontakt",
+              "full_link": false,
+              "button_label_2": "Referenzen",
+              "button_link_2": "shopify://pages/referenzen"
+            }
+          }
+        },
+        "block_order": [
+          "column_69qc8r",
+          "column_ettFmH"
+        ],
+        "settings": {
+          "class": "section-bestellen",
+          "title": "",
+          "heading_size": "h2",
+          "image_width": "third",
+          "image_ratio": "portrait",
+          "columns_desktop": 3,
+          "column_alignment": "left",
+          "background_style": "primary",
+          "button_label": "",
+          "button_link": "",
+          "columns_mobile": "1",
+          "swipe_on_mobile": false,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "custom_slider_zThfm6": {
+        "type": "custom_slider",
+        "blocks": {
+          "slide_pKpqBa": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/XTRM_Folie_Gebaeude-1-0x1200-c-default.jpg",
+              "title": "Folien für Fenster und Glas",
+              "text": "<p>Sorenos steht für Zuverlässigkeit und Verbindlichkeit – von der Beratung bis zur Verarbeitung</p>",
+              "link_label": "Über Sorenos",
+              "link": "shopify://pages/team"
+            }
+          },
+          "slide_hezWaC": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Sonnenschutz_final1-SG-0x1200-c-default.jpg",
+              "title": "Sonnenschutzfolien",
+              "text": "<p>Hitzeschutz und volle Transparenz</p>",
+              "link_label": "Mehr erfahren",
+              "link": "shopify://collections/sonnenschutzfolien"
+            }
+          },
+          "slide_JWk74w": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Sicherheitsfolie_final-SG-0x1200-c-default_287c6299-3223-498f-9a6b-9f1ee9a4f954.jpg",
+              "title": "Sicherheitsfolien",
+              "text": "<p>Wirkungsvoller Splitter- und Einbruchschutz</p>",
+              "link_label": "Mehr erfahren",
+              "link": "shopify://collections/sicherheitsfolien"
+            }
+          },
+          "slide_tXMc99": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Sichtschutz_final-1-SG-0x1200-c-default.png",
+              "title": "Sichtschutzfolien",
+              "text": "<p>Einsichtschutz für mehr Privatsphäre</p>",
+              "link_label": "Mehr erfahren",
+              "link": "shopify://collections/glasdekorfolie"
+            }
+          },
+          "slide_mGwCFN": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Bueroverglasung_frontal_Muster_gruen-0x1200-c-default.jpg",
+              "title": "Designfolien",
+              "text": "<p>SORENOS TopClear Printfilm - Die Printfolie, die alle übertrifft</p>",
+              "link_label": "Mehr erfahren",
+              "link": "shopify://collections/glasdekorfolie"
+            }
+          },
+          "slide_LL9yiK": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "image": "shopify://shop_images/Slider-3-0x1200-c-default.jpg",
+              "title": "smartfilm",
+              "text": "<p>Sichtschutz auf Knopfdruck</p>",
+              "link_label": "smartfilm",
+              "link": "shopify://pages/smartfilm"
+            }
+          },
+          "slide_GPiy3E": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Claudia-Idee_2-0x1200-c-default.png",
+              "title": "Hochwertige Werkzeuge zu sensationellen Preisen",
+              "text": "<p>Jetzt im Shop entdecken</p>",
+              "link_label": "Werkzeuge",
+              "link": "shopify://collections/werkzeuge"
+            }
+          },
+          "slide_dXYiUy": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Slider-2.1-0x1200-c-default.jpg",
+              "title": "SORENOS Seminare & Trainings",
+              "text": "<p>Wir bilden Sie weiter</p>",
+              "link_label": "Jetzt anmelden",
+              "link": "shopify://pages/schulungen"
+            }
+          },
+          "slide_UrQw4Q": {
+            "type": "slide",
+            "settings": {
+              "image": "shopify://shop_images/Energieeffizienz-0x1200-c-default.jpg",
+              "title": "Energieeffizienz",
+              "text": "<p>Energieverbrauch und Kosten senken mit Sonnenschutzfolien</p>",
+              "link_label": "Mehr erfahren",
+              "link": "shopify://collections/sonnenschutzfolien"
+            }
+          }
+        },
+        "block_order": [
+          "slide_pKpqBa",
+          "slide_hezWaC",
+          "slide_JWk74w",
+          "slide_tXMc99",
+          "slide_mGwCFN",
+          "slide_LL9yiK",
+          "slide_GPiy3E",
+          "slide_dXYiUy",
+          "slide_UrQw4Q"
+        ],
+        "custom_css": [],
+        "settings": {}
+      },
+      "RichTextWithCTA": {
+        "type": "RichTextWithCTA",
+        "settings": {
+          "full_width": false,
+          "section_title": "Folienzuschnitt-Service",
+          "text": "<p>Wir von SORENOS sind stolzer Partner von «Folienzuschnitt». Einer einzigartigen Softwarelösung, welche Ihnen das Leben im Bereich Windowfilm erleichtert. Noch nie war es so einfach Projekte professionell zu erfassen, Materialpreise zu berechnen und dies auch noch mit dem bestmöglichen Verschnitt. Auch beim Erstellen von Verkaufsangebote unterstützt Sie die Software. Gekoppelt an unseren Zuschnitt-Service erhalten Sie Ihre Projekte perfekt zugeschnitten und können sich voll und ganz auf die Applikation konzentrieren. Testen Sie uns, Sie werden begeistert sein.</p>",
+          "text_size": "medium"
+        }
+      },
+      "video": {
+        "type": "video",
+        "settings": {
+          "image": "shopify://shop_images/titelbild_vimeo.jpg",
+          "section_id": "",
+          "color_code": "",
+          "image_position": "center center",
+          "video": "shopify://files/videos/wie_funktoniert_folienzuschnitt_ (1080p).mp4",
+          "video_link": "https://youtu.be/ynr0TD4rDV8",
+          "show_overlay": true,
+          "style": "image_with_play",
+          "height": "medium",
+          "video_title": "",
+          "text_size": "medium"
+        }
+      },
+      "service04_feature-row": {
+        "type": "service04_feature-row",
+        "settings": {
+          "image": "shopify://shop_images/folien_bb6005b8-5968-4e7a-8719-90cc5d475c93.jpg",
+          "layout": "left",
+          "title": "Folienzuschnitt-Service",
+          "text": "<p>Das Zuschneiden von Windowfilm ist mit viel Zeitaufwand verbunden, erfordert Konzentration damit so wenig Verschnitt wie möglich produziert wird und die Schnittqualität ist gerade bei Sicherheitsfolien entscheidend. Nutzen Sie unseren Zuschnittservice, damit Sie sich um diese Themen nicht mehr kümmern müssen. Wir berechnen, dank einer intelligenten Nesting-Software, die bestmögliche Materialausnützung und schneiden alle Positionen maschinell millimetergenau. Wir verpacken alles nach Positionen sortiert und liefern direkt zu Ihnen oder auf die Baustelle. Testen Sie uns, wir sind uns sicher, dass es sich auch in finanzieller Hinsicht für Sie lohnen wird.</p>",
+          "button_label": "ZUM ZUSCHNITT-SERVICE",
+          "button_link": "https://folienzuschnitt.sorenos.ch/admin/login"
+        }
+      },
+      "ref_hero": {
+        "type": "ref_hero",
+        "settings": {
+          "image": "shopify://shop_images/zhversicherung-1920x700_08875643-dfcf-4de9-994e-e0b26fb5a8e1.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "Projekte und Referenzen",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "references": {
+        "type": "references",
+        "settings": {
+          "heading": "",
+          "content": "<p>Unsere Kundenprojekte sind so verschieden,<br/>wie unser Foliensortiment. Lassen Sie sich inspirieren von Projektbeispielen und Ideen.</p>",
+          "collection": "referenzen"
+        }
+      },
+      "seminar": {
+        "type": "seminar",
+        "settings": {
+          "collection": "seminar"
+        }
+      },
+      "clickfilm_content": {
+        "type": "clickfilm_content",
+        "blocks": {
+          "text_Wy3ADp": {
+            "type": "text",
+            "settings": {
+              "title": "Welchen Nutzen bietet der smartfilm?",
+              "text": "",
+              "button_label": "",
+              "button_link": "",
+              "width": "100%",
+              "alignment": "center",
+              "align_text": "center"
+            }
+          },
+          "feature_row_YAhmgx": {
+            "type": "feature_row",
+            "settings": {
+              "image": "shopify://shop_images/Sichtschutz-auf-Knopfdruck_final-SG.jpg",
+              "layout": "left",
+              "title": "Sichtschutz auf Knopfdruck",
+              "text": "<p>Individualität und Flexibilität ist auch beim Sichtschutz gefragt. Bei uns erhältlich: Elektrochrome Folie für schaltbaren Sichtschutz aus dem Haus HAVERKAMP.</p><p>Mit dem smartfilm bekommen Ihre Fenster und Glaswände neue Eigenschaften. Lichtdurchflutete Sitzungszimmer werden auf Knopfdruck per Fernbedienung zu blickdichten Räumen, in denen die Privatsphäre gewährleistet ist. Private Räume bekommen mit einem Klick einen 100% Sichtschutz. Die Möglichkeiten Glasflächen zu gestalten und Räume individuell zu nutzen sind sehr vielfältig.</p><p>Geliefert wird der smartfilm,  genau auf Mass zugeschnitten inklusive aller Anschlüsse und Trafo, an von Sorenos zertifizierte Verleger.</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature_row_mUVdqe": {
+            "type": "feature_row",
+            "settings": {
+              "image": "shopify://shop_images/ClickFilm_-Eigenschaften_final-SG-375x0-c-default.jpg",
+              "layout": "right",
+              "title": "smartfilm Eigenschaften",
+              "text": "<ul><li>Schaltbare Folie für flexiblen Sichtschutz</li><li>Optimal für Firmen, Wohnbereich, Messebau, u.a.</li><li>Stufenlos dimmbar</li><li>Sehr hohe Transparenz von 82 % (VLT)</li><li>Kratzfeste Oberfläche</li><li>Als Beamer-Projektionsfläche für digitale Bildinstallationen</li><li>Im Ruhezustand weiss-mattiert, bei Stromzufuhr klarsichtig</li><li>Applikation auf allen planen Glasflächen möglich</li><li>Schnelle Installation</li><li>Sehr geringer Stromverbrauch</li><li>Qualitativ sehr hochwertiges Produkt</li></ul>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature_row_WncXMk": {
+            "type": "feature_row",
+            "settings": {
+              "image": "shopify://shop_images/Ungehinderte-Durchsicht_final-SG-375x0-c-default.png",
+              "layout": "left",
+              "title": "Trafo für smartfilm",
+              "text": "<ul><li>inklusive Fernbedienung (Ein/Aus/Dimmen)</li><li>Kompatibel für Mediensteuerungen</li><li>Zukünftig per App steuerbar und in Smart-Homes integrierbar Schnelle Installation</li></ul><h5>Sehr geringer Stromverbrauch</h5>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "feature_row_gUmN3t": {
+            "type": "feature_row",
+            "disabled": true,
+            "settings": {
+              "image": "shopify://shop_images/ClickFilm_-Musterbox_final-SG-375x0-c-default.jpg",
+              "layout": "right",
+              "title": "Smartfilm Musterbox",
+              "text": "<p>Voll funktionsfähiges Smartfilm Modell, in einer hochwertigen Musterbox.<br/>Die praktische Smartfilm Musterbox eignet sich sehr gut für eindrückliche Präsentationen.</p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "video_jVrb6V": {
+            "type": "video",
+            "settings": {
+              "video_url": "https://youtu.be/wNQjBYwgNww",
+              "image": "shopify://shop_images/Bild_Clip-1440x810-c-default.jpg",
+              "width": "100%",
+              "alignment": "center"
+            }
+          },
+          "text_XnXQPe": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "text": "",
+              "button_label": "Jetzt Kontakt aufnehmen",
+              "button_link": "shopify://pages/kontakt",
+              "width": "50%",
+              "alignment": "center",
+              "align_text": "center"
+            }
+          }
+        },
+        "block_order": [
+          "text_Wy3ADp",
+          "feature_row_YAhmgx",
+          "feature_row_mUVdqe",
+          "feature_row_WncXMk",
+          "feature_row_gUmN3t",
+          "video_jVrb6V",
+          "text_XnXQPe"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "rich_text_zmMkne": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": true,
+          "section_title": "Starke Marken für starke Projekte",
+          "text": "<p>Bei SORENOS GmbH setzen wir auf die besten Partner: 3M, Avery Dennison und SEEN. Diese weltweit führenden Marken stehen für höchste Qualitätsstandards, innovative Technologien und ein breites Produktportfolio, das keine Wünsche offenlässt. Dank dieser starken Partnerschaften können wir Ihnen Lösungen bieten, die in jedem Projekt überzeugen.</p>",
+          "text_size": "medium"
+        }
+      },
+      "logo_bar_EEUyfy": {
+        "type": "logo-bar",
+        "blocks": {
+          "logo_image_aWzEXA": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify://shop_images/3m_03_f8ea2745-547d-4239-a031-689cd7630a84.png",
+              "link": "https://www.3mschweiz.ch/3M/de_CH/unternehmen-alpine/",
+              "is_new_tab": true
+            }
+          },
+          "logo_image_F3ygGL": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify://shop_images/AveryDennison_fffe3194-2bc9-4817-9dee-5fdebfb57122.png",
+              "link": "https://hanitacoatings.com/films/",
+              "is_new_tab": true
+            }
+          },
+          "logo_image_4Q7nMD": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify://shop_images/SEEN-auf-hell.png",
+              "link": "https://www.solargard.com/eu/",
+              "is_new_tab": true
+            }
+          }
+        },
+        "block_order": [
+          "logo_image_aWzEXA",
+          "logo_image_F3ygGL",
+          "logo_image_4Q7nMD"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "rich_text_iaWehN": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": true,
+          "section_title": "Willkommen bei SORENOS – Folien für Fenster und Glas",
+          "text": "<p>Die SORENOS GmbH ist Ihr Spezialist für hochwertige Folien auf Glas. Als Handelsunternehmen arbeiten wir eng mit den weltweit führenden Herstellern von Windowfilms zusammen, um Ihnen erstklassige Produkte und Dienstleistungen zu bieten. Unser Sortiment umfasst ein breites Spektrum an Fensterfolien: von Sonnenschutzfolien für ein angenehmes Raumklima über Sicherheitsfolien für erhöhten Schutz bis hin zu dekorativen Folien, Vogelschutzfolien und innovativem smartfilm.</p><p>Wir verstehen uns als zuverlässiger Partner für verarbeitende Unternehmen in Deutschland und Österreich. Unser Anspruch ist es, Ihnen nicht nur hochwertige Produkte, sondern auch eine umfassende Dienstleistung anzubieten – von der Beratung bis zur Lieferung. Vertrauen Sie auf unsere Expertise, wenn es um Folienlösungen für Glas geht.</p>",
+          "text_size": "medium"
+        }
+      },
+      "service07_hero": {
+        "type": "service07_hero",
+        "settings": {
+          "image": "shopify://shop_images/DSC00280.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "small",
+          "text_size": "medium",
+          "title": "",
+          "text": "",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "impressionen": {
+        "type": "impressionen",
+        "blocks": {
+          "video_3RgfVU": {
+            "type": "video",
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/40b8d8fe12554257a753790b3a64814e.mp4",
+              "image": "shopify://shop_images/thumb_3.jpg"
+            }
+          },
+          "video_Re7eV9": {
+            "type": "video",
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/3db0d10ed198408e974b6a9d273bda1b.mp4",
+              "image": "shopify://shop_images/thumb_1.jpg"
+            }
+          },
+          "video_NnhyL7": {
+            "type": "video",
+            "settings": {
+              "videourl": "https://cdn.shopify.com/videos/c/o/v/3cc02e4a22d54103bb2e4c2482daf35c.mp4",
+              "image": "shopify://shop_images/thumb_5.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "video_3RgfVU",
+          "video_Re7eV9",
+          "video_NnhyL7"
+        ],
+        "settings": {
+          "heading": "Impressionen Windowfilm-Events"
+        }
+      },
+      "RichTextCTA_Event": {
+        "type": "RichTextCTA_Event",
+        "settings": {
+          "full_width": false,
+          "section_title": "Windowfilm-Event",
+          "text": "<p>Der Windowfilm-Event ist der jährliche Treffpunkt für Fachleute, Partner und Interessierte aus der Welt der Fensterfolien. Im Zentrum stehen der Austausch über Trends, Anwendungen und Herausforderungen rund um Sonnenschutz-, Sichtschutz- und Sicherheitsfolien.</p><p>Neben einem praxisnahen Seminarteil mit spannenden Inputs bietet diese Fachtagung eine inspirierende Plattform für Networking, neue Impulse und persönliche Begegnungen.</p><p>Ob technischer Know-how-Transfer, innovative Produktanwendungen oder einfach der Austausch unter Kolleginnen und Kollegen – der Windowfilm-Event verbindet Fachlichkeit mit Erlebnis.</p>",
+          "text_size": "medium"
+        }
+      }
+    },
+    "content_for_index": [
+      "custom_slider_zThfm6",
+      "rich_text_iaWehN",
+      "multicolumn_4QVLiz",
+      "rich_text_zmMkne",
+      "logo_bar_EEUyfy",
+      "1610359416ea746e1d",
+      "16077047033e472bc6",
+      "multicolumn_RkUiP3",
+      "16097496851803271d"
+    ],
+    "blocks": {
+      "6406956604159796213": {
+        "type": "shopify://apps/smartseo/blocks/smartseo/7b0a6064-ca2e-4392-9a1d-8c43c942357b",
+        "disabled": false,
+        "settings": {}
+      },
+      "4976129024724438625": {
+        "type": "shopify://apps/smartseo/blocks/brokenLinkDetection/7b0a6064-ca2e-4392-9a1d-8c43c942357b",
+        "disabled": false,
+        "settings": {}
+      },
+      "18131037017812181619": {
+        "type": "shopify://apps/mailchimp-email-sms/blocks/mailchimp_for_shopify_script/e3b67dce-fd41-4b61-b3cf-961c12344cde",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

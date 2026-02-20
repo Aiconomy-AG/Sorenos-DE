@@ -1,0 +1,8 @@
+{% if product.metafields.custom_fields["garantie_vertikal"] != blank %}
+  <div class="custom-field custom-field__garantie-vertikal custom-field__type--text">
+    <strong class="custom-field--title">{{ 'products.product.vertical_warranty' | t }}</strong> 
+    <div class="custom-field--value">
+      {{ product.metafields.custom_fields["garantie_vertikal"] }}
+    </div>
+  </div>
+{% endif %}
