@@ -90,15 +90,19 @@
   aspect-ratio: 16 / 9;
 }
 #breadcrumb-wrapper {
-  padding-left: 22px;
+  padding-left: 0;
   padding-right: 22px;
 }
 
-@media (max-width: 920px) {
-  #breadcrumb-wrapper {
-    padding-left: 0 !important;
-  }
+/* Collection toolbar: breadcrumb first (top left) at all screen widths */
+.template-collection .filters-toolbar__item-wrapper {
+  order: 2;
+}
+.template-collection .filters-toolbar__item--count {
+  order: 3;
+}
 
+@media (max-width: 920px) {
   .filters-toolbar__item-child {
     margin-right: 0 !important;
   }
