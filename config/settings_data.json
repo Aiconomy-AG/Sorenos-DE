@@ -332,6 +332,7 @@
         "blocks": {
           "d9daa9d3-0508-4403-b142-005dd48a59f2": {
             "type": "text_block",
+            "disabled": true,
             "settings": {
               "enable_image": true,
               "title": "Walter Zai",
@@ -1421,6 +1422,7 @@
           },
           "slide_mGwCFN": {
             "type": "slide",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/Bueroverglasung_frontal_Muster_gruen-0x1200-c-default.jpg",
               "title": "Designfolien",

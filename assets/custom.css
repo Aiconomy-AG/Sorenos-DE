@@ -2460,7 +2460,8 @@ select.filter_dropdown {
   align-items: center;
 }
 
-@media screen and (max-width: 1250px) {
+/* Collection: mobile 2 cols (<750), tablet 3 cols (750–1249), laptop/desktop 4 cols (1250+) */
+@media screen and (max-width: 749px) {
   #Collection .grid.grid--uniform {
     display: grid;
     column-gap: 22px;
@@ -2478,17 +2479,26 @@ select.filter_dropdown {
   }
 }
 @media screen and (min-width: 750px) and (max-width: 1250px) {
-  #Collection .grid.grid--uniform.grid--view-items[data-cols="2"] {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #Collection .grid.grid--uniform.grid--view-items[data-cols="3"] {
+  #Collection .grid.grid--uniform {
+    display: grid;
+    column-gap: 30px;
+    row-gap: 35px;
+    margin: 0 !important;
     grid-template-columns: repeat(3, 1fr);
   }
-  #Collection .grid.grid--uniform.grid--view-items[data-cols="4"] {
-    grid-template-columns: repeat(4, 1fr);
+  #Collection .grid.grid--uniform .grid__item {
+    padding-left: 0 !important;
+    width: auto !important;
+    float: none;
   }
+  #Collection .grid.grid--uniform .grid-view-item {
+    margin-bottom: 0;
+  }
+  #Collection .grid.grid--uniform.grid--view-items[data-cols="2"],
+  #Collection .grid.grid--uniform.grid--view-items[data-cols="3"],
+  #Collection .grid.grid--uniform.grid--view-items[data-cols="4"],
   #Collection .grid.grid--uniform.grid--view-items[data-cols="5"] {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

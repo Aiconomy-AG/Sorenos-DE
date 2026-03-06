@@ -344,7 +344,9 @@
       {% endif %}
       {% if product.metafields.custom_fields["spec1"] != blank %}
       <div class="tab__content" data-tab-content="tab-item-2">
-         <div>
+         {% assign replace_word = 'Doppelisolierverglasung' %}
+         {% assign replace_with = 'Doppelsisolierverglasung' %}
+         <div class="spec1">
             {% if product.metafields.custom_fields["spec1"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec1"] | split: ' ' %}
             {% assign width = words | last %}
@@ -353,11 +355,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec1"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec1"]  }}
+            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec1"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec2">
             {% if product.metafields.custom_fields["spec2"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec2"] | split: ' ' %}
             {% assign width = words | last %}
@@ -366,11 +368,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec2"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec2"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec2"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec3">
             {% if product.metafields.custom_fields["spec3"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec3"] | split: ' ' %}
             {% assign width = words | last %}
@@ -379,11 +381,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec3"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec3"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec3"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec4">
             {% if product.metafields.custom_fields["spec4"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec4"] | split: ' ' %}
             {% assign width = words | last %}
@@ -392,11 +394,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec4"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec4"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec4"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec5">
             {% if product.metafields.custom_fields["spec5"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec5"] | split: ' ' %}
             {% assign width = words | last %}
@@ -405,11 +407,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec5"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec5"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec5"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec6">
             {% if product.metafields.custom_fields["spec6"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec6"] | split: ' ' %}
             {% assign width = words | last %}
@@ -418,11 +420,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec6"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec6"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec6"] | replace:replace_with,replace_word }}
             {% endif %} 
             {% endif %}
          </div>
-         <div>
+         <div class="spec7">
             {% if product.metafields.custom_fields["spec7"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec7"] | split: ' ' %}
             {% assign width = words | last %}
@@ -431,11 +433,11 @@
             <div class="progress-bar"><span class="progress-inner" {% if width contains '0.'%}style="width:{{words | last | times:100}}%"{% else %}style="width:{{words | last}}{% endif %}"> {% if width contains '0.'%}{{words | last | times:100}}%{% else %}{{words | last}}{% endif %} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec7"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec7"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec7"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec8">
             {% if product.metafields.custom_fields["spec8"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec8"] | split: ' ' %}
             {% assign width = words | last %}
@@ -445,11 +447,11 @@
             {% else %}
             {% unless product.metafields.custom_fields["spec8"] contains "*" %}
             <i class="fa fas fa-cog"></i> {% endunless %}
-            {{ product.metafields.custom_fields["spec8"] }}
+            {{ product.metafields.custom_fields["spec8"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec9">
             {% if product.metafields.custom_fields["spec9"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec9"] | split: ' ' %}
             {% assign width = words | last %}
@@ -458,11 +460,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec9"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec9"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec9"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec10">
             {% if product.metafields.custom_fields["spec10"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec10"] | split: ' ' %}
             {% assign width = words | last %}
@@ -471,11 +473,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec10"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec10"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec10"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec11">
             {% if product.metafields.custom_fields["spec11"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec11"] | split: ' ' %}
             {% assign width = words | last %}
@@ -484,11 +486,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec11"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec11"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec11"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec12">
             {% if product.metafields.custom_fields["spec12"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec12"] | split: ' ' %}
             {% assign width = words | last %}
@@ -497,11 +499,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec12"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec12"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %} {{ product.metafields.custom_fields["spec12"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec13">
             {% if product.metafields.custom_fields["spec13"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec13"] | split: ' ' %}
             {% assign width = words | last %}
@@ -510,11 +512,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec13"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec13"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec13"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec14">
             {% if product.metafields.custom_fields["spec14"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec14"] | split: ' ' %}
             {% assign width = words | last %}
@@ -523,11 +525,11 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec14"] contains "*" %}
-            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec14"] }}
+            <i class="fa fas fa-cog"></i> {% endunless %}{{ product.metafields.custom_fields["spec14"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>
-         <div>
+         <div class="spec15">
             {% if product.metafields.custom_fields["spec15"] != blank %}
             {% assign words =  product.metafields.custom_fields["spec15"] | split: ' ' %}
             {% assign width = words | last %}
@@ -536,7 +538,7 @@
             <div class="progress-bar"><span class="progress-inner" style="width:{{words | last}}">{{words | last}} </span></div>
             {% else %}
             {% unless product.metafields.custom_fields["spec15"] contains "*" %}
-            <i class="fa fas fa-cog"></i>  {% endunless %}{{ product.metafields.custom_fields["spec15"] }}
+            <i class="fa fas fa-cog"></i>  {% endunless %}{{ product.metafields.custom_fields["spec15"] | replace:replace_with,replace_word }}
             {% endif %}
             {% endif %}
          </div>

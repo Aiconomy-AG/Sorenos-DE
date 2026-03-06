@@ -390,8 +390,9 @@
           var contact_address = ''+formData.streetAndNumber+' '+formData.zipAndCity+' '+formData.zipAndCityDifferent+'';
           var formValue = {
               "x-shopify-shop-domain": "{{ shop.permanent_domain }}",
-              "person-email": "info@sorenos.ch", // mail send to
+              "person-email": "info@sorenos.de", // mail send to
               // "person-email": "d.groza@aico.swiss", // mail send to
+              // "person-email": "r.parmar@brightness-india.com", // mail send to
               "subject": formData.subject,
               "contact_date":formData.date,
               "contact_Name": contact_Name,
@@ -404,7 +405,7 @@
               "contact_Kommentar": formData.message
           };
 
-        console.log(JSON.stringify(formValue));
+        // console.log(JSON.stringify(formValue));
 
           $.ajax({
           url: "https://app.aico.swiss/67606625/api/v1/ecommerce-orders/contact-mail",

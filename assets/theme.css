@@ -10573,8 +10573,31 @@ body.popup-active {
     width: 120%;
     max-width: 120%;
   }
-  .grid__item {
+  #verglasungsart .grid__item,
+  .row_main .grid__item {
     padding-left: 0;
+  }
+  /* Keep collection product grid gaps/padding consistent under 1250px */
+  #Collection .grid.grid--uniform {
+    margin-left: -30px;
+  }
+  #Collection .grid.grid--uniform .grid__item {
+    padding-left: 30px;
+  }
+  #Collection .grid-view-item {
+    margin-bottom: 35px;
+  }
+}
+/* Collection: 3 columns on tablet (750px–849px), 4 columns from 850px up */
+@media (min-width: 750px) and (max-width: 849px) {
+  #Collection .grid.grid--uniform .grid__item {
+    width: 33.33333%;
+  }
+  #Collection .grid.grid--uniform .grid__item:nth-child(3n + 1) {
+    clear: both;
+  }
+  #Collection .grid.grid--uniform .grid__item:nth-child(4n + 1) {
+    clear: none;
   }
 }
 @media (max-width: 991px) {

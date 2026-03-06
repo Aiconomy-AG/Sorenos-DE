@@ -29,13 +29,13 @@
         <div class="event_description">
           {{ product.description }}
         </div>
-        {% if product.metafields.custom_fields.inhalt_de_ch != blank %}
+        {% comment %} {% if product.metafields.custom_fields.inhalt_de_ch != blank %}
           <div class="event_inhalt">
             {{ product.metafields.custom_fields.inhalt_de_ch }}
           </div>
-        {% endif %}
+        {% endif %} {% endcomment %}
 
-        {% for tag in product.tags %}
+        {% comment %} {% for tag in product.tags %}
           {% if tag contains 'courseStartDate_' %}
             {% assign startdate = tag | remove: 'courseStartDate_' | date: '%d.%m.%Y' %}
             {% assign startweek = tag | remove: 'courseStartDate_' | date: '%A' %}
@@ -57,10 +57,11 @@
           {% if tag contains 'courseLocation_' %}
             {% assign location = tag | remove: 'courseLocation_' %}
           {% endif %}
-        {% endfor %}
+        {% endfor %} {% endcomment %}
 
         <table class="seminar__data">
           <tbody>
+{% comment %}             
             {% if startdate != blank %}
               <tr class="tr_datum">
                 <th>Datum</th>
@@ -139,6 +140,21 @@
                   )
                 </td>
               </tr>
+            {% endif %} {% endcomment %}
+
+            {% assign coursetype = '' %}
+            {% assign is_anfrage = false %}
+            {% for tag in product.tags %}
+              {% if tag contains 'courseType_' %}
+                {% assign coursetype = tag %}
+              {% endif %}
+            {% endfor %}
+
+            {% if coursetype == 'courseType_Event auf Anfrage' %}
+              {% assign btn_lable = 'Anfragen' %}
+              {% assign is_anfrage = true %}
+            {% else %}
+              {% assign btn_lable = 'Anfragen' %}
             {% endif %}
 
             <tr>
