@@ -72,14 +72,13 @@
       {% if shop.locale == 'en' or shop.locale == 'it' or shop.locale == 'fr' %}
           <meta name="robots" content="noindex">
       {% endif %}
-      <!-- Google Tag Manager -->
-      <script type="text/plain" data-cookieconsent="statistics">
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      
+       <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-NNTHT5F');
-      </script>
+        })(window,document,'script','dataLayer','GTM-PJFHVJ8R');</script>
       <!-- End Google Tag Manager -->
       <script
         id="Cookiebot"
@@ -88,8 +87,11 @@
         data-blockingmode="auto"
         type="text/javascript"
       ></script>
-      {{ 'tiny.content.min.css' | asset_url | stylesheet_tag }}
-      <meta name="google-site-verification" content="EMvcJZh-Z9288XsTsexxEuyaUVs49thbtEn_ttJU4IE" />
+
+      <link rel="stylesheet" href="{{ 'tiny.content.min.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ 'tiny.content.min.css' | asset_url }}"></noscript>
+
+      <meta name="google-site-verification" content="vGjW3X1msZnm0PR5IHp14wuJx22h8HiURIG7IhepM-U" />
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -166,8 +168,10 @@
           link.dispatchEvent(new Event('load'));
         }
       </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet">
+      {% unless template.suffix == 'referenzen' %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet">
+      {% endunless %}
       <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
 
       <!--
@@ -277,22 +281,32 @@
       {% include 'boost-pfs-style' %}
       <!-- end-boost-pfs-filter-css -->
 
-      {% if tempate.name != 'index' or  tempate.name != 'product'  tempate.name != 'collection' %}
-        {{ 'wallee-checkout.css' | asset_url | stylesheet_tag }}
+      {% if tempate.name != 'index' or  tempate.name != 'product' or tempate.name != 'collection' or tempate.suffix != 'referenzen' %}
+        {% comment %} {{ 'wallee-checkout.css' | asset_url | stylesheet_tag }} {% endcomment %}
+        <link rel="stylesheet" href="{{ 'wallee-checkout.css' | asset_url }}" media="print" onload="this.media='all'">
+        <noscript><link rel="stylesheet" href="{{ 'wallee-checkout.css' | asset_url }}"></noscript>
+
       {% endif %}
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' | stylesheet_tag }}
+      {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> {% endcomment %}
+       <script src="{{ 'jquery.min.js' | asset_url }}"></script>
+      
+      {% unless template.suffix == 'referenzen' %}
+        {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' | stylesheet_tag }}
+      {% endunless %}
 
       {% include 'analyzify-gtm-body' %}
 
       {{ 'custom.css' | asset_url | stylesheet_tag }}
+      {% comment %} <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+      <noscript><link rel="stylesheet" href="{{ 'custom.css' | asset_url }}"></noscript>
+
     </head>
     <body class="template-{{ request.page_type | handle }}{% if template.suffix != blank %} {{ template.suffix }}{% endif %} {{ handle }} {% if customer %}c_exit{% endif %}" data-template="{{ template.name }}{% if template.suffix %}-{{ template.suffix }}{% endif %}">
       <!-- Google Tag Manager (noscript) -->
       <noscript
         ><iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-NNTHT5F"
+          src="https://www.googletagmanager.com/ns.html?id=GTM-PJFHVJ8R"
           height="0"
           width="0"
           style="display:none;visibility:hidden"
@@ -361,9 +375,10 @@
           });
         })*/
       </script>
-      <!-- begin-boost-pfs-js -->
+      <!-- begin-boost-pfs-js -->      
       {% include 'boost-pfs' %}
       <!-- end-boost-pfs-js -->
+
       <!-- Gem_Page_Footer_Script -->
       {% include 'gem-app-footer-scripts' %}
       <!-- End_Gem_Page_Footer_Script -->

@@ -8,147 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "general": {
-    "404": {
-      "title": "404 Seite nicht gefunden",
-      "subtext": "Die von Ihnen angeforderte Seite existiert nicht.",
-      "link": "Einkauf fortzusetzen"
-    },
-    "accessibility": {
-      "skip_to_content": "Direkt zum Inhalt",
-      "close_modal": "Schließen",
-      "link_messages": {
-        "new_window": "Öffnet ein neues Fenster.",
-        "external": "Öffnet externe Website.",
-        "new_window_and_external": "Öffnet externe Website in einem neuen Fenster."
-      },
-      "refresh_page": "Wenn du eine Auswahl auswählst, wird eine vollständige Seite aktualisiert.",
-      "selection_help": "Drücke die die Leertaste und dann die Pfeiltasten, um eine Auswahl zu treffen.",
-      "unit_price_separator": "pro",
-      "error": "Fehler"
-    },
-    "meta": {
-      "tags": "Getaggt \"{{ tags }}\"",
-      "page": "Seite {{ page }}"
-    },
-    "pagination": {
-      "previous": "Vorherige Seite",
-      "next": "Nächste Seite",
-      "current_page": "Seite {{ current }} von {{ total }}"
-    },
-    "password_page": {
-      "opening_soon": "Eröffnet demnächst",
-      "login_form_heading": "Shop mit Passwort betreten",
-      "login_form_password_label": "Passwort",
-      "login_form_password_placeholder": "Dein Passwort",
-      "login_form_submit": "Betreten",
-      "signup_form_email_label": "E-Mail",
-      "signup_form_success": "Wir senden Ihnen eine E-Mail, kurz bevor wir eröffnen!",
-      "admin_link_html": "Bist du der Shop-Inhaber? <a href=\"/admin\" class=\"text-link\">Logge dich hier ein</a>",
-      "password_link": "Mit Passwort betreten"
-    },
-    "social": {
-      "share_on_facebook": "Teilen",
-      "share_on_twitter": "Twittern",
-      "share_on_pinterest": "Pinnen",
-      "alt_text": {
-        "share_on_facebook": "Auf Facebook teilen",
-        "share_on_twitter": "Auf Twitter twittern",
-        "share_on_pinterest": "Auf Pinterest pinnen"
-      }
-    },
-    "search": {
-      "empty_search_message": "Suchfeld darf nicht leer sein",
-      "title": "Suche auf unserer Seite",
-      "placeholder": "Suchen",
-      "submit": "Suchen",
-      "close": "Schließen (esc)",
-      "heading": {
-        "one": "Suchergebnis",
-        "other": "Suchergebnisse"
-      },
-      "search_for": "Suchen nach",
-      "loading": "Wird geladen",
-      "clear_search_term": "Suchbegriffe zurücksetzen",
-      "number_of_results": "{{ result_number }} von {{ results_count }}",
-      "products": "Produkte",
-      "number_of_results_found": "{{ results_count }} Ergebnisse gefunden",
-      "one_result_found": "1 Ergebnis gefunden",
-      "no_results": "Überprüfe die Schreibweise oder versuche es mit anderen Wörtern.",
-      "results_with_count": {
-        "one": "{{ count }} Suchergebnis für \"{{ terms }}\"",
-        "other": "{{ count }} Suchergebnisse für \"{{ terms }}\""
-      }
-    },
-    "newsletter_form": {
-      "newsletter_email": "Abonniere unsere Mailingliste",
-      "email_placeholder": "E-Mail-Adresse",
-      "confirmation": "Sie haben sich erfolgreich für den Newsletter von Folienzuschnitt.ch angemeldet",
-      "submit": "Abonnieren"
-    },
-    "filters": {
-      "show_more": "Mehr anzeigen",
-      "show_less": "Weniger anzeigen"
-    },
-    "payment": {
-      "method": "Zahlungsmethoden"
-    },
-    "currency": {
-      "dropdown_label": "Währung"
-    },
-    "language": {
-      "dropdown_label": "Sprache"
-    },
-    "workshop": {
-      "title": "SORENOS Folienseminare & Trainings",
-      "description_html": "<p>Garantiert die beste Grundlage für die Praxis.</p><p>Unsere Seminare und Trainings richten sich an alle, welche das Applizieren von Folien auf Glas erlernen, vertiefen oder sich darin weiterbilden möchten. Weiter vermitteln wir Ihnen die Grundlagen für Beratung, Verkauf, Kalkulation und Applikation.</p><p>Als Firma können Sie auch ein Intensiv-Training für Sie und Ihr Team buchen und von der persönlichen Betreuung und Themenwahl profitieren.</p><p>",
-      "supertitle": "Showroom",
-      "impressions": "Impressionen",
-      "impressions_text": "Besuchen Sie uns. In unserem Showroom zeigen wir Ihnen die verschiedensten Folien und Installationen auf Glas."
-    },
-    "cutting_service": {
-      "label": "ZUM ZUSCHNITT-SERVICE"
-    },
-    "windowfilm-event": {
-      "label": "ZUR ANMELDUNG (BALD VERFÜGBAR)"
-    },
-    "partner": {
-      "become_partner": "Jetzt Partner werden",
-      "contact": "Kontakt aufnehmen"
-    }
-  },
-  "sections": {
-    "slideshow": {
-      "next_slide": "Nächster Schieber",
-      "previous_slide": "Vorheriger Schieber",
-      "pause_slideshow": "Slideshow pausieren",
-      "rotate_slideshow": "Diashow abspielen",
-      "load_slide": "Folie {{ slide_number }} laden",
-      "navigation_instructions": "Nutze die linken/rechten Pfeile, um durch die Slideshow zu navigieren, oder wische nach links bzw. rechts, wenn du ein mobiles Gerät verwendest"
-    },
-    "featured_product": {
-      "title": "Vorgestelltes Produkt",
-      "gallery_thumbnail_alt": "Lade das Bild in den Galerie-Viewer, {{ imageAlt }}",
-      "video_thumbnail_alt": "Laden und Abspielen von Videos im Galerie-Viewer, {{ imageAlt }}",
-      "model_thumbnail_alt": "Laden das 3D-Modell in den Galerie-Viewer, {{ imageAlt }}"
-    },
-    "map": {
-      "address_error": "Kann die Adresse nicht finden",
-      "address_no_results": "Keine Ergebnisse für diese Adresse",
-      "address_query_limit_html": "Du hast die Nutzungsgrenze der Google-API überschritten. Du solltest über ein Upgrade auf einen <a href=\"https://developers.google.com/maps/premium/usage-limits\">Premium-Plan</a> nachdenken.",
-      "auth_error_html": "Es gab ein Problem bei der Authentifizierung deineses Google Maps-Kontos.",
-      "section_heading": "Standort"
-    },
-    "video": {
-      "play": "Video {{ video_title }} abspielen",
-      "pause": "Video {{ video_title }} pausieren",
-      "resume": "Video {{ video_title }} fortsetzen",
-      "close": "Video {{ video_title }} schließen"
-    },
-    "header": {
-      "announcement_bar_label": "Ankündigung"
-    }
-  },
   "blogs": {
     "article": {
       "view_all": "Alle anzeigen",
@@ -362,6 +221,177 @@
       "submit": "Erstellen"
     }
   },
+  "gempages": {
+    "Carousel": {
+      "no_slider": "No Slider"
+    },
+    "Newsletter": {
+      "err_msg_default": "Can’t send email. Please try again later.",
+      "success_msg_default": "Thanks for subscribing"
+    },
+    "IconListV2": {
+      "icons_not_found": "Icons not found"
+    },
+    "IconList": {
+      "icons_not_found": "Icons not found"
+    },
+    "IconListHoz": {
+      "icons_not_found": "Icons not found"
+    },
+    "Product": {
+      "product_not_found": "Product not found"
+    },
+    "ProductList": {
+      "product_not_found": "Product Not Found!",
+      "no_products_found": "No products found!",
+      "no_related_products": "No related products!"
+    },
+    "ProductTitle": {
+      "product_not_found": "Product Not Found"
+    },
+    "ProductVariants": {
+      "please_select": "Please select an option"
+    },
+    "StockCounter": {
+      "let_buy_now": "<mark>HURRY!</mark> LET BUY NOW"
+    },
+    "CarouselV3": {
+      "no_slider": "No Slider"
+    },
+    "ProductListV3": {
+      "product_not_found": "Product Not Found!",
+      "no_products_found": "No products found!",
+      "no_related_products": "No related products!"
+    },
+    "Breadcrumb": {
+      "home": "Home"
+    }
+  },
+  "general": {
+    "404": {
+      "title": "404 Seite nicht gefunden",
+      "subtext": "Die von Ihnen angeforderte Seite existiert nicht.",
+      "link": "Einkauf fortzusetzen"
+    },
+    "accessibility": {
+      "skip_to_content": "Direkt zum Inhalt",
+      "close_modal": "Schließen",
+      "link_messages": {
+        "new_window": "Öffnet ein neues Fenster.",
+        "external": "Öffnet externe Website.",
+        "new_window_and_external": "Öffnet externe Website in einem neuen Fenster."
+      },
+      "refresh_page": "Wenn du eine Auswahl auswählst, wird eine vollständige Seite aktualisiert.",
+      "selection_help": "Drücke die die Leertaste und dann die Pfeiltasten, um eine Auswahl zu treffen.",
+      "unit_price_separator": "pro",
+      "error": "Fehler"
+    },
+    "meta": {
+      "tags": "Getaggt \"{{ tags }}\"",
+      "page": "Seite {{ page }}"
+    },
+    "pagination": {
+      "previous": "Vorherige Seite",
+      "next": "Nächste Seite",
+      "current_page": "Seite {{ current }} von {{ total }}"
+    },
+    "password_page": {
+      "opening_soon": "Eröffnet demnächst",
+      "login_form_heading": "Shop mit Passwort betreten",
+      "login_form_password_label": "Passwort",
+      "login_form_password_placeholder": "Dein Passwort",
+      "login_form_submit": "Betreten",
+      "signup_form_email_label": "E-Mail",
+      "signup_form_success": "Wir senden Ihnen eine E-Mail, kurz bevor wir eröffnen!",
+      "admin_link_html": "Bist du der Shop-Inhaber? <a href=\"/admin\" class=\"text-link\">Logge dich hier ein</a>",
+      "password_link": "Mit Passwort betreten"
+    },
+    "social": {
+      "share_on_facebook": "Teilen",
+      "share_on_twitter": "Twittern",
+      "share_on_pinterest": "Pinnen",
+      "alt_text": {
+        "share_on_facebook": "Auf Facebook teilen",
+        "share_on_twitter": "Auf Twitter twittern",
+        "share_on_pinterest": "Auf Pinterest pinnen"
+      }
+    },
+    "search": {
+      "empty_search_message": "Suchfeld darf nicht leer sein",
+      "title": "Suche auf unserer Seite",
+      "placeholder": "Suchen",
+      "submit": "Suchen",
+      "close": "Schließen (esc)",
+      "heading": {
+        "one": "Suchergebnis",
+        "other": "Suchergebnisse"
+      },
+      "search_for": "Suchen nach",
+      "loading": "Wird geladen",
+      "clear_search_term": "Suchbegriffe zurücksetzen",
+      "number_of_results": "{{ result_number }} von {{ results_count }}",
+      "products": "Produkte",
+      "number_of_results_found": "{{ results_count }} Ergebnisse gefunden",
+      "one_result_found": "1 Ergebnis gefunden",
+      "no_results": "Überprüfe die Schreibweise oder versuche es mit anderen Wörtern.",
+      "results_with_count": {
+        "one": "{{ count }} Suchergebnis für \"{{ terms }}\"",
+        "other": "{{ count }} Suchergebnisse für \"{{ terms }}\""
+      }
+    },
+    "newsletter_form": {
+      "newsletter_email": "Abonniere unsere Mailingliste",
+      "email_placeholder": "E-Mail-Adresse",
+      "confirmation": "Sie haben sich erfolgreich für den Newsletter von Folienzuschnitt.ch angemeldet",
+      "submit": "Abonnieren"
+    },
+    "filters": {
+      "show_more": "Mehr anzeigen",
+      "show_less": "Weniger anzeigen"
+    },
+    "payment": {
+      "method": "Zahlungsmethoden"
+    },
+    "currency": {
+      "dropdown_label": "Währung"
+    },
+    "language": {
+      "dropdown_label": "Sprache"
+    },
+    "workshop": {
+      "title": "SORENOS Folienseminare & Trainings",
+      "description_html": "<p>Garantiert die beste Grundlage für die Praxis.</p><p>Unsere Seminare und Trainings richten sich an alle, welche das Applizieren von Folien auf Glas erlernen, vertiefen oder sich darin weiterbilden möchten. Weiter vermitteln wir Ihnen die Grundlagen für Beratung, Verkauf, Kalkulation und Applikation.</p><p>Als Firma können Sie auch ein Intensiv-Training für Sie und Ihr Team buchen und von der persönlichen Betreuung und Themenwahl profitieren.</p><p>",
+      "supertitle": "Showroom",
+      "impressions": "Impressionen",
+      "impressions_text": "Besuchen Sie uns. In unserem Showroom zeigen wir Ihnen die verschiedensten Folien und Installationen auf Glas."
+    },
+    "cutting_service": {
+      "label": "ZUM ZUSCHNITT-SERVICE"
+    },
+    "windowfilm-event": {
+      "label": "ZUR ANMELDUNG (BALD VERFÜGBAR)"
+    },
+    "partner": {
+      "become_partner": "Jetzt Partner werden",
+      "contact": "Kontakt aufnehmen"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title_html": "Hier ist dein {{ value }} Geschenkgutschein für {{ shop }}!",
+      "subtext": "Hier ist dein Geschenkgutschein!",
+      "gift_card_code": "Gutscheincode",
+      "disabled": "Deaktiviert",
+      "expired": "Abgelaufen am {{ expiry }}",
+      "active": "Läuft ab am {{ expiry }}",
+      "redeem_html": "Nutze beim Checkout diesen Code, um deinen {{ value }} Geschenkgutschein einzulösen",
+      "shop_link": "Einkauf beginnen",
+      "print": "Diesen Geschenkgutschein ausdrucken",
+      "remaining_html": "{{ balance }} übrig",
+      "add_to_apple_wallet": "Hinzufügen zu Apple Wallet",
+      "qr_image_alt": "QR-Code — Scannen, um Geschenkgutschein einzulösen"
+    }
+  },
   "homepage": {
     "general": {
       "title": "Startseite"
@@ -429,30 +459,36 @@
       "vertical_warranty": "Garantie Vertikal"
     }
   },
-  "gift_cards": {
-    "issued": {
-      "title_html": "Hier ist dein {{ value }} Geschenkgutschein für {{ shop }}!",
-      "subtext": "Hier ist dein Geschenkgutschein!",
-      "gift_card_code": "Gutscheincode",
-      "disabled": "Deaktiviert",
-      "expired": "Abgelaufen am {{ expiry }}",
-      "active": "Läuft ab am {{ expiry }}",
-      "redeem_html": "Nutze beim Checkout diesen Code, um deinen {{ value }} Geschenkgutschein einzulösen",
-      "shop_link": "Einkauf beginnen",
-      "print": "Diesen Geschenkgutschein ausdrucken",
-      "remaining_html": "{{ balance }} übrig",
-      "add_to_apple_wallet": "Hinzufügen zu Apple Wallet",
-      "qr_image_alt": "QR-Code — Scannen, um Geschenkgutschein einzulösen"
-    }
-  },
-  "store_availability": {
-    "general": {
-      "view_store_info": "Shop-Informationen anzeigen",
-      "check_other_stores": "Verfügbarkeit in anderen Shops überprüfen",
-      "pick_up_available": "Abholung verfügbar",
-      "pick_up_currently_unavailable": "Abholung derzeit nicht verfügbar",
-      "pick_up_available_at_html": "Abholung bei <strong>{{ location_name }}</strong> verfügbar",
-      "pick_up_unavailable_at_html": "Abholung bei <strong>{{ location_name }}</strong> derzeit nicht verfügbar"
+  "sections": {
+    "slideshow": {
+      "next_slide": "Nächster Schieber",
+      "previous_slide": "Vorheriger Schieber",
+      "pause_slideshow": "Slideshow pausieren",
+      "rotate_slideshow": "Diashow abspielen",
+      "load_slide": "Folie {{ slide_number }} laden",
+      "navigation_instructions": "Nutze die linken/rechten Pfeile, um durch die Slideshow zu navigieren, oder wische nach links bzw. rechts, wenn du ein mobiles Gerät verwendest"
+    },
+    "featured_product": {
+      "title": "Vorgestelltes Produkt",
+      "gallery_thumbnail_alt": "Lade das Bild in den Galerie-Viewer, {{ imageAlt }}",
+      "video_thumbnail_alt": "Laden und Abspielen von Videos im Galerie-Viewer, {{ imageAlt }}",
+      "model_thumbnail_alt": "Laden das 3D-Modell in den Galerie-Viewer, {{ imageAlt }}"
+    },
+    "map": {
+      "address_error": "Kann die Adresse nicht finden",
+      "address_no_results": "Keine Ergebnisse für diese Adresse",
+      "address_query_limit_html": "Du hast die Nutzungsgrenze der Google-API überschritten. Du solltest über ein Upgrade auf einen <a href=\"https://developers.google.com/maps/premium/usage-limits\">Premium-Plan</a> nachdenken.",
+      "auth_error_html": "Es gab ein Problem bei der Authentifizierung deineses Google Maps-Kontos.",
+      "section_heading": "Standort"
+    },
+    "video": {
+      "play": "Video {{ video_title }} abspielen",
+      "pause": "Video {{ video_title }} pausieren",
+      "resume": "Video {{ video_title }} fortsetzen",
+      "close": "Video {{ video_title }} schließen"
+    },
+    "header": {
+      "announcement_bar_label": "Ankündigung"
     }
   },
   "shopify": {
@@ -471,39 +507,14 @@
       }
     }
   },
-  "gempages": {
-    "Carousel": {
-      "no_slider": "No Slider"
-    },
-    "Newsletter": {
-      "err_msg_default": "Can’t send email. Please try again later.",
-      "success_msg_default": "Thanks for contacting us. We'll get back to you as soon as possible."
-    },
-    "IconListV2": {
-      "icons_not_found": "Icons not found"
-    },
-    "IconList": {
-      "icons_not_found": "Icons not found"
-    },
-    "IconListHoz": {
-      "icons_not_found": "Icons not found"
-    },
-    "Product": {
-      "product_not_found": "Product not found"
-    },
-    "ProductList": {
-      "product_not_found": "Product Not Found!",
-      "no_products_found": "No products found!",
-      "no_related_products": "No related products!"
-    },
-    "ProductTitle": {
-      "product_not_found": "Product Not Found"
-    },
-    "ProductVariants": {
-      "please_select": "Please select an option"
-    },
-    "StockCounter": {
-      "let_buy_now": "<mark>HURRY!</mark> LET BUY NOW"
+  "store_availability": {
+    "general": {
+      "view_store_info": "Shop-Informationen anzeigen",
+      "check_other_stores": "Verfügbarkeit in anderen Shops überprüfen",
+      "pick_up_available": "Abholung verfügbar",
+      "pick_up_currently_unavailable": "Abholung derzeit nicht verfügbar",
+      "pick_up_available_at_html": "Abholung bei <strong>{{ location_name }}</strong> verfügbar",
+      "pick_up_unavailable_at_html": "Abholung bei <strong>{{ location_name }}</strong> derzeit nicht verfügbar"
     }
   }
 }

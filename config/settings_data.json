@@ -194,7 +194,7 @@
             "type": "text",
             "settings": {
               "title": "Kontakt",
-              "text": "<p><strong>SORENOS GmbH</strong><br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <br/><a href=\"mailto:info@sorenos.ch\" title=\"info@sorenos.de\">info@sorenos.de</a></p>"
+              "text": "<p><strong>SORENOS GmbH</strong><br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+4975319369060</a><br/><a href=\"mailto:info@sorenos.ch\" title=\"info@sorenos.de\">info@sorenos.de</a></p>"
             }
           },
           "footer-0": {
@@ -317,8 +317,8 @@
       "16097496851803271d": {
         "type": "map",
         "settings": {
-          "heading": "Besuchen Sie uns!",
-          "address": "<p>Turmstraße 11 - 78467 Konstanz DE</p><p><strong>Montag bis Freitag</strong> 7.30 Uhr bis 12.00 Uhr 13.00 Uhr bis 17.00 Uhr</p>",
+          "heading": "Anschrift:",
+          "address": "<p>Turmstraße 11<br/>78467 Konstanz DE</p><p><strong>Montag bis Freitag</strong> 7.30 Uhr bis 12.00 Uhr 13.00 Uhr bis 17.00 Uhr</p>",
           "map_address": "https://maps.app.goo.gl/nt7nYmxj6ZGSJFgN8",
           "button_text": "Zur Wegbeschreibung",
           "show_pin": true,
@@ -426,8 +426,8 @@
       "mapincontact": {
         "type": "mapincontact",
         "settings": {
-          "heading": "Besuchen Sie uns!",
-          "address": "<p>Turmstraße 11 – 78467 Konstanz DE</p><p><strong>Montag bis Freitag</strong> 7.30 Uhr bis 12.00 Uhr 13.00 Uhr bis 17.00 Uhr</p>",
+          "heading": "Anschrift:",
+          "address": "<p>Turmstraße 11<br/>78467 Konstanz DE</p><p><strong>Montag bis Freitag</strong> 7.30 Uhr bis 12.00 Uhr 13.00 Uhr bis 17.00 Uhr</p>",
           "map_address": "https://www.google.com/maps/place/Turmstraße+11,+78467+Konstanz,+Deutschland/@47.6707304,9.1529227,16z/data=!3m1!4b1!4m6!3m5!1s0x479af6f47abdd901:0x53571b5af9b6da96!8m2!3d47.6707304!4d9.1554976!16s%2Fg%2F11c20_km4l?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D",
           "button_text": "Zur Wegbeschreibung",
           "show_pin": true,
@@ -487,7 +487,7 @@
         "settings": {
           "full_width": false,
           "section_title": "Projektberatung",
-          "text": "<p>Durch unsere langjährige Tätigkeit in der Ausführung von Projekten rund um die Glasbeschichtung haben wir uns sehr viel Wissen angeeignet. Dieses geben wir gerne weiter. <br/> <br/>Ihre Projekte werden systematisch, Schritt für Schritt mit professionellen Glas Analyse- Werkzeugen aufgenommen. Wir prüfen die die Machbarkeit in Bezug auf Glas sowie am Objekt selbst und berücksichtigen dabei die Wünsche Ihrer Kunden. </p><p>Aufgrund von ausgeführten Grossprojekten sind wir auch mit komplexen Aufgabenstellungen vertraut und können Ihnen dank unserer guten Vernetzung zu Herstellern, Lieferanten und Experten wertvolle Unterstützung bieten. Wir verfügen über alle nötigen Dokumentationen und Muster, welche Sie Ihrer Kundschaft bei Bedarf abgeben können. </p><p>Wir freuen uns Sie beim nächsten spannenden Projekt begleiten zu dürfen.</p>",
+          "text": "<p>Dank unserer langjährigen Erfahrung in der Umsetzung von Projekten rund um Glasbeschichtungen unterstützen wir Sie kompetent von Anfang an.</p><p>Wir analysieren Ihre Projekte strukturiert und prüfen die technischen Voraussetzungen direkt am Objekt. Dabei berücksichtigen wir sowohl die Eigenschaften des Glases als auch die Anforderungen Ihrer Kundschaft.</p><p>Auch bei komplexen Projekten profitieren Sie von unserem Netzwerk aus Herstellern, Lieferanten und Spezialisten.</p><p>Zusätzlich stellen wir Ihnen alle relevanten Unterlagen und Muster zur Verfügung – für eine professionelle Beratung Ihrer Kunden.</p>",
           "text_size": "large"
         }
       },
@@ -510,7 +510,7 @@
         "settings": {
           "full_width": false,
           "section_title": "Glas-Stressanalyse",
-          "text": "<p>Nicht jedes Folienprodukt ist für jedes Glas geeignet. Wir berechnen für Sie anhand einer dafür entwickelten Software die thermische Belastung.</p><p>Um Ihnen die Abklärung so einfach und schnell wie möglich zu machen, haben wir eigens dafür ein Eingabetool entwickelt. </p><p>Alle nötigen Informationen für eine sorgfältige Abklärung werden auf dieser Plattform eingetragen und ausgewertet.</p><p>Folgende Werte lassen sich nach EN 410 und EN 673 mit und ohne Folie berechnen:</p><p> </p><p>- Thermische Glasbelastung</p><p>- Lichttransmission</p><p>- G-Wert</p><p>- U-Wert</p><p> </p><p>Werden Sie Partner und profitieren Sie von diesen einzigartigen Vorteilen und der Sicherheit, die wir Ihnen durch die Glas-Stressanalyse bieten können.</p>",
+          "text": "<p>Nicht jede Folie ist für jedes Glas geeignet. Deshalb analysieren wir für Sie die thermische Belastung mit einer spezialisierten Softwarelösung.</p><p>Über unser Eingabetool erfassen Sie alle relevanten Daten schnell und einfach – wir übernehmen die Auswertung.</p><p><strong>Berechnungen gemäss EN 410 und EN 673:</strong></p><p>- Thermische Glasbelastung<br/>- Lichttransmission<br/>- G-Wert<br/>- U-Wert</p><p></p><p>So erhalten Sie maximale Sicherheit bei der Auswahl der richtigen Folienlösung.</p>",
           "text_size": "large"
         }
       },
@@ -728,7 +728,7 @@
         "settings": {
           "full_width": false,
           "section_title": "Gerne sind wir für Sie da",
-          "text": "<p>Wir beraten Sie gerne rund um das Thema Glasbeschichtungen und stehen bei Fragen zur Verfügung. Zögern Sie nicht uns zu kontaktieren.<br/><br/><strong>KONTAKTDATEN:</strong><br/>SORENOS GmbH<br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <br/><a href=\"mailto:info@sorenos.de\" title=\"mailto:info@sorenos.de\">info@sorenos.de</a></p><p><strong>ÖFFNUNGSZEITEN:</strong><br/>Montag bis Freitag  <br/>7.30 Uhr bis 12.00 Uhr<br/>13.00 Uhr bis 17.00 Uhr</p>",
+          "text": "<p>Wir beraten Sie gerne rund um das Thema Glasbeschichtungen und stehen bei Fragen zur Verfügung. Zögern Sie nicht uns zu kontaktieren.<br/><br/><strong>KONTAKTDATEN:</strong><br/>SORENOS GmbH<br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+4975319369060</a><br/><a href=\"mailto:info@sorenos.de\" title=\"mailto:info@sorenos.de\">info@sorenos.de</a></p><p><strong>ÖFFNUNGSZEITEN:</strong><br/>Montag bis Freitag  <br/>7.30 Uhr bis 12.00 Uhr<br/>13.00 Uhr bis 17.00 Uhr</p>",
           "text_size": "large"
         }
       },
@@ -1230,6 +1230,7 @@
           },
           "column_WMc6qJ": {
             "type": "column",
+            "disabled": true,
             "settings": {
               "svg_icon": "<svg width=\"48\" height=\"48\" viewbox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<g clip-path=\"url(#clip0_1316_12219)\">\n<path d=\"M14.9258 13.105C13.9867 14.5662 13.3618 16.2068 13.0908 17.9225C12.1983 23.805 15.8883 29.75 20.6608 32.605C21.3322 33.0067 22.0344 33.3545 22.7608 33.645C26.3258 35.0725 30.4558 34.2425 32.9933 31.3575C34.0746 30.1879 34.739 28.6938 34.8833 27.1075C35.1458 22.9425 30.9183 18.3175 25.0633 18.3275C23.7261 18.3456 22.3966 18.1229 21.1383 17.67C20.3359 17.3687 19.562 16.9964 18.8258 16.5575C17.3245 15.6564 16.0024 14.4859 14.9258 13.105Z\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linejoin=\"round\"></path>\n<path d=\"M24.7901 18.3825C24.0471 17.1832 23.6345 15.8087 23.5941 14.3985C23.5537 12.9882 23.887 11.5924 24.5601 10.3525C24.6801 10.135 26.8276 6.35251 31.2126 6.22501C34.8826 6.11001 37.1526 8.6375 37.8601 9.565C38.0326 9.7953 38.2582 9.98055 38.5176 10.105C38.9023 10.2868 39.2971 10.4462 39.7001 10.5825L41.4801 11.1875L40.4376 13.9675C40.3512 14.1958 40.3126 14.4394 40.3242 14.6833C40.3358 14.9271 40.3974 15.1659 40.5051 15.385C43.6976 21.9025 43.0051 29.405 38.7826 34.44C37.5744 35.8725 36.1125 37.07 34.4701 37.9725C30.9439 39.8846 26.845 40.4564 22.9301 39.5825C22.7876 39.55 22.6401 39.52 22.4951 39.485C21.4026 39.235 20.3951 38.9475 19.4801 38.645C19.1886 38.5508 18.8778 38.5326 18.5772 38.5921C18.2767 38.6516 17.9963 38.7868 17.7626 38.985C17.6601 39.07 17.5551 39.16 17.4476 39.2575C16.5651 40.0425 16.3201 40.4675 15.8426 40.8625C15.4892 41.1517 15.0847 41.3722 14.6501 41.5125C13.7903 41.7877 12.8683 41.8025 12.0001 41.555C10.501 41.1484 9.13588 40.3533 8.04262 39.25C6.49072 37.6436 5.59163 35.5175 5.52012 33.285C5.46762 32.5825 5.42512 30.685 6.66762 29.615C7.76512 28.6675 9.28762 28.865 11.4851 29.155C12.6187 29.3054 13.7354 29.5632 14.8201 29.925C15.1357 30.031 15.4746 30.0475 15.799 29.9724C16.1234 29.8974 16.4206 29.7339 16.6576 29.5L17.2201 28.9375\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linejoin=\"round\"></path>\n</g>\n<defs>\n<clippath id=\"clip0_1316_12219\">\n<rect width=\"48\" height=\"48\" fill=\"white\"></rect>\n</clippath>\n</defs>\n</svg>",
               "title": "Vogelschutzfolien",
@@ -1491,8 +1492,8 @@
         "type": "RichTextWithCTA",
         "settings": {
           "full_width": false,
-          "section_title": "Folienzuschnitt-Service",
-          "text": "<p>Wir von SORENOS sind stolzer Partner von «Folienzuschnitt». Einer einzigartigen Softwarelösung, welche Ihnen das Leben im Bereich Windowfilm erleichtert. Noch nie war es so einfach Projekte professionell zu erfassen, Materialpreise zu berechnen und dies auch noch mit dem bestmöglichen Verschnitt. Auch beim Erstellen von Verkaufsangebote unterstützt Sie die Software. Gekoppelt an unseren Zuschnitt-Service erhalten Sie Ihre Projekte perfekt zugeschnitten und können sich voll und ganz auf die Applikation konzentrieren. Testen Sie uns, Sie werden begeistert sein.</p>",
+          "section_title": "Folienzuschnitt – effizienter arbeiten",
+          "text": "<p>Mit unserer Partnerlösung «Folienzuschnitt» bringen Sie Ihre Projekte auf das nächste Level.</p><p>Die Software unterstützt Sie dabei, Projekte professionell zu planen, Material präzise zu kalkulieren und den Verschnitt zu minimieren. Gleichzeitig erleichtert sie die Angebotserstellung und sorgt für klare Prozesse.</p><p>In Kombination mit unserem Zuschnitt-Service erhalten Sie Ihre Folien exakt vorbereitet – und können sich voll auf die Verarbeitung konzentrieren.</p>",
           "text_size": "medium"
         }
       },
@@ -1518,7 +1519,7 @@
           "image": "shopify://shop_images/folien_bb6005b8-5968-4e7a-8719-90cc5d475c93.jpg",
           "layout": "left",
           "title": "Folienzuschnitt-Service",
-          "text": "<p>Das Zuschneiden von Windowfilm ist mit viel Zeitaufwand verbunden, erfordert Konzentration damit so wenig Verschnitt wie möglich produziert wird und die Schnittqualität ist gerade bei Sicherheitsfolien entscheidend. Nutzen Sie unseren Zuschnittservice, damit Sie sich um diese Themen nicht mehr kümmern müssen. Wir berechnen, dank einer intelligenten Nesting-Software, die bestmögliche Materialausnützung und schneiden alle Positionen maschinell millimetergenau. Wir verpacken alles nach Positionen sortiert und liefern direkt zu Ihnen oder auf die Baustelle. Testen Sie uns, wir sind uns sicher, dass es sich auch in finanzieller Hinsicht für Sie lohnen wird.</p>",
+          "text": "<p>Sparen Sie Zeit und reduzieren Sie Materialverluste. </p><p>Wir übernehmen das millimetergenaue Zuschneiden Ihrer Folien – basierend auf einer intelligenten Nesting-Software für optimale Materialnutzung. </p><p>Alle Elemente werden sauber nach Positionen sortiert, verpackt und direkt zu Ihnen oder auf die Baustelle geliefert. </p><p>Das Ergebnis: weniger Aufwand, höhere Effizienz und ein klarer wirtschaftlicher Vorteil.</p>",
           "button_label": "ZUM ZUSCHNITT-SERVICE",
           "button_link": "https://folienzuschnitt.sorenos.ch/admin/login"
         }
@@ -1650,8 +1651,8 @@
         "type": "rich-text",
         "settings": {
           "full_width": true,
-          "section_title": "Starke Marken für starke Projekte",
-          "text": "<p>Bei SORENOS GmbH setzen wir auf die besten Partner: 3M, Avery Dennison und SEEN. Diese weltweit führenden Marken stehen für höchste Qualitätsstandards, innovative Technologien und ein breites Produktportfolio, das keine Wünsche offenlässt. Dank dieser starken Partnerschaften können wir Ihnen Lösungen bieten, die in jedem Projekt überzeugen.</p>",
+          "section_title": "Qualität beginnt bei den richtigen Partnern.",
+          "text": "<p>Bei SORENOS setzen wir auf bewährte Hersteller wie <strong>3M und Avery Dennison</strong>. Diese Marken stehen weltweit für Innovation, höchste Qualitätsstandards und zuverlässige Performance.</p>",
           "text_size": "medium"
         }
       },
@@ -1676,6 +1677,7 @@
           },
           "logo_image_4Q7nMD": {
             "type": "logo_image",
+            "disabled": true,
             "settings": {
               "image": "shopify://shop_images/SEEN-auf-hell.png",
               "link": "https://www.solargard.com/eu/",
@@ -1697,7 +1699,7 @@
         "settings": {
           "full_width": true,
           "section_title": "Willkommen bei SORENOS – Folien für Fenster und Glas",
-          "text": "<p>Die SORENOS GmbH ist Ihr Spezialist für hochwertige Folien auf Glas. Als Handelsunternehmen arbeiten wir eng mit den weltweit führenden Herstellern von Windowfilms zusammen, um Ihnen erstklassige Produkte und Dienstleistungen zu bieten. Unser Sortiment umfasst ein breites Spektrum an Fensterfolien: von Sonnenschutzfolien für ein angenehmes Raumklima über Sicherheitsfolien für erhöhten Schutz bis hin zu dekorativen Folien, Vogelschutzfolien und innovativem smartfilm.</p><p>Wir verstehen uns als zuverlässiger Partner für verarbeitende Unternehmen in Deutschland und Österreich. Unser Anspruch ist es, Ihnen nicht nur hochwertige Produkte, sondern auch eine umfassende Dienstleistung anzubieten – von der Beratung bis zur Lieferung. Vertrauen Sie auf unsere Expertise, wenn es um Folienlösungen für Glas geht.</p>",
+          "text": "<p>Die SORENOS GmbH ist spezialisiert auf hochwertige Folienlösungen für Glasflächen. Als Handelsunternehmen arbeiten wir eng mit führenden internationalen Herstellern von Windowfilms zusammen und bieten Ihnen ein umfassendes Sortiment für unterschiedlichste Anforderungen.</p><p>Unser Angebot reicht von effektiven Sonnenschutzfolien über Sicherheits- und UV-Schutzlösungen bis hin zu dekorativen Anwendungen.</p><p>Wir verstehen uns als zuverlässiger Partner für verarbeitende Betriebe in Deutschland und Österreich – mit einem klaren Fokus auf Qualität, Beratung und effiziente Lieferung. </p>",
           "text_size": "medium"
         }
       },
@@ -1753,8 +1755,8 @@
         "type": "RichTextCTA_Event",
         "settings": {
           "full_width": false,
-          "section_title": "Windowfilm-Event",
-          "text": "<p>Der Windowfilm-Event ist der jährliche Treffpunkt für Fachleute, Partner und Interessierte aus der Welt der Fensterfolien. Im Zentrum stehen der Austausch über Trends, Anwendungen und Herausforderungen rund um Sonnenschutz-, Sichtschutz- und Sicherheitsfolien.</p><p>Neben einem praxisnahen Seminarteil mit spannenden Inputs bietet diese Fachtagung eine inspirierende Plattform für Networking, neue Impulse und persönliche Begegnungen.</p><p>Ob technischer Know-how-Transfer, innovative Produktanwendungen oder einfach der Austausch unter Kolleginnen und Kollegen – der Windowfilm-Event verbindet Fachlichkeit mit Erlebnis.</p>",
+          "section_title": "Windowfilm-Event - der Treffpunkt der Branche",
+          "text": "<p>Unser jährlicher Windowfilm-Event bringt Fachleute, Partner und Interessierte zusammen. Im Fokus stehen aktuelle Entwicklungen, Anwendungen und Herausforderungen rund um Fensterfolien.  </p><p>Neben praxisnahen Inhalten bietet der Event Raum für Austausch, neue Ideen und wertvolle Kontakte. </p><p>Eine Kombination aus Fachwissen, Inspiration und Networking.</p>",
           "text_size": "medium"
         }
       }

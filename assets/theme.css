@@ -5055,6 +5055,7 @@ Slick slider overrides
 
 .site-header__logo img {
   display: block;
+  height: auto;
 }
 
 .site-header__icons {
