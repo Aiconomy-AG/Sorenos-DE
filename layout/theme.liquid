@@ -300,7 +300,74 @@
       {{ 'custom.css' | asset_url | stylesheet_tag }}
       {% comment %} <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
       <noscript><link rel="stylesheet" href="{{ 'custom.css' | asset_url }}"></noscript>
-
+      <link rel="alternate" hreflang="de-DE" href="https://sorenos.de{{ request.path }}" />
+        <link rel="alternate" hreflang="de-AT" href="https://sorenos.at{{ request.path }}" />
+        <link rel="alternate" hreflang="de-CH" href="https://sorenos.ch{{ request.path }}" />
+        <link rel="alternate" hreflang="x-default" href="https://sorenos.de{{ request.path }}" />
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": ["Organization", "LocalBusiness"],
+              "@id": "https://sorenos.de/#organization",
+              "name": "SORENOS GmbH",
+              "url": "https://sorenos.de",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://sorenos.de/cdn/shop/files/sorenos-logo.png"
+              },
+              "image": "https://sorenos.de/cdn/shop/files/sorenos-logo.png",
+              "description": "SORENOS GmbH – Spezialist für hochwertige Folien für Fenster und Glas. Sonnenschutz-, Sicherheits- und Designfolien für verarbeitende Betriebe.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Turmstraße 11",
+                "addressLocality": "Konstanz",
+                "postalCode": "78467",
+                "addressCountry": "DE"
+              },
+              "telephone": "+49 7531 93690-60",
+              "email": "info@sorenos.de",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                  "opens": "07:30",
+                  "closes": "12:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                  "opens": "13:00",
+                  "closes": "17:00"
+                }
+              ],
+              "sameAs": [
+                "https://sorenos.at",
+                "https://sorenos.ch"
+              ]
+            },
+            {
+              "@type": "Service",
+              "@id": "https://sorenos.de/#service-folienzuschnitt",
+              "name": "Folienzuschnitt-Service",
+              "provider": { "@id": "https://sorenos.de/#organization" },
+              "serviceType": "Folienzuschnitt",
+              "areaServed": { "@type": "Country", "name": "Deutschland" },
+              "url": "https://sorenos.de/pages/folienzuschnitt-service"
+            },
+            {
+              "@type": "Service",
+              "@id": "https://sorenos.de/#service-beratung",
+              "name": "Projektberatung für Fensterfolien",
+              "provider": { "@id": "https://sorenos.de/#organization" },
+              "serviceType": "Beratung",
+              "areaServed": { "@type": "Country", "name": "Deutschland" },
+              "url": "https://sorenos.de/pages/projektberatung"
+            }
+          ]
+        }
+        </script>
     </head>
     <body class="template-{{ request.page_type | handle }}{% if template.suffix != blank %} {{ template.suffix }}{% endif %} {{ handle }} {% if customer %}c_exit{% endif %}" data-template="{{ template.name }}{% if template.suffix %}-{{ template.suffix }}{% endif %}">
       <!-- Google Tag Manager (noscript) -->

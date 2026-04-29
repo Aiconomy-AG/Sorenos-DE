@@ -194,7 +194,7 @@
             "type": "text",
             "settings": {
               "title": "Kontakt",
-              "text": "<p><strong>SORENOS GmbH</strong><br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+4975319369060</a><br/><a href=\"mailto:info@sorenos.ch\" title=\"info@sorenos.de\">info@sorenos.de</a></p>"
+              "text": "<p><strong>SORENOS GmbH</strong><br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 7531 93690-60</a><br/><a href=\"mailto:info@sorenos.ch\" title=\"info@sorenos.de\">info@sorenos.de</a></p>"
             }
           },
           "footer-0": {
@@ -332,11 +332,11 @@
         "blocks": {
           "d9daa9d3-0508-4403-b142-005dd48a59f2": {
             "type": "text_block",
-            "disabled": true,
             "settings": {
               "enable_image": true,
+              "image": "shopify://shop_images/WalterZai.png",
               "title": "Walter Zai",
-              "text": "<p>Geschäftsführer</p><p><a href=\"mailto:a.izzi@sorenos.ch\" title=\"mailto:w.zai@sorenos.de\">w.zai@sorenos.de</a></p><p><a href=\"tel:+41 43 488 00 32\" title=\"tel:+41 43 488 00 32\">+41 43 488 00 32</a></p>",
+              "text": "<p>Geschäftsführer</p><p><a href=\"mailto:w.zai@sorenos.de\" title=\"mailto:w.zai@sorenos.de\">w.zai@sorenos.de</a></p><p><a href=\"tel:+4975319369061\" title=\"tel:+4975319369061\">+49 753193690-61</a></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -345,9 +345,9 @@
             "type": "text_block",
             "settings": {
               "enable_image": true,
-              "image": "shopify://shop_images/Stefan.png",
+              "image": "shopify://shop_images/StefanHollenstein.png",
               "title": "Stefan Hollenstein",
-              "text": "<p>Inhaber</p><p><a href=\"mailto:s.hollenstein@sorenos.ch\" title=\"mailto:s.hollenstein@sorenos.ch\">s.hollenstein@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 33\" title=\"tel:+41 43 488 00 33\">+41 43 488 00 33</a></p><p></p>",
+              "text": "<p>Inhaber</p><p><a href=\"mailto:s.hollenstein@sorenos.de\" title=\"mailto:s.hollenstein@sorenos.de\">s.hollenstein@sorenos.de</a></p><p><a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 753193690-60</a></p><p></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -358,7 +358,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Jacqueline.png",
               "title": "Jacqueline Erb",
-              "text": "<p>Verkauf Innendienst und Administration<br/></p><p><a href=\"mailto:j.erb@sorenos.ch\" title=\"mailto:j.erb@sorenos.ch\">j.erb@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 31\" title=\"tel:+41 43 488 00 31\">+41 43 488 00 31</a></p>",
+              "text": "<p>Verkauf Innendienst und Administration<br/></p><p><a href=\"mailto:j.erb@sorenos.ch\" title=\"mailto:j.erb@sorenos.ch\">j.erb@sorenos.ch</a></p><p><a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 753193690-60</a></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -369,7 +369,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Claudia.png",
               "title": "Claudia Suremann",
-              "text": "<p>Verkauf Aussendienst und Ausbildnerin</p><p><a href=\"mailto:c.suremann@sorenos.ch\" title=\"mailto:c.suremann@sorenos.ch\">c.suremann@sorenos.ch</a></p><p><a href=\"tel:+41 43 488 00 35\" title=\"tel:+41 43 488 00 35\">+41 43 488 00 35</a></p>",
+              "text": "<p>Verkauf Aussendienst und Ausbildnerin</p><p><a href=\"mailto:c.suremann@sorenos.ch\" title=\"mailto:c.suremann@sorenos.ch\">c.suremann@sorenos.ch</a></p><p><a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 753193690-60</a></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -380,7 +380,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Sandro.png",
               "title": "Sandro Graf",
-              "text": "<p>Verkauf Innendienst<br/><a href=\"mailto:s.graf@sorenos.ch\" title=\"mailto:s.graf@sorenos.ch\">s.graf@sorenos.ch</a><br/><a href=\"tel:+41 43 488 00 34\" title=\"tel:+41 43 488 00 34\">+41 43 488 00 34</a></p>",
+              "text": "<p>Verkauf Innendienst<br/><a href=\"mailto:s.graf@sorenos.ch\" title=\"mailto:s.graf@sorenos.ch\">s.graf@sorenos.ch</a><br/><a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 753193690-60</a></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -391,7 +391,7 @@
               "enable_image": true,
               "image": "shopify://shop_images/Etienne.png",
               "title": "Etienne Bakacsi",
-              "text": "<p>Zuschnitt<br/><a href=\"mailto:e.bakacsi@sorenos.ch\" title=\"mailto:e.bakacsi@sorenos.ch\">e.bakacsi@sorenos.ch<br/></a><a href=\"tel:+41 43 488 00 39\" title=\"tel:+41 43 488 00 39\">+41 43 488 00 39</a></p>",
+              "text": "<p>Zuschnitt<br/><a href=\"mailto:e.bakacsi@sorenos.ch\" title=\"mailto:e.bakacsi@sorenos.ch\">e.bakacsi@sorenos.ch<br/></a><a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 753193690-60</a></p>",
               "button_label": "",
               "button_link": ""
             }
@@ -438,6 +438,15 @@
       },
       "collection-template": {
         "type": "collection-template",
+        "blocks": {
+          "collection_description_xqFUBX": {
+            "type": "collection_description",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "collection_description_xqFUBX"
+        ],
         "settings": {
           "layout": "grid",
           "grid": 4,
@@ -728,7 +737,7 @@
         "settings": {
           "full_width": false,
           "section_title": "Gerne sind wir für Sie da",
-          "text": "<p>Wir beraten Sie gerne rund um das Thema Glasbeschichtungen und stehen bei Fragen zur Verfügung. Zögern Sie nicht uns zu kontaktieren.<br/><br/><strong>KONTAKTDATEN:</strong><br/>SORENOS GmbH<br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+4975319369060</a><br/><a href=\"mailto:info@sorenos.de\" title=\"mailto:info@sorenos.de\">info@sorenos.de</a></p><p><strong>ÖFFNUNGSZEITEN:</strong><br/>Montag bis Freitag  <br/>7.30 Uhr bis 12.00 Uhr<br/>13.00 Uhr bis 17.00 Uhr</p>",
+          "text": "<p>Wir beraten Sie gerne rund um das Thema Glasbeschichtungen und stehen bei Fragen zur Verfügung. Zögern Sie nicht uns zu kontaktieren.<br/><br/><strong>KONTAKTDATEN:</strong><br/>SORENOS GmbH<br/>Turmstraße 11 <br/>78467 Konstanz DE</p><p>Tel: <a href=\"tel:+4975319369060\" title=\"tel:+4975319369060\">+49 7531 93690-60</a><br/><a href=\"mailto:info@sorenos.de\" title=\"mailto:info@sorenos.de\">info@sorenos.de</a></p><p><strong>ÖFFNUNGSZEITEN:</strong><br/>Montag bis Freitag  <br/>7.30 Uhr bis 12.00 Uhr<br/>13.00 Uhr bis 17.00 Uhr</p>",
           "text_size": "large"
         }
       },
@@ -1014,7 +1023,7 @@
       "contact-hero": {
         "type": "contact-hero",
         "settings": {
-          "image": "shopify://shop_images/Team_Sorenos_WEB_2025.png",
+          "image": "shopify://shop_images/Web_Pix.png",
           "alignment": "center",
           "hero_layout": "fixed_width",
           "hero_size": "small",
