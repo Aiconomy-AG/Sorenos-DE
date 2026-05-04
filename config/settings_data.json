@@ -1768,6 +1768,24 @@
           "text": "<p>Unser jährlicher Windowfilm-Event bringt Fachleute, Partner und Interessierte zusammen. Im Fokus stehen aktuelle Entwicklungen, Anwendungen und Herausforderungen rund um Fensterfolien.  </p><p>Neben praxisnahen Inhalten bietet der Event Raum für Austausch, neue Ideen und wertvolle Kontakte. </p><p>Eine Kombination aus Fachwissen, Inspiration und Networking.</p>",
           "text_size": "medium"
         }
+      },
+      "impressionen-workspace": {
+        "type": "impressionen-workspace",
+        "blocks": {
+          "video_VgWfxT": {
+            "type": "video",
+            "settings": {
+              "videourl": "",
+              "video": "shopify://files/videos/Sorenos_WEB.mp4"
+            }
+          }
+        },
+        "block_order": [
+          "video_VgWfxT"
+        ],
+        "settings": {
+          "heading": "Impressionen Intensiv Verlege-Training"
+        }
       }
     },
     "content_for_index": [
